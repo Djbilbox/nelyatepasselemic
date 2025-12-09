@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NELYA TE PASSE LE MIC - Artiste & Animatrice Radio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 3px solid #ff6b9d;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff6b9d, 0 0 20px #ff6b9d; }
+            to { text-shadow: 0 0 20px #ff6b9d, 0 0 30px #ff6b9d, 0 0 40px #ff6b9d; }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b9d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b9d;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .about-content {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            background: rgba(255, 107, 157, 0.8);
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .social-links a:hover {
+            background: #ff6b9d;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        .shows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .show-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .show-card:hover {
+            transform: scale(1.05);
+        }
+
+        .show-card h3 {
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .shop-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .shop-item h3 {
+            color: #ff6b9d;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #fff;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .sizes {
+            margin: 1.5rem 0;
+        }
+
+        .sizes label {
+            margin: 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .buy-btn {
+            background: #ff6b9d;
+            color: #fff;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .buy-btn:hover {
+            background: #ff4d87;
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 2.5;
+        }
+
+        .contact-info a {
+            color: #ff6b9d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎤 NELYA TE PASSE LE MIC 🎤</h1>
+        <p style="font-size: 1.2rem; margin-top: 1rem;">Artiste | Animatrice Radio | Podcasts</p>
+    </header>
+
+    <nav>
+        <a href="#about">À Propos</a>
+        <a href="#shows">Émissions</a>
+        <a href="#shop">Boutique</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>À Propos de NELYA NYA</h2>
+            <div class="about-content">
+                <p>Bienvenue sur le site officiel de <strong>NELYA TE PASSE LE MIC</strong> !</p>
+                <p style="margin-top: 1rem;">NELYA NYA est une artiste passionnée et animatrice radio talentueuse qui donne la parole aux artistes émergents et établis. À travers son émission "Passe-moi le Mic", elle crée un espace d'expression unique pour la culture hip-hop, l'afrotrap et toutes les musiques urbaines.</p>
+                <p style="margin-top: 1rem;">Retrouvez ses interviews exclusives, ses podcasts inspirants et ses projets artistiques sur toutes les plateformes !</p>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.youtube.com/@PassemoileMic" target="_blank">📺 YouTube</a>
+                <a href="https://www.instagram.com/nelyanya_" target="_blank">📸 Instagram</a>
+                <a href="https://open.spotify.com/artist/NELYA" target="_blank">🎵 Spotify</a>
+                <a href="https://www.canalsud.net/" target="_blank">📻 Canal Sud</a>
+            </div>
+        </section>
+
+        <section id="shows">
+            <h2>Émissions & Podcasts</h2>
+            <div class="shows-grid">
+                <div class="show-card">
+                    <h3>🎤 Passe-moi le Mic</h3>
+                    <p>L'émission culte où les artistes s'expriment librement ! Interviews, freestyles, débats... Tout y passe !</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="https://www.youtube.com/@PassemoileMic" target="_blank" style="color: #ff6b9d; font-weight: bold;">▶ Voir sur YouTube</a>
+                    </div>
+                </div>
+
+                <div class="show-card">
+                    <h3>📻 Radio Canal Sud</h3>
+                    <p>Retrouvez NELYA en direct sur Canal Sud pour des émissions live, des sessions acoustiques et des découvertes musicales.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="https://www.canalsud.net/" target="_blank" style="color: #ff6b9d; font-weight: bold;">🔊 Écouter Canal Sud</a>
+                    </div>
+                </div>
+
+                <div class="show-card">
+                    <h3>🎧 Podcasts Exclusifs</h3>
+                    <p>Des conversations profondes avec les acteurs de la scène musicale. Disponible sur toutes les plateformes de streaming.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="https://open.spotify.com/" target="_blank" style="color: #ff6b9d; font-weight: bold;">🎵 Spotify</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="shop">
+            <h2>Boutique Officielle</h2>
+            <div class="shop-item">
+                <h3>👕 T-SHIRT "NELYA TE PASSE LE MIC"</h3>
+                <p style="margin: 1rem 0;">Affiche ton soutien avec le t-shirt officiel de l'émission ! Design exclusif, confort maximum.</p>
+                <div class="price">20€</div>
+                <div class="sizes">
+                    <p><strong>Tailles disponibles :</strong></p>
+                    <label><input type="radio" name="size" value="S"> S</label>
+                    <label><input type="radio" name="size" value="M" checked> M</label>
+                    <label><input type="radio" name="size" value="L"> L</label>
+                    <label><input type="radio" name="size" value="XL"> XL</label>
+                    <label><input type="radio" name="size" value="XXL"> XXL</label>
+                </div>
+                <p style="margin-top: 1rem;">📦 Livraison gratuite en France métropolitaine</p>
+                <button class="buy-btn" onclick="alert('Pour commander, contactez-nous via Instagram ou par email !');">Commander Maintenant</button>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>📧 Email : <a href="mailto:nelyatepasselemic@gmail.com">nelyatepasselemic@gmail.com</a></p>
+                <p>📱 Téléphone : <a href="tel:+33612345678">+33 6 12 34 56 78</a></p>
+                <p>📸 Instagram : <a href="https://www.instagram.com/nelyanya_" target="_blank">@nelyanya_</a></p>
+                <p style="margin-top: 2rem;">💼 Pour toute proposition de collaboration, interview ou booking, n'hésitez pas à nous contacter !</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NELYA TE PASSE LE MIC - Tous droits réservés</p>
+        <p style="margin-top: 0.5rem;">Créé avec ❤️ par <a href="https://djbilboxbeats.github.io" target="_blank" style="color: #ff6b9d;">DJBILBOX BEATS</a></p>
+    </footer>
+</body>
+</html>
