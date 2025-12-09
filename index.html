@@ -13,50 +13,56 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #000000;
             color: #fff;
             line-height: 1.6;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 10, 10, 0.95);
             padding: 2rem 0;
             text-align: center;
-            border-bottom: 3px solid #ff6b9d;
+            border-bottom: 3px solid #A855F7;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
         }
 
         header h1 {
             font-size: 3rem;
             text-transform: uppercase;
             letter-spacing: 3px;
+            color: #C084FC;
+            text-shadow: 0 0 20px #A855F7, 0 0 40px #A855F7, 0 0 60px #A855F7;
             animation: glow 2s ease-in-out infinite alternate;
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 10px #ff6b9d, 0 0 20px #ff6b9d; }
-            to { text-shadow: 0 0 20px #ff6b9d, 0 0 30px #ff6b9d, 0 0 40px #ff6b9d; }
+            from { text-shadow: 0 0 10px #A855F7, 0 0 20px #A855F7, 0 0 30px #A855F7; }
+            to { text-shadow: 0 0 20px #C084FC, 0 0 40px #C084FC, 0 0 60px #A855F7; }
         }
 
         nav {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(20, 20, 20, 0.9);
             padding: 1rem 0;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 2px solid #A855F7;
         }
 
         nav a {
-            color: #fff;
+            color: #C084FC;
             text-decoration: none;
             margin: 0 1.5rem;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
 
         nav a:hover {
-            color: #ff6b9d;
+            color: #fff;
+            text-shadow: 0 0 15px #A855F7;
         }
 
         .container {
@@ -66,26 +72,28 @@
         }
 
         section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(20, 20, 20, 0.8);
             margin: 2rem 0;
             padding: 3rem 2rem;
             border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 2px solid #A855F7;
+            box-shadow: 0 8px 32px rgba(168, 85, 247, 0.2);
         }
 
         h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: #ff6b9d;
+            color: #C084FC;
             text-align: center;
             text-transform: uppercase;
+            text-shadow: 0 0 20px #A855F7;
         }
 
         .about-content {
             text-align: center;
             font-size: 1.2rem;
             line-height: 1.8;
+            color: #e0e0e0;
         }
 
         .social-links {
@@ -97,128 +105,233 @@
         }
 
         .social-links a {
-            background: rgba(255, 107, 157, 0.8);
+            background: linear-gradient(135deg, #A855F7, #C084FC);
             color: #fff;
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
         }
 
         .social-links a:hover {
-            background: #ff6b9d;
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+            box-shadow: 0 6px 25px rgba(192, 132, 252, 0.6);
         }
 
-        .shows-grid {
+        /* VIDÉOS YOUTUBE */
+        .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .show-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: 10px;
+        .video-card {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #A855F7;
+            background: rgba(30, 30, 30, 0.9);
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(192, 132, 252, 0.5);
+            border-color: #C084FC;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: all 0.3s;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            filter: brightness(1.1);
+            transform: scale(1.1);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #A855F7, #C084FC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.6);
+            z-index: 2;
+            transition: all 0.3s;
+        }
+
+        .video-card:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 6px 30px rgba(192, 132, 252, 0.8);
+        }
+
+        .video-card h3 {
+            padding: 1.5rem;
             text-align: center;
+            color: #C084FC;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.9);
+            line-height: 1.5;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* BOUTIQUE T-SHIRTS */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .shop-card {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #A855F7;
+            background: rgba(30, 30, 30, 0.9);
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .shop-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(192, 132, 252, 0.5);
+            border-color: #C084FC;
+        }
+
+        .shop-image {
+            width: 100%;
+            padding-bottom: 100%;
+            background: #0a0a0a;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .shop-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s;
         }
 
-        .show-card:hover {
-            transform: scale(1.05);
+        .shop-card:hover .shop-image img {
+            transform: scale(1.1);
         }
 
-        .show-card h3 {
-            color: #ff6b9d;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        .shop-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: 10px;
+        .shop-info {
+            padding: 1.5rem;
             text-align: center;
-            max-width: 500px;
-            margin: 2rem auto;
         }
 
-        .shop-item h3 {
-            color: #ff6b9d;
-            font-size: 2rem;
+        .shop-info h3 {
+            color: #C084FC;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            text-shadow: 0 0 10px #A855F7;
         }
 
-        .price {
-            font-size: 2.5rem;
-            color: #fff;
-            font-weight: bold;
+        .shop-info p {
+            color: #e0e0e0;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .shop-price {
+            font-size: 2rem;
+            color: #C084FC;
+            font-weight: 900;
             margin: 1rem 0;
+            text-shadow: 0 0 10px #A855F7;
         }
 
-        .sizes {
-            margin: 1.5rem 0;
-        }
-
-        .sizes label {
-            margin: 0 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .buy-btn {
-            background: #ff6b9d;
+        .shop-btn {
+            background: linear-gradient(135deg, #A855F7, #C084FC);
             color: #fff;
-            padding: 1rem 3rem;
+            padding: 1rem 2.5rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
         }
 
-        .buy-btn:hover {
-            background: #ff4d87;
+        .shop-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(192, 132, 252, 0.6);
         }
 
         .contact-info {
             text-align: center;
             font-size: 1.3rem;
             line-height: 2.5;
+            color: #e0e0e0;
         }
 
         .contact-info a {
-            color: #ff6b9d;
+            color: #C084FC;
             text-decoration: none;
             font-weight: bold;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
 
         .contact-info a:hover {
-            text-decoration: underline;
+            color: #fff;
+            text-shadow: 0 0 15px #A855F7;
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 10, 10, 0.95);
             text-align: center;
             padding: 2rem 0;
             margin-top: 3rem;
+            border-top: 2px solid #A855F7;
+        }
+
+        footer a {
+            color: #C084FC;
+            text-decoration: none;
         }
 
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
             }
-
             h2 {
                 font-size: 2rem;
             }
-
             nav a {
                 display: block;
                 margin: 0.5rem 0;
@@ -229,12 +342,12 @@
 <body>
     <header>
         <h1>🎤 NELYA TE PASSE LE MIC 🎤</h1>
-        <p style="font-size: 1.2rem; margin-top: 1rem;">Artiste | Animatrice Radio | Podcasts</p>
+        <p style="font-size: 1.2rem; margin-top: 1rem; color: #e0e0e0;">Artiste | Animatrice Radio | Podcasts</p>
     </header>
 
     <nav>
         <a href="#about">À Propos</a>
-        <a href="#shows">Émissions</a>
+        <a href="#videos">Vidéos</a>
         <a href="#shop">Boutique</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -256,68 +369,21 @@
             </div>
         </section>
 
-        <section id="shows">
-            <h2>Émissions & Podcasts</h2>
-            <div class="shows-grid">
-                <div class="show-card">
-                    <h3>🎤 Passe-moi le Mic</h3>
-                    <p>L'émission culte où les artistes s'expriment librement ! Interviews, freestyles, débats... Tout y passe !</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://www.youtube.com/@PassemoileMic" target="_blank" style="color: #ff6b9d; font-weight: bold;">▶ Voir sur YouTube</a>
+        <section id="videos">
+            <h2>📺 Vidéos Passe-moi le Mic</h2>
+            <div class="videos-grid">
+                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1" target="_blank" class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Nelya te passe le mic #2">
+                        <div class="play-icon">▶</div>
                     </div>
-                </div>
+                    <h3>Nelya te passe le mic #2 - Invité @Scrinef_KuThroat</h3>
+                </a>
 
-                <div class="show-card">
-                    <h3>📻 Radio Canal Sud</h3>
-                    <p>Retrouvez NELYA en direct sur Canal Sud pour des émissions live, des sessions acoustiques et des découvertes musicales.</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://www.canalsud.net/" target="_blank" style="color: #ff6b9d; font-weight: bold;">🔊 Écouter Canal Sud</a>
+                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_2" target="_blank" class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Nelya te passe le mic #1">
+                        <div class="play-icon">▶</div>
                     </div>
-                </div>
+                    <h3>Nelya te p
 
-                <div class="show-card">
-                    <h3>🎧 Podcasts Exclusifs</h3>
-                    <p>Des conversations profondes avec les acteurs de la scène musicale. Disponible sur toutes les plateformes de streaming.</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://open.spotify.com/" target="_blank" style="color: #ff6b9d; font-weight: bold;">🎵 Spotify</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="shop">
-            <h2>Boutique Officielle</h2>
-            <div class="shop-item">
-                <h3>👕 T-SHIRT "NELYA TE PASSE LE MIC"</h3>
-                <p style="margin: 1rem 0;">Affiche ton soutien avec le t-shirt officiel de l'émission ! Design exclusif, confort maximum.</p>
-                <div class="price">20€</div>
-                <div class="sizes">
-                    <p><strong>Tailles disponibles :</strong></p>
-                    <label><input type="radio" name="size" value="S"> S</label>
-                    <label><input type="radio" name="size" value="M" checked> M</label>
-                    <label><input type="radio" name="size" value="L"> L</label>
-                    <label><input type="radio" name="size" value="XL"> XL</label>
-                    <label><input type="radio" name="size" value="XXL"> XXL</label>
-                </div>
-                <p style="margin-top: 1rem;">📦 Livraison gratuite en France métropolitaine</p>
-                <button class="buy-btn" onclick="alert('Pour commander, contactez-nous via Instagram ou par email !');">Commander Maintenant</button>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <p>📧 Email : <a href="mailto:nelyatepasselemic@gmail.com">nelyatepasselemic@gmail.com</a></p>
-                <p>📱 Téléphone : <a href="tel:+33612345678">+33 6 12 34 56 78</a></p>
-                <p>📸 Instagram : <a href="https://www.instagram.com/nelyanya_" target="_blank">@nelyanya_</a></p>
-                <p style="margin-top: 2rem;">💼 Pour toute proposition de collaboration, interview ou booking, n'hésitez pas à nous contacter !</p>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 NELYA TE PASSE LE MIC - Tous droits réservés</p>
-        <p style="margin-top: 0.5rem;">Créé avec ❤️ par <a href="https://djbilboxbeats.github.io" target="_blank" style="color: #ff6b9d;">DJBILBOX BEATS</a></p>
-    </footer>
-</body>
-</html>
