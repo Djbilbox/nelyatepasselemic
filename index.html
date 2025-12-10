@@ -1,431 +1,84 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NELYA TE PASSE LE MIC - Artiste & Animatrice Radio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+NELYA TE PASSE LE MIC - Artiste & Animatrice Radio
+==================================================
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #000000;
-            color: #fff;
-            line-height: 1.6;
-        }
+🎤 Bienvenue dans l’univers de **NELYA TE PASSE LE MIC** ! 🎤  
 
-        header {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom: 3px solid #A855F7;
-            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
-        }
+Ici, tu découvres **Nelya NYA**, artiste et animatrice radio, qui met en lumière les talents émergents et confirmés à travers son émission sur **Radio Canal Sud 92.2 FM à Toulouse**. [web:2][web:26]
 
-        header h1 {
-            font-size: 3rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #C084FC;
-            text-shadow: 0 0 20px #A855F7, 0 0 40px #A855F7, 0 0 60px #A855F7;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
+---
 
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #A855F7, 0 0 20px #A855F7, 0 0 30px #A855F7; }
-            to { text-shadow: 0 0 20px #C084FC, 0 0 40px #C084FC, 0 0 60px #A855F7; }
-        }
+📺 VIDÉOS PASSE-MOI LE MIC
+--------------------------
 
-        nav {
-            background: rgba(20, 20, 20, 0.9);
-            padding: 1rem 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid #A855F7;
-        }
+[Nelya te passe le mic #2▶  
+### Nelya te passe le mic #2 - Invité @Scrinef_KuThroat  
+](https://www.youtube.com/watch?v=6bSB2Pt43Yk)
 
-        nav a {
-            color: #C084FC;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
-        }
+[Nelya te passe le mic #1▶  
+### Nelya te passe le mic #1 - Interview Artiste  
+](https://www.youtube.com/watch?v=sV-wvCmNzuc)
 
-        nav a:hover {
-            color: #fff;
-            text-shadow: 0 0 15px #A855F7;
-        }
+🎵 NELYA NYA – CLIPS & FREESTYLES
+---------------------------------
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+<section id="music">
+  <h2>🎵 NELYA NYA – CLIPS & FREESTYLES</h2>
 
-        section {
-            background: rgba(20, 20, 20, 0.8);
-            margin: 2rem 0;
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            border: 2px solid #A855F7;
-            box-shadow: 0 8px 32px rgba(168, 85, 247, 0.2);
-        }
+  <div class="video-list">
 
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #C084FC;
-            text-align: center;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px #A855F7;
-        }
-
-        .about-content {
-            text-align: center;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #e0e0e0;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            background: linear-gradient(135deg, #A855F7, #C084FC);
-            color: #fff;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(192, 132, 252, 0.6);
-        }
-
-        /* VIDÉOS YOUTUBE */
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .video-card {
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid #A855F7;
-            background: rgba(30, 30, 30, 0.9);
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
-        }
-
-        .video-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(192, 132, 252, 0.5);
-            border-color: #C084FC;
-        }
-
-        .video-thumbnail {
-            width: 100%;
-            padding-bottom: 56.25%;
-            background: #000;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .video-thumbnail img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.8);
-            transition: all 0.3s;
-        }
-
-        .video-card:hover .video-thumbnail img {
-            filter: brightness(1.1);
-            transform: scale(1.1);
-        }
-
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #A855F7, #C084FC);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.6);
-            z-index: 2;
-            transition: all 0.3s;
-        }
-
-        .video-card:hover .play-icon {
-            transform: translate(-50%, -50%) scale(1.2);
-            box-shadow: 0 6px 30px rgba(192, 132, 252, 0.8);
-        }
-
-        .video-card h3 {
-            padding: 1.5rem;
-            text-align: center;
-            color: #C084FC;
-            font-size: 1.1rem;
-            background: rgba(0, 0, 0, 0.9);
-            line-height: 1.5;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* BOUTIQUE T-SHIRTS */
-        .shop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .shop-card {
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid #A855F7;
-            background: rgba(30, 30, 30, 0.9);
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
-        }
-
-        .shop-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 30px rgba(192, 132, 252, 0.5);
-            border-color: #C084FC;
-        }
-
-        .shop-image {
-            width: 100%;
-            padding-bottom: 100%;
-            background: #0a0a0a;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .shop-image img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .shop-card:hover .shop-image img {
-            transform: scale(1.1);
-        }
-
-        .shop-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .shop-info h3 {
-            color: #C084FC;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px #A855F7;
-        }
-
-        .shop-info p {
-            color: #e0e0e0;
-            font-size: 1rem;
-            margin: 0.5rem 0;
-        }
-
-        .shop-price {
-            font-size: 2rem;
-            color: #C084FC;
-            font-weight: 900;
-            margin: 1rem 0;
-            text-shadow: 0 0 10px #A855F7;
-        }
-
-        .shop-btn {
-            background: linear-gradient(135deg, #A855F7, #C084FC);
-            color: #fff;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
-        }
-
-        .shop-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(192, 132, 252, 0.6);
-        }
-
-        .contact-info {
-            text-align: center;
-            font-size: 1.3rem;
-            line-height: 2.5;
-            color: #e0e0e0;
-        }
-
-        .contact-info a {
-            color: #C084FC;
-            text-decoration: none;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
-        }
-
-        .contact-info a:hover {
-            color: #fff;
-            text-shadow: 0 0 15px #A855F7;
-        }
-
-        footer {
-            background: rgba(10, 10, 10, 0.95);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-            border-top: 2px solid #A855F7;
-        }
-
-        footer a {
-            color: #C084FC;
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-            nav a {
-                display: block;
-                margin: 0.5rem 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>🎤 NELYA TE PASSE LE MIC 🎤</h1>
-        <p style="font-size: 1.2rem; margin-top: 1rem; color: #e0e0e0;">Artiste | Animatrice Radio | Podcasts</p>
-    </header>
-
-    <nav>
-        <a href="#about">À Propos</a>
-        <a href="#videos">Vidéos</a>
-        <a href="#shop">Boutique</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="container">
-        <section id="about">
-            <h2>À Propos de NELYA NYA</h2>
-            <div class="about-content">
-                <p>Bienvenue sur le site officiel de <strong>NELYA TE PASSE LE MIC</strong> !</p>
-                <p style="margin-top: 1rem;">NELYA NYA est une artiste passionnée et animatrice radio talentueuse qui donne la parole aux artistes émergents et établis. À travers son émission "Passe-moi le Mic", elle crée un espace d'expression unique pour la culture hip-hop, l'afrotrap et toutes les musiques urbaines.</p>
-                <p style="margin-top: 1rem;">Retrouvez ses interviews exclusives, ses podcasts inspirants et ses projets artistiques sur toutes les plateformes !</p>
-            </div>
-
-            <div class="social-links">
-                <a href="https://www.youtube.com/@PassemoileMic" target="_blank">📺 YouTube</a>
-                <a href="https://www.instagram.com/nelyanya_" target="_blank">📸 Instagram</a>
-                <a href="https://open.spotify.com/artist/NELYA" target="_blank">🎵 Spotify</a>
-                <a href="https://www.canalsud.net/" target="_blank">📻 Canal Sud</a>
-            </div>
-        </section>
-
-        <section id="videos">
-            <h2>📺 Vidéos Passe-moi le Mic</h2>
-            <div class="videos-grid">
-                <a href="https://www.youtube.com/watch?v=6bSB2Pt43Yk" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://i.ytimg.com/vi/6bSB2Pt43Yk/maxresdefault.jpg" alt="Nelya te passe le mic #2">
-                        <div class="play-icon">▶</div>
-                    </div>
-                    <h3>Nelya te passe le mic #2 - Invité @Scrinef_KuThroat</h3>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=sV-wvCmNzuc" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://i.ytimg.com/vi/sV-wvCmNzuc/maxresdefault.jpg" alt="Nelya te passe le mic #1">
-                        <div class="play-icon">▶</div>
-                    </div>
-                <h3>Nelya te passe le mic #1 - Interview Artiste</h3>
-                                </a>
+    <!-- Bombarde -->
+    <a href="https://www.youtube.com/watch?v=Z8C0iqtj7rA" target="_blank">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <img
+          src="https://img.youtube.com/vi/Z8C0iqtj7rA/hqdefault.jpg"
+          alt="Nelya NYA - Bombarde"
+          style="width:160px; border-radius:6px;"
+        >
+        <div>
+          <strong>Nelya NYA - Bombarde</strong><br>
+          Clip officiel – FD Lighting PROD.
         </div>
-    </section>
+      </div>
+    </a>
 
-    <!-- SECTION BOUTIQUE -->
-    <section id="shop">
-        <h2>🛍️ Boutique NELYA TE PASSE LE MIC</h2>
-        <div class="shop-grid">
-            <div class="shop-card">
-                <div class="shop-image">
-                    <img src="https://via.placeholder.com/500x500/A855F7/FFFFFF?text=T-SHIRT+NELYA" alt="T-shirt NELYA TE PASSE LE MIC">
-                </div>
-                <div class="shop-info">
-                    <h3>T-SHIRT "NELYA TE PASSE LE MIC"</h3>
-                    <p>💜 T-shirt officiel de l'émission</p>
-                    <p>✨ 100% coton premium</p>
-                    <p>📐 Tailles : XS, S, M, L, XL, XXL</p>
-                    <p>🎨 Couleurs : Noir, Violet, Blanc</p>
-                    <p class="shop-price">20€</p>
-                    <p style="margin-top: 1rem; color: #C084FC; font-size: 1rem;">📧 Pour commander, contactez Nelya :<br><a href="mailto:contact@nelyatepasselemic.com" style="color: #fff;">contact@nelyatepasselemic.com</a></p>
-                </div>
-            </div>
+    <!-- Freestyle femme d'honneur -->
+    <a href="https://www.youtube.com/watch?v=0hTSlMh9CP0" target="_blank">
+      <div style="display:flex; gap:12px; align-items:center; margin-top:15px;">
+        <img
+          src="https://img.youtube.com/vi/0hTSlMh9CP0/hqdefault.jpg"
+          alt="Nelya NYA freestyle femme d'honneur"
+          style="width:160px; border-radius:6px;"
+        >
+        <div>
+          <strong>Nelya NYA freestyle femme d'honneur</strong><br>
+          Freestyle / performance officielle.
         </div>
-    </section>
+      </div>
+    </a>
 
-    <!-- SECTION CONTACT -->
-    <section id="contact">
-        <h2>📞 Contact</h2>
-        <div class="contact-info">
-            <p>📧 Email : <a href="mailto:contact@nelyatepasselemic.com">contact@nelyatepasselemic.com</a></p>
-            <p>📱 Téléphone : <a href="tel:+33612345678">+33 6 12 34 56 78</a></p>
-            <p>📸 Instagram : <a href="https://www.instagram.com/nelyanya_" target="_blank">@nelyanya_</a></p>
-            <p>📻 Radio : <a href="https://www.canalsud.net/" target="_blank">Canal Sud FM</a></p>
-        </div>
-    </section>
-</div>
+  </div>
 
-<footer>
-    <p>© 2024 <a href="#">NELYA TE PASSE LE MIC</a> - Tous droits réservés | Site créé avec ❤️ par <a href="https://djbilboxbeats.github.io" target="_blank">DJBILBOX BEATS</a></p>
-</footer>
+  <p style="margin-top:20px;">
+    🔗 Chaîne YouTube officielle :
+    <a href="https://www.youtube.com/@Nelyanya" target="_blank">@Nelyanya</a>
+  </p>
+</section>
 
-</body>
-</html>
+---
+
+🛍️ BOUTIQUE NELYA TE PASSE LE MIC
+----------------------------------
+
+T-shirt collector premium **« NELYA TE PASSE LE MIC »** disponible pour les fans de l’émission et de l’artiste.
+
+<section id="shop">
+  <div class="product">
+    <img src="images/tshirt-nelya-te-passe-le-mic.png"
+         alt="T-shirt NELYA TE PASSE LE MIC">
+    <h3>T-SHIRT "NELYA TE PASSE LE MIC"</h3>
+    <p>💜 T-shirt officiel de l'émission « Passe-moi le mic ».</p>
+    <p>✨ 100% coton premium.</p>
+    <p>📐 Tailles : XS, S, M, L, XL, XXL.</p>
+    <p>🎨 Couleurs : Noir, Violet, Blanc.</p>
+    <p><strong>20€</strong></p>
+    <p>📧 Pour commander
