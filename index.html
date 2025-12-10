@@ -4,52 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NELYA NYA - Passe Moi Le Mic</title>
-    <!-- Police moderne Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Police moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --neon-color: #bf00ff; /* Violet fluorescent */
-            --bg-color: #050505;
-            --card-bg: #111;
-            --text-color: #fff;
+            --neon: #bf00ff; /* Violet fluo */
+            --bg: #050505;
+            --card: #111;
+            --text: #fff;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Barre de navigation et Langue */
+        /* En-tête Fixe */
         header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #333;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #333;
+            backdrop-filter: blur(5px);
         }
 
         .logo {
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: 900;
-            color: var(--neon-color);
-            text-shadow: 0 0 10px var(--neon-color);
+            color: var(--neon);
+            text-shadow: 0 0 15px var(--neon);
             text-decoration: none;
-            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
             margin: 0;
             padding: 0;
         }
@@ -57,55 +57,73 @@
         nav a {
             color: #fff;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
+            font-size: 0.95em;
             text-transform: uppercase;
-            font-size: 0.9em;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            color: var(--neon-color);
-            text-shadow: 0 0 8px var(--neon-color);
+            color: var(--neon);
+            text-shadow: 0 0 8px var(--neon);
         }
 
-        /* Sélecteur de langue */
-        .lang-switch {
-            background: #111;
-            border: 1px solid var(--neon-color);
-            color: white;
+        .lang-select {
+            background: #000;
+            color: #fff;
+            border: 1px solid var(--neon);
             padding: 5px 10px;
             border-radius: 5px;
-            cursor: pointer;
             font-weight: bold;
-            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
         }
 
-        /* Conteneur principal */
+        /* Conteneur */
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* Titres de sections */
-        .section-title {
+        /* Titres */
+        h2 {
             text-align: center;
-            font-size: 2.5em;
+            font-size: 2.2em;
             margin-bottom: 40px;
+            margin-top: 60px;
             text-transform: uppercase;
-            color: #fff;
+            letter-spacing: 2px;
             position: relative;
-            display: inline-block;
-            width: 100%;
         }
         
-        .section-title span {
-            border-bottom: 3px solid var(--neon-color);
-            padding-bottom: 10px;
-            box-shadow: 0 10px 20px -10px var(--neon-color);
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--neon);
+            margin: 15px auto 0;
+            box-shadow: 0 0 10px var(--neon);
         }
 
-        /* Grille Vidéos */
+        /* Biographie / À Propos */
+        .bio-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 30px;
+            background: #0e0e0e;
+            border: 1px solid #333;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .bio-section p {
+            font-size: 1.1em;
+            color: #ccc;
+        }
+
+        /* Vidéos */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -113,27 +131,27 @@
         }
 
         .video-card {
-            background: var(--card-bg);
+            background: var(--card);
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #333;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #222;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .video-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(191, 0, 255, 0.3);
-            border-color: var(--neon-color);
+            border-color: var(--neon);
+            box-shadow: 0 0 20px rgba(191, 0, 255, 0.15);
         }
 
-        .video-wrapper {
+        .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%; /* Ratio 16:9 */
             height: 0;
             background: #000;
         }
 
-        .video-wrapper iframe {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -142,80 +160,73 @@
         }
 
         .video-info {
-            padding: 15px;
-            text-align: left;
+            padding: 20px;
         }
 
         .video-info h3 {
             margin: 0;
             font-size: 1.1em;
-            color: #ddd;
+            color: #eee;
         }
 
-        /* Section Boutique */
+        /* Boutique */
         .shop-container {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 40px;
         }
 
         .product-card {
-            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            background: linear-gradient(145deg, #151515, #0a0a0a);
             border: 1px solid #333;
-            border-radius: 15px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
             max-width: 400px;
             position: relative;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            transition: 0.3s;
-        }
-        
-        .product-card:hover {
-            box-shadow: 0 0 30px rgba(191, 0, 255, 0.2);
-            border-color: var(--neon-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .product-card img {
             width: 100%;
-            max-width: 300px;
             border-radius: 10px;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+            box-shadow: 0 0 15px rgba(255,255,255,0.05);
         }
 
         .price {
-            font-size: 1.8em;
-            color: var(--neon-color);
-            font-weight: bold;
-            margin: 10px 0;
-            text-shadow: 0 0 10px rgba(191,0,255,0.5);
+            font-size: 2em;
+            color: var(--neon);
+            font-weight: 900;
+            margin: 15px 0;
+            text-shadow: 0 0 10px rgba(191, 0, 255, 0.4);
         }
 
         .btn-buy {
             display: inline-block;
-            background: var(--neon-color);
+            background: var(--neon);
             color: #fff;
-            padding: 12px 30px;
-            border-radius: 30px;
+            padding: 15px 35px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(191,0,255,0.4);
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(191,0,255,0.3);
         }
 
         .btn-buy:hover {
             background: #fff;
-            color: var(--neon-color);
-            box-shadow: 0 0 25px var(--neon-color);
+            color: var(--neon);
+            box-shadow: 0 0 25px var(--neon);
+            transform: scale(1.05);
         }
 
         /* Pied de page */
         footer {
             margin-top: 80px;
-            padding: 30px;
+            padding: 40px;
             background: #000;
             text-align: center;
             border-top: 1px solid #333;
@@ -224,10 +235,11 @@
         footer p {
             color: #666;
             font-size: 0.9em;
+            margin: 5px 0;
         }
 
-        .creator-tag {
-            color: var(--neon-color);
+        .footer-credit {
+            color: var(--neon);
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -235,13 +247,9 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .section-title {
-                font-size: 1.8em;
-            }
+            header { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; }
+            h2 { font-size: 1.8em; }
         }
     </style>
 </head>
@@ -251,25 +259,137 @@
         <a href="#" class="logo">NELYA NYA</a>
         <nav>
             <ul>
-                <li><a href="#emission" id="nav-emission">Émission</a></li>
+                <li><a href="#about" id="nav-about">À Propos</a></li>
+                <li><a href="#emission" id="nav-emission">Émissions</a></li>
                 <li><a href="#shop" id="nav-shop">Boutique</a></li>
-                <li><a href="#contact" id="nav-contact">Contact</a></li>
             </ul>
         </nav>
-        <select class="lang-switch" onchange="changeLanguage(this.value)">
+        <select class="lang-select" onchange="changeLanguage(this.value)">
             <option value="fr">FR</option>
             <option value="en">EN</option>
         </select>
     </header>
 
     <div class="container">
-        
-        <!-- Section Émissions -->
+
+        <!-- Section À Propos (Bio) -->
+        <section id="about" class="bio-section">
+            <h2 id="title-about">L'ÉMISSION</h2>
+            <p id="desc-about">
+                "NELYA TE PASSE LE MIC" est l'émission de référence consacrée au Rap et à la culture Hip-Hop. 
+                Animée par l'artiste Nelya Nya, l'émission donne la parole aux talents émergents et aux figures de la scène urbaine.
+                Retrouvez des freestyles exclusifs, des interviews sans filtre et le meilleur du son.
+            </p>
+        </section>
+
+        <!-- Section Vidéos -->
         <section id="emission">
-            <h2 class="section-title"><span id="title-emission">ÉMISSION RADIO : PASSE MOI LE MIC</span></h2>
-            
+            <h2 id="title-emission">PASSE MOI LE MIC</h2>
             <div class="video-grid">
-                <!-- Vidéo 1 -->
+                
+                <!-- Vidéo 1 : BELA1R (Vrai lien vérifié) -->
                 <div class="video-card">
-                    <div class="video-wrapper">
-                        <!-- Lien direct vers l'épisode 1 si disponible, ici lien de recherche/chaîne pour garantir l
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/sV-wvCmNzuc" title="Nelya te passe le mic #1 Invité : BELA1R" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Nelya te passe le mic #1 - Invité : BELA1R</h3>
+                    </div>
+                </div>
+
+                <!-- Vidéo 2 : YOUSSEF FUTUR (Vrai lien vérifié) -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/DTy9Y2xPTzU" title="Invité Youssef Futur" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Invité Spécial : YOUSSEF FUTUR</h3>
+                    </div>
+                </div>
+
+                <!-- Vidéo 3 : Playlist Générale (Pour voir les autres) -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/videoseries?list=PLbtcZhy947NUG4ukai3ZNcw3Gvz5dd8Th" title="Playlist Passe Moi Le Mic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3 id="txt-playlist">Playlist Complète & Autres Invités</h3>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section Boutique -->
+        <section id="shop">
+            <h2 id="title-shop">BOUTIQUE OFFICIELLE</h2>
+            <div class="shop-container">
+                <div class="product-card">
+                    <!-- Image placeholder visible (Remplacez le lien src par votre vraie photo plus tard) -->
+                    <img src="https://placehold.co/500x500/111/bf00ff?text=T-SHIRT+NELYA+TE+PASSE+LE+MIC&font=Montserrat" alt="T-Shirt Nelya Te Passe Le Mic">
+                    <h3 id="prod-title">T-SHIRT "NELYA TE PASSE LE MIC"</h3>
+                    <p id="prod-desc">Édition Limitée - Coupe Unisexe Premium</p>
+                    <div class="price">20,00 €</div>
+                    <a href="mailto:contact@nelyanya.com" class="btn-buy" id="btn-buy">COMMANDER</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>Copyright © 2025 NELYA NYA. Tous droits réservés.</p>
+        <p>site crée par <span class="footer-credit">NELYA NYA</span></p>
+    </footer>
+
+    <!-- Script de traduction -->
+    <script>
+        const content = {
+            fr: {
+                navAbout: "À Propos",
+                navEmission: "Émissions",
+                navShop: "Boutique",
+                titleAbout: "L'ÉMISSION",
+                descAbout: "\"NELYA TE PASSE LE MIC\" est l'émission de référence consacrée au Rap et à la culture Hip-Hop. Animée par l'artiste Nelya Nya, l'émission donne la parole aux talents émergents et aux figures de la scène urbaine.",
+                titleEmission: "PASSE MOI LE MIC",
+                txtPlaylist: "Playlist Complète & Autres Invités",
+                titleShop: "BOUTIQUE OFFICIELLE",
+                prodTitle: "T-SHIRT \"NELYA TE PASSE LE MIC\"",
+                prodDesc: "Édition Limitée - Coupe Unisexe Premium",
+                btnBuy: "COMMANDER"
+            },
+            en: {
+                navAbout: "About",
+                navEmission: "Shows",
+                navShop: "Shop",
+                titleAbout: "THE SHOW",
+                descAbout: "\"NELYA PASSES THE MIC\" is the reference radio show dedicated to Rap and Hip-Hop culture. Hosted by artist Nelya Nya, the show gives a voice to emerging talents and urban scene figures.",
+                titleEmission: "PASS ME THE MIC",
+                txtPlaylist: "Full Playlist & Other Guests",
+                titleShop: "OFFICIAL SHOP",
+                prodTitle: "T-SHIRT \"NELYA PASSES THE MIC\"",
+                prodDesc: "Limited Edition - Premium Unisex Fit",
+                btnBuy: "ORDER NOW"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById('nav-about').innerText = content[lang].navAbout;
+            document.getElementById('nav-emission').innerText = content[lang].navEmission;
+            document.getElementById('nav-shop').innerText = content[lang].navShop;
+            document.getElementById('title-about').innerText = content[lang].titleAbout;
+            document.getElementById('desc-about').innerText = content[lang].descAbout;
+            document.getElementById('title-emission').innerText = content[lang].titleEmission;
+            document.getElementById('txt-playlist').innerText = content[lang].txtPlaylist;
+            document.getElementById('title-shop').innerText = content[lang].titleShop;
+            document.getElementById('prod-title').innerText = content[lang].prodTitle;
+            document.getElementById('prod-desc').innerText = content[lang].prodDesc;
+            document.getElementById('btn-buy').innerText = content[lang].btnBuy;
+        }
+    </script>
+
+</body>
+</html>
+
+
