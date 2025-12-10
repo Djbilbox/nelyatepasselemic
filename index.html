@@ -21,9 +21,47 @@
         .product { border:1px solid #444; border-radius:8px; padding:15px; background:#151515; max-width:400px; }
         .product img { width:100%; max-width:400px; border-radius:6px; margin-bottom:10px; }
         footer { text-align:center; padding:15px; background:#111; font-size:13px; margin-top:30px; }
-        .lang-switch { position:absolute; top:10px; right:15px; }
-        .lang-switch a { color:#fff; font-size:14px; margin-left:8px; padding:4px 8px; border:1px solid #fff; border-radius:4px; }
-        .lang-switch a.active { font-weight:bold; background:#fff; color:#8800aa; }
+        
+        /* Sélecteur de langue moderne style dropdown */
+        .lang-selector { position:absolute; top:15px; right:20px; z-index:1000; }
+        .lang-button { 
+            background:#fff; 
+            color:#8800aa; 
+            border:none; 
+            padding:8px 16px; 
+            border-radius:25px; 
+            cursor:pointer; 
+            font-weight:bold; 
+            font-size:14px;
+            display:flex;
+            align-items:center;
+            gap:6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .lang-button:hover { background:#f0f0f0; }
+        .lang-dropdown { 
+            display:none; 
+            position:absolute; 
+            top:45px; 
+            right:0; 
+            background:#4a5fc1; 
+            border-radius:10px; 
+            padding:10px 0; 
+            min-width:160px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        .lang-dropdown.show { display:block; }
+        .lang-dropdown a { 
+            display:flex; 
+            align-items:center; 
+            padding:10px 20px; 
+            color:#fff; 
+            text-decoration:none; 
+            font-size:14px;
+            gap:8px;
+        }
+        .lang-dropdown a:hover { background:rgba(255,255,255,0.1); }
+        .lang-dropdown a.active { background:rgba(255,255,255,0.2); font-weight:bold; }
     </style>
 </head>
 <body>
@@ -37,14 +75,22 @@
         <a href="#shop">Boutique</a>
         <a href="#contact">Contact</a>
     </nav>
-    <div class="lang-switch">
-        <a href="index.html" class="active">FR</a>
-        <a href="en.html">EN</a>
-        <a href="es.html">ES</a>
-        <a href="ar.html">AR</a>
-        <a href="ru.html">RU</a>
-        <a href="pt.html">PT</a>
-        <a href="it.html">IT</a>
+    
+    <!-- Sélecteur de langue moderne -->
+    <div class="lang-selector">
+        <button class="lang-button" onclick="toggleLangDropdown()">
+            <span>🌐</span>
+            <span id="current-lang">FR</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+            <a href="index.html" class="active">🇫🇷 Français</a>
+            <a href="en.html">🇬🇧 English</a>
+            <a href="es.html">🇪🇸 Español</a>
+            <a href="pt.html">🇵🇹 Português</a>
+            <a href="ar.html">🇸🇦 العربية</a>
+            <a href="ru.html">🇷🇺 Русский</a>
+            <a href="it.html">🇮🇹 Italiano</a>
+        </div>
     </div>
 </header>
 
@@ -125,5 +171,22 @@
 <footer>
     <p>© 2024 NELYA TE PASSE LE MIC – Tous droits réservés | Site créé par <a href="https://djbilboxbeats.com">DJBILBOX BEATS</a></p>
 </footer>
+
+<script>
+function toggleLangDropdown() {
+    var dropdown = document.getElementById('langDropdown');
+    dropdown.classList.toggle('show');
+}
+
+// Fermer le dropdown si on clique ailleurs
+window.onclick = function(event) {
+    if (!event.target.matches('.lang-button') && !event.target.matches('.lang-button *')) {
+        var dropdown = document.getElementById('langDropdown');
+        if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+        }
+    }
+}
+</script>
 </body>
 </html>
