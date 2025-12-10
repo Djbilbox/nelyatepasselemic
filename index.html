@@ -23,18 +23,17 @@
             line-height: 1.6;
         }
 
-        /* En-tête Fixe */
+        /* En-tête */
         header {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #333;
+            border-bottom: 2px solid #222;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(5px);
         }
 
         .logo {
@@ -89,7 +88,7 @@
         h2 {
             text-align: center;
             font-size: 2.2em;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             margin-top: 60px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -99,35 +98,35 @@
         h2::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 80px;
             height: 4px;
             background: var(--neon);
             margin: 15px auto 0;
             box-shadow: 0 0 10px var(--neon);
         }
 
-        /* Biographie / À Propos */
+        /* Biographie */
         .bio-section {
             text-align: center;
             max-width: 800px;
             margin: 0 auto 60px;
-            padding: 30px;
+            padding: 40px;
             background: #0e0e0e;
-            border: 1px solid #333;
+            border: 1px solid #222;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
         }
 
         .bio-section p {
             font-size: 1.1em;
-            color: #ccc;
+            color: #ddd;
         }
 
         /* Vidéos */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .video-card {
@@ -141,7 +140,7 @@
         .video-card:hover {
             transform: translateY(-5px);
             border-color: var(--neon);
-            box-shadow: 0 0 20px rgba(191, 0, 255, 0.15);
+            box-shadow: 0 0 20px rgba(191, 0, 255, 0.2);
         }
 
         .video-container {
@@ -167,6 +166,7 @@
             margin: 0;
             font-size: 1.1em;
             color: #eee;
+            font-weight: 600;
         }
 
         /* Boutique */
@@ -182,214 +182,21 @@
             border-radius: 20px;
             padding: 40px;
             text-align: center;
-            max-width: 400px;
+            max-width: 450px;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         }
 
         .product-card img {
             width: 100%;
             border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(255,255,255,0.05);
+            margin-bottom: 25px;
+            border: 1px solid #333;
         }
 
         .price {
-            font-size: 2em;
+            font-size: 2.2em;
             color: var(--neon);
-            font-weight: 900;
-            margin: 15px 0;
-            text-shadow: 0 0 10px rgba(191, 0, 255, 0.4);
-        }
+            font-weight
 
-        .btn-buy {
-            display: inline-block;
-            background: var(--neon);
-            color: #fff;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(191,0,255,0.3);
-        }
-
-        .btn-buy:hover {
-            background: #fff;
-            color: var(--neon);
-            box-shadow: 0 0 25px var(--neon);
-            transform: scale(1.05);
-        }
-
-        /* Pied de page */
-        footer {
-            margin-top: 80px;
-            padding: 40px;
-            background: #000;
-            text-align: center;
-            border-top: 1px solid #333;
-        }
-
-        footer p {
-            color: #666;
-            font-size: 0.9em;
-            margin: 5px 0;
-        }
-
-        .footer-credit {
-            color: var(--neon);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; }
-            nav ul { gap: 15px; }
-            h2 { font-size: 1.8em; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <a href="#" class="logo">NELYA NYA</a>
-        <nav>
-            <ul>
-                <li><a href="#about" id="nav-about">À Propos</a></li>
-                <li><a href="#emission" id="nav-emission">Émissions</a></li>
-                <li><a href="#shop" id="nav-shop">Boutique</a></li>
-            </ul>
-        </nav>
-        <select class="lang-select" onchange="changeLanguage(this.value)">
-            <option value="fr">FR</option>
-            <option value="en">EN</option>
-        </select>
-    </header>
-
-    <div class="container">
-
-        <!-- Section À Propos (Bio) -->
-        <section id="about" class="bio-section">
-            <h2 id="title-about">L'ÉMISSION</h2>
-            <p id="desc-about">
-                "NELYA TE PASSE LE MIC" est l'émission de référence consacrée au Rap et à la culture Hip-Hop. 
-                Animée par l'artiste Nelya Nya, l'émission donne la parole aux talents émergents et aux figures de la scène urbaine.
-                Retrouvez des freestyles exclusifs, des interviews sans filtre et le meilleur du son.
-            </p>
-        </section>
-
-        <!-- Section Vidéos -->
-        <section id="emission">
-            <h2 id="title-emission">PASSE MOI LE MIC</h2>
-            <div class="video-grid">
-                
-                <!-- Vidéo 1 : BELA1R (Vrai lien vérifié) -->
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/sV-wvCmNzuc" title="Nelya te passe le mic #1 Invité : BELA1R" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>Nelya te passe le mic #1 - Invité : BELA1R</h3>
-                    </div>
-                </div>
-
-                <!-- Vidéo 2 : YOUSSEF FUTUR (Vrai lien vérifié) -->
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/DTy9Y2xPTzU" title="Invité Youssef Futur" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>Invité Spécial : YOUSSEF FUTUR</h3>
-                    </div>
-                </div>
-
-                <!-- Vidéo 3 : Playlist Générale (Pour voir les autres) -->
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/videoseries?list=PLbtcZhy947NUG4ukai3ZNcw3Gvz5dd8Th" title="Playlist Passe Moi Le Mic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 id="txt-playlist">Playlist Complète & Autres Invités</h3>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Section Boutique -->
-        <section id="shop">
-            <h2 id="title-shop">BOUTIQUE OFFICIELLE</h2>
-            <div class="shop-container">
-                <div class="product-card">
-                    <!-- Image placeholder visible (Remplacez le lien src par votre vraie photo plus tard) -->
-                    <img src="https://placehold.co/500x500/111/bf00ff?text=T-SHIRT+NELYA+TE+PASSE+LE+MIC&font=Montserrat" alt="T-Shirt Nelya Te Passe Le Mic">
-                    <h3 id="prod-title">T-SHIRT "NELYA TE PASSE LE MIC"</h3>
-                    <p id="prod-desc">Édition Limitée - Coupe Unisexe Premium</p>
-                    <div class="price">20,00 €</div>
-                    <a href="mailto:contact@nelyanya.com" class="btn-buy" id="btn-buy">COMMANDER</a>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Pied de page -->
-    <footer>
-        <p>Copyright © 2025 NELYA NYA. Tous droits réservés.</p>
-        <p>site crée par <span class="footer-credit">NELYA NYA</span></p>
-    </footer>
-
-    <!-- Script de traduction -->
-    <script>
-        const content = {
-            fr: {
-                navAbout: "À Propos",
-                navEmission: "Émissions",
-                navShop: "Boutique",
-                titleAbout: "L'ÉMISSION",
-                descAbout: "\"NELYA TE PASSE LE MIC\" est l'émission de référence consacrée au Rap et à la culture Hip-Hop. Animée par l'artiste Nelya Nya, l'émission donne la parole aux talents émergents et aux figures de la scène urbaine.",
-                titleEmission: "PASSE MOI LE MIC",
-                txtPlaylist: "Playlist Complète & Autres Invités",
-                titleShop: "BOUTIQUE OFFICIELLE",
-                prodTitle: "T-SHIRT \"NELYA TE PASSE LE MIC\"",
-                prodDesc: "Édition Limitée - Coupe Unisexe Premium",
-                btnBuy: "COMMANDER"
-            },
-            en: {
-                navAbout: "About",
-                navEmission: "Shows",
-                navShop: "Shop",
-                titleAbout: "THE SHOW",
-                descAbout: "\"NELYA PASSES THE MIC\" is the reference radio show dedicated to Rap and Hip-Hop culture. Hosted by artist Nelya Nya, the show gives a voice to emerging talents and urban scene figures.",
-                titleEmission: "PASS ME THE MIC",
-                txtPlaylist: "Full Playlist & Other Guests",
-                titleShop: "OFFICIAL SHOP",
-                prodTitle: "T-SHIRT \"NELYA PASSES THE MIC\"",
-                prodDesc: "Limited Edition - Premium Unisex Fit",
-                btnBuy: "ORDER NOW"
-            }
-        };
-
-        function changeLanguage(lang) {
-            document.getElementById('nav-about').innerText = content[lang].navAbout;
-            document.getElementById('nav-emission').innerText = content[lang].navEmission;
-            document.getElementById('nav-shop').innerText = content[lang].navShop;
-            document.getElementById('title-about').innerText = content[lang].titleAbout;
-            document.getElementById('desc-about').innerText = content[lang].descAbout;
-            document.getElementById('title-emission').innerText = content[lang].titleEmission;
-            document.getElementById('txt-playlist').innerText = content[lang].txtPlaylist;
-            document.getElementById('title-shop').innerText = content[lang].titleShop;
-            document.getElementById('prod-title').innerText = content[lang].prodTitle;
-            document.getElementById('prod-desc').innerText = content[lang].prodDesc;
-            document.getElementById('btn-buy').innerText = content[lang].btnBuy;
-        }
-    </script>
-
-</body>
-</html>
-
-
+            
