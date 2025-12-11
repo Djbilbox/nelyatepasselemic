@@ -12,18 +12,15 @@
             background: radial-gradient(circle at top, #1f2933 0, #020617 60%, #000 100%);
             color: #f9fafb;
         }
-
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 20px 16px 60px;
         }
-
         header {
             text-align: center;
             margin-bottom: 40px;
         }
-
         header h1 {
             font-size: 2.4rem;
             margin-bottom: 10px;
@@ -32,12 +29,10 @@
             color: transparent;
             text-shadow: 0 0 18px rgba(236, 72, 153, 0.7);
         }
-
         header p {
             margin: 4px 0;
             color: #e5e7eb;
         }
-
         nav {
             display: flex;
             justify-content: center;
@@ -45,7 +40,6 @@
             margin-bottom: 30px;
             flex-wrap: wrap;
         }
-
         nav a {
             color: #e5e7eb;
             text-decoration: none;
@@ -57,13 +51,11 @@
             box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
             transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
-
         nav a:hover {
             background: radial-gradient(circle at top, #4c1d95, #be185d);
             transform: translateY(-2px);
             box-shadow: 0 0 20px rgba(236, 72, 153, 0.9);
         }
-
         h2 {
             margin-top: 50px;
             font-size: 1.6rem;
@@ -72,12 +64,10 @@
             border-bottom: 1px solid rgba(148, 163, 184, 0.4);
             padding-bottom: 4px;
         }
-
         p {
             line-height: 1.5;
             color: #e5e7eb;
         }
-
         .videos-emission,
         .videos-nelya {
             display: flex;
@@ -85,7 +75,6 @@
             gap: 20px;
             margin: 20px 0 40px;
         }
-
         .video-card {
             background: #020617;
             border-radius: 10px;
@@ -97,37 +86,170 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
             border: 1px solid rgba(115, 115, 115, 0.4);
         }
-
         .video-card img {
             width: 100%;
             display: block;
         }
-
         .video-card h3 {
             font-size: 1rem;
             margin: 10px;
             color: #e879f9;
         }
-
         .video-card p {
             font-size: 0.85rem;
             margin: 0 10px 12px;
             color: #d1d5db;
         }
-
         .video-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 0 22px rgba(236, 72, 153, 0.8);
             border-color: rgba(236, 72, 153, 0.9);
         }
-
-        /* BOUTIQUE */
-        .boutique-grid {
+        .product-card {
+            background: #020617;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 600px;
+            box-shadow: 0 0 18px rgba(168, 85, 247, 0.45);
+            border: 1px solid rgba(115, 115, 115, 0.4);
             display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
             margin-top: 20px;
         }
+        .product-image {
+            width: 250px;
+            flex-shrink: 0;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 20px;
+        }
+        .product-info h3 {
+            font-size: 1.2rem;
+            color: #e879f9;
+            margin: 0 0 10px;
+        }
+        .product-info p {
+            margin: 8px 0;
+            font-size: 0.9rem;
+        }
+        .product-info .price {
+            font-size: 1.4rem;
+            color: #a855f7;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .btn-buy {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.9);
+        }
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NELYA NYA</h1>
+            <p>Animatrice Radio · Artiste · Podcasts</p>
+            <p>Émission PASSE MOI LE MIC sur Radio Canal Sud 92.2 FM Toulouse</p>
+        </header>
 
-        .product-card
+        <nav>
+            <a href="#emission">L'ÉMISSION</a>
+            <a href="#nelya">NELYA NYA</a>
+            <a href="#boutique">BOUTIQUE</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
 
+        <!-- SECTION ÉMISSION -->
+        <section id="emission">
+            <h2>L'ÉMISSION PASSE MOI LE MIC</h2>
+            <p>Émission consacrée au rap et au hip-hop toulousain et français, animée par Nelya. Tous les mercredis de 16h30 à 18h et samedis de 21h à minuit sur Radio Canal Sud 92.2 FM.</p>
+
+            <div class="videos-emission">
+                <a href="https://www.youtube.com/watch?v=6bSB2Pt43Yk" target="_blank" class="video-card">
+                    <img src="https://img.youtube.com/vi/6bSB2Pt43Yk/maxresdefault.jpg" alt="Nelya te passe le mic #2">
+                    <h3>Nelya te passe le mic #2</h3>
+                    <p>Invité : Scrinef</p>
+                </a>
+
+                <a href="https://www.youtube.com/@Passemoilemic" target="_blank" class="video-card">
+                    <img src="https://img.youtube.com/vi/6bSB2Pt43Yk/maxresdefault.jpg" alt="Nelya te passe le mic #1">
+                    <h3>Nelya te passe le mic #1</h3>
+                    <p>Émission radio Canal Sud</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION NELYA NYA ARTISTE -->
+        <section id="nelya">
+            <h2>NELYA NYA – ARTISTE</h2>
+            <p>Rappeuse et chanteuse toulousaine. Univers rap français, textes authentiques, flow unique.</p>
+
+            <div class="videos-nelya">
+                <a href="https://www.youtube.com/watch?v=Z8C0iqtj7rA" target="_blank" class="video-card">
+                    <img src="https://img.youtube.com/vi/Z8C0iqtj7rA/maxresdefault.jpg" alt="Nelya NYA - Bombarde">
+                    <h3>Nelya NYA – Bombarde</h3>
+                    <p>Clip officiel</p>
+                </a>
+
+                <a href="https://www.youtube.com/channel/UCAC53IdoQL78Z1fOL43SC3Q" target="_blank" class="video-card">
+                    <img src="https://img.youtube.com/vi/Z8C0iqtj7rA/maxresdefault.jpg" alt="Nelya NYA freestyle">
+                    <h3>Nelya NYA freestyle femme d'honneur</h3>
+                    <p>Performance live</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- BOUTIQUE OFFICIELLE -->
+        <section id="boutique">
+            <h2>BOUTIQUE OFFICIELLE</h2>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://raw.githubusercontent.com/Djbilbox/djbilboxbeats.github.io/main/WhatsApp%20Image%202025-12-02%20%C3%A0%2020.58.10_34a436dc.jpg"
+                         alt="T-shirt NELYA TE PASSE LE MIC">
+                </div>
+                <div class="product-info">
+                    <h3>T-SHIRT NELYA TE PASSE LE MIC</h3>
+                    <p>Unisexe – Toutes tailles disponibles – Style professionnel pour représenter l'émission.</p>
+                    <p class="price">20,00 €</p>
+                    <a href="#" class="btn-buy">COMMANDER</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2>CONTACT & RÉSEAUX</h2>
+            <p>📧 Email : nelyanya.contact@gmail.com</p>
+            <p>📷 Instagram : <a href="https://www.instagram.com/nelya_nya/" target="_blank" style="color: #ec4899;">@nelya_nya</a></p>
+            <p>🎵 YouTube : <a href="https://www.youtube.com/channel/UCAC53IdoQL78Z1fOL43SC3Q" target="_blank" style="color: #ec4899;">Nelya NYA</a></p>
+            <p>📻 Radio Canal Sud : 92.2 FM Toulouse</p>
+        </section>
+
+        <footer>
+            <p>© 2025 NELYA NYA – Site créé par NELYA NYA</p>
+        </footer>
+    </div>
+</body>
+</html>
