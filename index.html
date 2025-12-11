@@ -5,107 +5,229 @@
     <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { background-color: #121212; color: #fff; font-family: Arial, sans-serif; margin: 0; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        h1, h2, h3 { color: #f9b233; }
-        a { color: #f9b233; text-decoration: none; }
-        p.bio { line-height: 1.6; color: #ccc; text-align: center; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;}
-        header { text-align: center; padding: 40px 0; }
-        header h1 { font-size: 3em; margin: 0; }
-        header p { font-size: 1.2em; }
-        .lang-switcher { position: absolute; top: 20px; right: 20px; }
-        .lang-menu { display: none; position: absolute; right: 0; background-color: #232323; border-radius: 5px; padding: 10px; z-index: 1000; }
-        .lang-menu a { display: block; padding: 8px 12px; color: white; }
-        .lang-menu a:hover { background-color: #f9b233; color: #121212; }
-        #selected-lang { cursor: pointer; font-size: 1.5em; }
-        section { text-align: center; margin-bottom: 40px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left; }
-        .video-card { background-color: #1a1a1a; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .video-card img { width: 100%; display: block; }
-        .video-card-content { padding: 15px; }
-        .video-card-content h3 { margin: 0 0 10px 0; font-size: 1.1em; }
-        .video-card-content a { background-color: #f9b233; color: #121212; padding: 8px 12px; border-radius: 5px; display: inline-block; }
-        footer { text-align: center; padding: 20px; font-size: 0.9em; color: #777; }
+        /* DESIGN NOIR & OR PROPRE */
+        body { background-color: #121212; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        
+        /* TYPOGRAPHIE */
+        h1, h2, h3 { color: #f9b233; text-transform: uppercase; letter-spacing: 1px; }
+        p { color: #cccccc; line-height: 1.6; }
+        a { color: #f9b233; text-decoration: none; font-weight: bold; }
+        
+        /* HEADER */
+        header { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid #333; margin-bottom: 40px; }
+        header h1 { font-size: 3.5em; margin: 0; text-shadow: 0 0 10px rgba(249, 178, 51, 0.3); }
+        header p { font-size: 1.4em; color: #fff; margin-top: 10px; }
+
+        /* BOUTON LANGUE */
+        .lang-switcher { position: absolute; top: 20px; right: 20px; z-index: 1000; }
+        .lang-btn { background: #222; border: 1px solid #f9b233; color: #fff; padding: 10px 15px; cursor: pointer; border-radius: 5px; font-size: 1.2em; }
+        .lang-menu { display: none; position: absolute; right: 0; top: 100%; background-color: #222; border: 1px solid #444; border-radius: 5px; width: 150px; }
+        .lang-menu a { display: block; padding: 10px; color: #fff; border-bottom: 1px solid #333; }
+        .lang-menu a:hover { background-color: #f9b233; color: #000; }
+
+        /* SECTIONS */
+        section { margin-bottom: 60px; }
+        .section-title { text-align: center; font-size: 2em; margin-bottom: 20px; border-bottom: 2px solid #f9b233; display: inline-block; padding-bottom: 5px; }
+        
+        /* BIOS */
+        .bio-box { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center; border-left: 4px solid #f9b233; }
+        
+        /* GRILLE VIDÉOS */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .video-card { background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease; }
+        .video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(249, 178, 51, 0.2); }
+        .video-card img { width: 100%; height: auto; display: block; }
+        .video-info { padding: 15px; }
+        .video-info h3 { font-size: 1em; margin: 0 0 10px 0; color: #fff; min-height: 40px; }
+        .btn-watch { display: block; background-color: #f9b233; color: #000; text-align: center; padding: 10px; border-radius: 4px; text-transform: uppercase; font-size: 0.9em; }
+        .btn-watch:hover { background-color: #fff; }
+
+        /* FOOTER */
+        footer { text-align: center; padding: 40px; background-color: #000; margin-top: 50px; font-size: 0.9em; color: #666; }
     </style>
 </head>
 <body>
+
     <div class="container">
+        <!-- LANGUES -->
         <div class="lang-switcher">
-            <div id="selected-lang">🇫🇷</div>
+            <button class="lang-btn" id="lang-btn">🌍 FR ▼</button>
             <div class="lang-menu" id="lang-menu">
-                <a href="#" data-lang="fr">🇫🇷 Français</a>
-                <a href="#" data-lang="en">🇬🇧 English</a>
-                <a href="#" data-lang="es">🇪🇸 Español</a>
-                <a href="#" data-lang="pt">🇵🇹 Português</a>
-                <a href="#" data-lang="ru">🇷🇺 Русский</a>
-                <a href="#" data-lang="it">🇮🇹 Italiano</a>
+                <a href="#" onclick="changeLang('fr')">🇫🇷 Français</a>
+                <a href="#" onclick="changeLang('en')">🇬🇧 English</a>
+                <a href="#" onclick="changeLang('es')">🇪🇸 Español</a>
+                <a href="#" onclick="changeLang('pt')">🇵🇹 Português</a>
+                <a href="#" onclick="changeLang('ru')">🇷🇺 Русский</a>
+                <a href="#" onclick="changeLang('it')">🇮🇹 Italiano</a>
             </div>
         </div>
+
+        <!-- EN-TÊTE -->
         <header>
-            <h1 id="main-title">NELYA NYA</h1>
-            <p id="subtitle">Animatrice Radio · Artiste · Podcasts</p>
+            <h1 id="txt-title">NELYA NYA</h1>
+            <p id="txt-subtitle">Animatrice Radio · Artiste · Podcasts</p>
         </header>
-        <main>
-            <section id="emission">
-                <h2 id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2>
-                <p class="bio" id="emission-bio">Émission consacrée au rap et au hip-hop toulousain, 'Passe Moi Le Mic' est la plateforme de référence pour découvrir les talents émergents et confirmés de la scène locale. Animée avec passion par Nelya Nya, chaque épisode offre des interviews exclusives, des freestyles percutants et une immersion totale dans la culture urbaine de la Ville Rose.</p>
-                <div class="video-grid" id="videos-emission">
-                    <!-- Les vidéos sont maintenant générées par JS -->
-                </div>
-            </section>
-            <section id="nelya">
-                <h2 id="title-artiste">NELYA NYA – L'ARTISTE</h2>
-                <p class="bio" id="artiste-bio">Rappeuse et chanteuse toulousaine, Nelya Nya se distingue par son flow percutant et ses textes authentiques. Artiste polyvalente, elle navigue entre des sonorités trap et des mélodies plus introspectives. Son énergie sur scène et sa détermination en font une figure montante à suivre de très près.</p>
-                <div class="video-grid" id="videos-artiste">
-                    <!-- Les vidéos sont maintenant générées par JS -->
-                </div>
-            </section>
-        </main>
+
+        <!-- SECTION ÉMISSION -->
+        <section>
+            <div style="text-align:center;"><h2 class="section-title" id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2></div>
+            <div class="bio-box">
+                <p id="bio-emission">
+                    Émission consacrée au rap et au hip-hop toulousain, "Passe Moi Le Mic" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.
+                </p>
+            </div>
+            <div class="video-grid" id="grid-emission">
+                <!-- Vidéos insérées par JS -->
+            </div>
+        </section>
+
+        <!-- SECTION ARTISTE -->
+        <section>
+            <div style="text-align:center;"><h2 class="section-title" id="title-artiste">NELYA NYA – L'ARTISTE</h2></div>
+            <div class="bio-box">
+                <p id="bio-artiste">
+                    Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.
+                </p>
+            </div>
+            <div class="video-grid" id="grid-artiste">
+                <!-- Vidéos insérées par JS -->
+            </div>
+        </section>
+
+        <!-- FOOTER -->
         <footer>
-            <p id="footer-text">© 2025 NELYA NYA – Site développé par DJBILBOX BEATS</p>
+            <p id="txt-footer">© 2025 NELYA NYA – Site développé par DJBILBOX BEATS</p>
         </footer>
     </div>
+
     <script>
-        const translations = {
+        // DONNÉES DE LANGUE
+        const content = {
             fr: {
                 subtitle: "Animatrice Radio · Artiste · Podcasts",
-                titleEmission: "L'ÉMISSION PASSE MOI LE MIC",
-                emissionBio: "Émission consacrée au rap et au hip-hop toulousain, 'Passe Moi Le Mic' est la plateforme de référence pour découvrir les talents émergents et confirmés de la scène locale. Animée avec passion par Nelya Nya, chaque épisode offre des interviews exclusives, des freestyles percutants et une immersion totale dans la culture urbaine de la Ville Rose.",
-                titleArtiste: "NELYA NYA – L'ARTISTE",
-                artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya se distingue par son flow percutant et ses textes authentiques. Artiste polyvalente, elle navigue entre des sonorités trap et des mélodies plus introspectives. Son énergie sur scène et sa détermination en font une figure montante à suivre de très près.",
-                watchButton: "Regarder",
-                footerText: "© 2025 NELYA NYA – Site développé par DJBILBOX BEATS"
+                emissionTitle: "L'ÉMISSION PASSE MOI LE MIC",
+                emissionBio: "Émission consacrée au rap et au hip-hop toulousain, \"Passe Moi Le Mic\" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.",
+                artisteTitle: "NELYA NYA – L'ARTISTE",
+                artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.",
+                btnWatch: "REGARDER LA VIDÉO",
+                footer: "© 2025 NELYA NYA – Site développé par DJBILBOX BEATS"
             },
             en: {
                 subtitle: "Radio Host · Artist · Podcasts",
-                titleEmission: "THE SHOW: PASSE MOI LE MIC",
-                emissionBio: "A show dedicated to Toulouse rap and hip-hop, 'Passe Moi Le Mic' is the reference platform for discovering emerging and confirmed talents from the local scene. Hosted with passion by Nelya Nya, each episode offers exclusive interviews, hard-hitting freestyles, and a total immersion in the urban culture of the Pink City.",
-                titleArtiste: "NELYA NYA – THE ARTIST",
-                artisteBio: "A rapper and singer from Toulouse, Nelya Nya stands out for her impactful flow and authentic lyrics. A versatile artist, she moves between trap sounds and more introspective melodies. Her energy on stage and her determination make her a rising figure to follow very closely.",
-                watchButton: "Watch",
-                footerText: "© 2025 NELYA NYA – Website developed by DJBILBOX BEATS"
+                emissionTitle: "THE SHOW: PASSE MOI LE MIC",
+                emissionBio: "Dedicated to Toulouse rap and hip-hop, \"Passe Moi Le Mic\" is the reference for discovering local talents. Hosted by Nelya Nya, find exclusive interviews, freestyles, and urban culture.",
+                artisteTitle: "NELYA NYA – THE ARTIST",
+                artisteBio: "Rapper and singer from Toulouse, Nelya Nya imposes her style with a striking flow and authentic lyrics. Between Trap and melodies, discover the musical universe of a complete artist.",
+                btnWatch: "WATCH VIDEO",
+                footer: "© 2025 NELYA NYA – Website developed by DJBILBOX BEATS"
             },
             es: {
-                subtitle: "Presentadora de Radio · Artista · Podcasts",
-                titleEmission: "EL PROGRAMA: PASSE MOI LE MIC",
-                emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, 'Passe Moi Le Mic' es la plataforma de referencia para descubrir los talentos emergentes y confirmados de la escena local. Presentado con pasión por Nelya Nya, cada episodio ofrece entrevistas exclusivas, freestyles impactantes y una inmersión total en la cultura urbana de la Ciudad Rosa.",
-                titleArtiste: "NELYA NYA – LA ARTISTA",
-                artisteBio: "Rapera y cantante de Toulouse, Nelya Nya se distingue por su flow impactante y sus letras auténticas. Artista polifacética, navega entre sonidos trap y melodías más introspectivas. Su energía en el escenario y su determinación la convierten en una figura en ascenso a seguir muy de cerca.",
-                watchButton: "Ver",
-                footerText: "© 2025 NELYA NYA – Sitio web desarrollado por DJBILBOX BEATS"
+                subtitle: "Presentadora · Artista · Podcasts",
+                emissionTitle: "EL PROGRAMA: PASSE MOI LE MIC",
+                emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, \"Passe Moi Le Mic\" es la referencia para descubrir talentos locales. Presentado por Nelya Nya, con entrevistas exclusivas y freestyles.",
+                artisteTitle: "NELYA NYA – LA ARTISTA",
+                artisteBio: "Rapera y cantante de Toulouse, Nelya Nya impone su estilo con un flow impactante y letras auténticas. Entre Trap y melodías, descubre el universo musical de una artista completa.",
+                btnWatch: "VER VIDEO",
+                footer: "© 2025 NELYA NYA – Sitio web desarrollado por DJBILBOX BEATS"
             },
             pt: {
-                subtitle: "Apresentadora de Rádio · Artista · Podcasts",
-                titleEmission: "O PROGRAMA: PASSE MOI LE MIC",
-                emissionBio: "Um programa dedicado ao rap e hip-hop de Toulouse, 'Passe Moi Le Mic' é a plataforma de referência para descobrir talentos emergentes e confirmados da cena local. Apresentado com paixão por Nelya Nya, cada episódio oferece entrevistas exclusivas, freestyles impactantes e uma imersão total na cultura urbana da Cidade Rosa.",
-                titleArtiste: "NELYA NYA – A ARTISTA",
-                artisteBio: "Rapper e cantora de Toulouse, Nelya Nya destaca-se pelo seu flow impactante e letras autênticas. Artista versátil, ela navega entre sons de trap e melodias mais introspectivas. A sua energia em palco e a sua determinação fazem dela uma figura em ascensão a seguir de muito perto.",
-                watchButton: "Assistir",
-                footerText: "© 2025 NELYA NYA – Site desenvolvido por DJBILBOX BEATS"
+                subtitle: "Apresentadora · Artista · Podcasts",
+                emissionTitle: "O PROGRAMA: PASSE MOI LE MIC",
+                emissionBio: "Programa dedicado ao rap e hip-hop de Toulouse, referência para descobrir talentos locais. Apresentado por Nelya Nya, com entrevistas exclusivas e freestyles.",
+                artisteTitle: "NELYA NYA – A ARTISTA",
+                artisteBio: "Rapper e cantora de Toulouse, Nelya Nya impõe seu estilo com flow impactante. Entre Trap e melodias, descubra o universo musical de uma artista completa.",
+                btnWatch: "ASSISTIR VÍDEO",
+                footer: "© 2025 NELYA NYA – Site desenvolvido por DJBILBOX BEATS"
             },
             ru: {
                 subtitle: "Радиоведущая · Артист · Подкасты",
-                titleEmission: "ШОУ: PASSE MOI LE MIC",
-                emissionBio: "Шоу, посвященное рэпу и хип-хопу Тулузы, 'Passe Moi Le Mic' — это основная платформа для открытия новых и уже состоявшихся талантов местной сцены. Ведущая шоу, Неля Нья, с энтузиазмом представляет эксклюзивные интервью, мощные фристайлы и полное погружение в городскую культуру Розового города.",
-                titleArtiste: "NELYA NYA – АРТИСТ",
-                artisteBio: "Рэпер и певица из Тулузы, Неля Нья выделяется своим впечат
+                emissionTitle: "ШОУ: PASSE MOI LE MIC",
+                emissionBio: "Шоу, посвященное рэпу и хип-хопу Тулузы. Ведущая Неля Нья представляет эксклюзивные интервью и фристайлы местной сцены.",
+                artisteTitle: "NELYA NYA – АРТИСТ",
+                artisteBio: "Рэпер и певица из Тулузы, Неля Нья выделяется своим флоу и текстами. Откройте для себя музыкальную вселенную полноценного артиста.",
+                btnWatch: "СМОТРЕТЬ",
+                footer: "© 2025 NELYA NYA – Сайт разработан DJBILBOX BEATS"
+            },
+            it: {
+                subtitle: "Conduttrice · Artista · Podcast",
+                emissionTitle: "IL PROGRAMMA: PASSE MOI LE MIC",
+                emissionBio: "Programma dedicato al rap e hip-hop di Tolosa. Condotto da Nelya Nya, con interviste esclusive e freestyle della scena locale.",
+                artisteTitle: "NELYA NYA – L'ARTISTA",
+                artisteBio: "Rapper e cantante di Tolosa, Nelya Nya impone il suo stile con un flow incisivo. Tra Trap e melodie, scopri l'universo musicale di un'artista completa.",
+                btnWatch: "GUARDA VIDEO",
+                footer: "© 2025 NELYA NYA – Sito sviluppato da DJBILBOX BEATS"
+            }
+        };
+
+        // VIDÉOS (IDS YOUTUBE CORRIGÉS)
+        const vidsEmission = [
+            { id: '6bSB2Pt43Yk', title: "Nelya te passe le mic #2 (Invité : Scrinef)" },
+            { id: 'sV-wvCmNzuc', title: "Nelya te passe le mic #1 (Invité : BELA1R)" },
+            { id: '3gq7wtpk5Mw', title: "Nelya te passe le mic (Invités : MC Yuri & DD La Scalap)" }
+        ];
+
+        const vidsArtiste = [
+            { id: 'Z8C0iqtj7rA', title: "Nelya NYA - Bombarde (Clip Officiel)" },
+            { id: '0hTSlMh9CP0', title: "Nelya NYA - Freestyle Femme d'honneur" }
+        ];
+
+        // FONCTION AFFICHAGE
+        function renderPage(lang) {
+            // Textes
+            document.getElementById('txt-subtitle').innerText = content[lang].subtitle;
+            document.getElementById('title-emission').innerText = content[lang].emissionTitle;
+            document.getElementById('bio-emission').innerText = content[lang].emissionBio;
+            document.getElementById('title-artiste').innerText = content[lang].artisteTitle;
+            document.getElementById('bio-artiste').innerText = content[lang].artisteBio;
+            document.getElementById('txt-footer').innerText = content[lang].footer;
+            document.getElementById('lang-btn').innerText = "🌍 " + lang.toUpperCase() + " ▼";
+
+            // Vidéos Émission
+            const gridEm = document.getElementById('grid-emission');
+            gridEm.innerHTML = "";
+            vidsEmission.forEach(v => {
+                gridEm.innerHTML += `
+                <div class="video-card">
+                    <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg">
+                    <div class="video-info">
+                        <h3>${v.title}</h3>
+                        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" class="btn-watch">${content[lang].btnWatch}</a>
+                    </div>
+                </div>`;
+            });
+
+            // Vidéos Artiste
+            const gridArt = document.getElementById('grid-artiste');
+            gridArt.innerHTML = "";
+            vidsArtiste.forEach(v => {
+                gridArt.innerHTML += `
+                <div class="video-card">
+                    <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg">
+                    <div class="video-info">
+                        <h3>${v.title}</h3>
+                        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" class="btn-watch">${content[lang].btnWatch}</a>
+                    </div>
+                </div>`;
+            });
+        }
+
+        // GESTION LANGUE
+        function changeLang(lang) {
+            renderPage(lang);
+            document.getElementById('lang-menu').style.display = 'none';
+        }
+
+        // INTERACTION MENU
+        document.getElementById('lang-btn').addEventListener('click', () => {
+            const menu = document.getElementById('lang-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // INIT
+        renderPage('fr');
+
+    </script>
+
+</body>
+</html>
