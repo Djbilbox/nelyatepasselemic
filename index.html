@@ -43,6 +43,9 @@
             text-decoration: none; 
             font-weight: bold; 
         }
+        a:hover {
+            text-decoration: underline;
+        }
         
         /* HEADER */
         header { 
@@ -54,7 +57,7 @@
         header h1 { 
             font-size: 3.5em; 
             margin: 0; 
-            text-shadow: 0 0 10px rgba(138, 43, 226, 0.3); /* Ombre Violette */
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.3); 
         }
         header p { 
             font-size: 1.4em; 
@@ -133,11 +136,11 @@
             border-radius: 8px; 
             overflow: hidden; 
             transition: transform 0.3s ease; 
-            cursor: pointer; /* Indique qu'on peut cliquer */
+            cursor: pointer; 
         }
         .video-card:hover { 
             transform: translateY(-5px); 
-            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4); /* Ombre Violette */
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4); 
         }
         .video-card img { 
             width: 100%; 
@@ -156,7 +159,7 @@
         .btn-watch { 
             display: block; 
             background-color: var(--main-color); 
-            color: #fff; /* Texte blanc sur le bouton violet */
+            color: #fff; 
             text-align: center; 
             padding: 10px; 
             border-radius: 4px; 
@@ -165,7 +168,7 @@
             transition: background-color 0.3s ease;
         }
         .btn-watch:hover { 
-            background-color: #a366ff; /* Violet plus clair au survol */
+            background-color: #a366ff; 
         }
 
         /* FOOTER */
@@ -177,12 +180,30 @@
             font-size: 0.9em; 
             color: #666; 
         }
+        .footer-content {
+            max-width: 800px;
+            margin: auto;
+        }
+        .footer-links {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        .footer-links a {
+            color: var(--text-light);
+            margin: 0 15px;
+            font-size: 1em;
+            font-weight: normal;
+        }
+        .footer-links a:hover {
+            color: var(--main-color);
+        }
 
         /* MODAL VIDÉO */
         .modal {
             display: none; 
             position: fixed; 
-            z-index: 2000; /* Au-dessus de tout */
+            z-index: 2000; 
             left: 0;
             top: 0;
             width: 100%; 
@@ -192,7 +213,7 @@
         }
         .modal-content {
             position: relative;
-            margin: 10% auto; /* Centrage */
+            margin: 10% auto; 
             padding: 0;
             width: 90%;
             max-width: 800px;
@@ -273,174 +294,13 @@
         </section>
 
         <footer>
-            <p id="txt-footer">© 2025 NELYA NYA – Site créé par NELYA NYA</p>
-        </footer>
-    </div>
-
-    <div id="video-modal" class="modal">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <div class="video-wrapper">
-                <iframe id="video-iframe" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="footer-content">
+                <h3 style="color:var(--text-light); margin-bottom: 20px;">Contact & Liens</h3>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/nelya.nya/" target="_blank">Instagram Nelya Nya</a>
+                    <a href="https://www.youtube.com/@nelyanyapassemoilemic" target="_blank">Chaîne YouTube Passe Moi Le Mic</a>
+                    <a href="https://www.youtube.com/@nelyanyaartiste" target="_blank">Chaîne YouTube Artiste</a>
+                </div>
+                <p id="txt-footer">© 2025 NELYA NYA – Site créé par NELYA NYA</p>
             </div>
-        </div>
-    </div>
-
-    <script>
-        // DONNÉES DE LANGUE
-        const content = {
-            fr: {
-                subtitle: "Animatrice Radio · Artiste · Podcasts",
-                emissionTitle: "L'ÉMISSION PASSE MOI LE MIC",
-                emissionBio: "Émission consacrée au rap et au hip-hop toulousain, \"Passe Moi Le Mic\" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.",
-                artisteTitle: "NELYA NYA – L'ARTISTE",
-                artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.",
-                btnWatch: "REGARDER LA VIDÉO",
-                footer: "© 2025 NELYA NYA – Site créé par NELYA NYA" // MODIFICATION ICI
-            },
-            en: {
-                subtitle: "Radio Host · Artist · Podcasts",
-                emissionTitle: "THE SHOW: PASSE MOI LE MIC",
-                emissionBio: "Dedicated to Toulouse rap and hip-hop, \"Passe Moi Le Mic\" is the reference for discovering local talents. Hosted by Nelya Nya, find exclusive interviews, freestyles, and urban culture.",
-                artisteTitle: "NELYA NYA – THE ARTIST",
-                artisteBio: "Rapper and singer from Toulouse, Nelya Nya imposes her style with a striking flow and authentic lyrics. Between Trap and melodies, discover the musical universe of a complete artist.",
-                btnWatch: "WATCH VIDEO",
-                footer: "© 2025 NELYA NYA – Website created by NELYA NYA" // MODIFICATION ICI
-            },
-            es: {
-                subtitle: "Presentadora · Artista · Podcasts",
-                emissionTitle: "EL PROGRAMA: PASSE MOI LE MIC",
-                emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, \"Passe Moi Le Mic\" es la referencia para descubrir talentos locales. Presentado por Nelya Nya, con entrevistas exclusivas y freestyles.",
-                artisteTitle: "NELYA NYA – LA ARTISTA",
-                artisteBio: "Rapera y cantante de Toulouse, Nelya Nya impone su estilo con un flow impactante y letras auténticas. Entre Trap y melodías, descubre el universo musical de una artista completa.",
-                btnWatch: "VER VIDEO",
-                footer: "© 2025 NELYA NYA – Sitio web creado por NELYA NYA" // MODIFICATION ICI
-            },
-            pt: {
-                subtitle: "Apresentadora · Artista · Podcasts",
-                emissionTitle: "O PROGRAMA: PASSE MOI LE MIC",
-                emissionBio: "Programa dedicado ao rap e hip-hop de Toulouse, referência para descobrir talentos locais. Apresentado por Nelya Nya, com entrevistas exclusivas e freestyles.",
-                artisteTitle: "NELYA NYA – A ARTISTA",
-                artisteBio: "Rapper e cantora de Toulouse, Nelya Nya impõe seu estilo com flow impactante. Entre Trap e melodias, descubra o universo musical de uma artista completa.",
-                btnWatch: "ASSISTIR VÍDEO",
-                footer: "© 2025 NELYA NYA – Site criado por NELYA NYA" // MODIFICATION ICI
-            },
-            ru: {
-                subtitle: "Радиоведущая · Артист · Подкасты",
-                emissionTitle: "ШОУ: PASSE MOI LE MIC",
-                emissionBio: "Шоу, посвященное рэпу и хип-хопу Тулузы. Ведущая Неля Нья представляет эксклюзивные интервью и фристайлы местной сцены.",
-                artisteTitle: "NELYA NYA – АРТИСТ",
-                artisteBio: "Рэпер и певица из Тулузы, Неля Нья выделяется своим флоу и текстами. Откройте для себя музыкальную вселенную полноценного артиста.",
-                btnWatch: "СМОТРЕТЬ",
-                footer: "© 2025 NELYA NYA – Сайт создан NELYA NYA" // MODIFICATION ICI
-            },
-            it: {
-                subtitle: "Conduttrice · Artista · Podcast",
-                emissionTitle: "IL PROGRAMMA: PASSE MOI LE MIC",
-                emissionBio: "Programma dedicato al rap e hip-hop di Tolosa. Condotto da Nelya Nya, con interviste esclusive e freestyle della scena locale.",
-                artisteTitle: "NELYA NYA – L'ARTISTA",
-                artisteBio: "Rapper e cantante di Tolosa, Nelya Nya impone il suo stile con un flow incisivo. Tra Trap e melodie, scopri l'universo musicale di un'artista completa.",
-                btnWatch: "GUARDA VIDEO",
-                footer: "© 2025 NELYA NYA – Sito creato da NELYA NYA" // MODIFICATION ICI
-            }
-        };
-
-        // VIDÉOS
-        const vidsEmission = [
-            { id: '6bSB2Pt43Yk', title: "Nelya te passe le mic #2 (Invité : Scrinef)" },
-            { id: 'sV-wvCmNzuc', title: "Nelya te passe le mic #1 (Invité : BELA1R)" },
-            { id: '3gq7wtpk5Mw', title: "Nelya te passe le mic (Invités : MC Yuri & DD La Scalap)" }
-        ];
-
-        const vidsArtiste = [
-            { id: 'Z8C0iqtj7rA', title: "Nelya NYA - Bombarde (Clip Officiel)" },
-            { id: '0hTSlMh9CP0', title: "Nelya NYA - Freestyle Femme d'honneur" }
-        ];
-
-        let currentLang = 'fr'; // Langue par défaut
-
-        // --- GESTION DE LA MODALE VIDÉO ---
-        const modal = document.getElementById('video-modal');
-        const iframe = document.getElementById('video-iframe');
-
-        function openModal(videoId) {
-            // Utiliser l'URL d'intégration YouTube pour l'iframe
-            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            iframe.src = embedUrl;
-            modal.style.display = 'block';
-        }
-
-        function closeModal() {
-            // Arrêter la vidéo en réinitialisant la source de l'iframe
-            iframe.src = ''; 
-            modal.style.display = 'none';
-        }
-
-        // Fermer la modale si l'utilisateur clique en dehors de celle-ci
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-        // --- FIN GESTION MODALE ---
-
-
-        // FONCTION D'AFFICHAGE (render)
-        function renderPage(lang) {
-            currentLang = lang;
-            const data = content[lang];
-
-            // Textes
-            document.getElementById('txt-subtitle').innerText = data.subtitle;
-            document.getElementById('title-emission').innerText = data.emissionTitle;
-            document.getElementById('bio-emission').innerText = data.emissionBio;
-            document.getElementById('title-artiste').innerText = data.artisteTitle;
-            document.getElementById('bio-artiste').innerText = data.artisteBio;
-            document.getElementById('txt-footer').innerText = data.footer;
-            document.getElementById('lang-btn').innerText = "🌍 " + lang.toUpperCase() + " ▼";
-
-            // Fonction pour créer et ajouter les cartes vidéo
-            function populateGrid(gridId, videos) {
-                const grid = document.getElementById(gridId);
-                grid.innerHTML = "";
-                videos.forEach(v => {
-                    const cardHtml = `
-                        <div class="video-card" onclick="openModal('${v.id}')">
-                            <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="${v.title}">
-                            <div class="video-info">
-                                <h3>${v.title}</h3>
-                                <span class="btn-watch">${data.btnWatch}</span>
-                            </div>
-                        </div>`;
-                    grid.innerHTML += cardHtml;
-                });
-            }
-
-            // Vidéos Émission
-            populateGrid('grid-emission', vidsEmission);
-
-            // Vidéos Artiste
-            populateGrid('grid-artiste', vidsArtiste);
-        }
-
-        // GESTION LANGUE
-        function changeLang(lang) {
-            renderPage(lang);
-            document.getElementById('lang-menu').style.display = 'none';
-        }
-
-        // INTERACTION MENU
-        document.getElementById('lang-btn').addEventListener('click', () => {
-            const menu = document.getElementById('lang-menu');
-            // Fermer si ouvert, ouvrir si fermé
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // INIT : Charger la page en français au démarrage
-        document.addEventListener('DOMContentLoaded', () => {
-            renderPage('fr');
-        });
-    </script>
-
-</body>
-</html>
+        </footer>
