@@ -5,19 +5,10 @@
     <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* COULEUR VIOLET PRINCIPALE */
-        :root {
-            --main-color: #8a2be2; /* Violet (Blue Violet) */
-            --dark-bg: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #fff;
-            --text-light: #cccccc;
-        }
-
-        /* DESIGN NOIR & VIOLET PROPRE */
+        /* --- STYLE GLOBAL (VIOLET) --- */
         body { 
-            background-color: var(--dark-bg); 
-            color: var(--text-color); 
+            background-color: #121212; 
+            color: #ffffff; 
             font-family: 'Helvetica Neue', Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
@@ -28,24 +19,11 @@
             padding: 20px; 
         }
         
-        /* TYPOGRAPHIE */
-        h1, h2, h3 { 
-            color: var(--main-color); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-        p { 
-            color: var(--text-light); 
-            line-height: 1.6; 
-        }
-        a { 
-            color: var(--main-color); 
-            text-decoration: none; 
-            font-weight: bold; 
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        /* TEXTES ET LIENS EN VIOLET */
+        h1, h2, h3 { color: #8a2be2; text-transform: uppercase; letter-spacing: 1px; }
+        p { color: #cccccc; line-height: 1.6; }
+        a { color: #8a2be2; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; color: #a366ff; }
         
         /* HEADER */
         header { 
@@ -57,25 +35,16 @@
         header h1 { 
             font-size: 3.5em; 
             margin: 0; 
-            text-shadow: 0 0 10px rgba(138, 43, 226, 0.3); 
+            text-shadow: 0 0 15px rgba(138, 43, 226, 0.5); /* Lueur violette */
         }
-        header p { 
-            font-size: 1.4em; 
-            color: var(--text-color); 
-            margin-top: 10px; 
-        }
+        header p { font-size: 1.4em; color: #fff; margin-top: 10px; }
 
         /* BOUTON LANGUE */
-        .lang-switcher { 
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
-            z-index: 1000; 
-        }
+        .lang-switcher { position: absolute; top: 20px; right: 20px; z-index: 1000; }
         .lang-btn { 
             background: #222; 
-            border: 1px solid var(--main-color); 
-            color: var(--text-color); 
+            border: 1px solid #8a2be2; 
+            color: #fff; 
             padding: 10px 15px; 
             cursor: pointer; 
             border-radius: 5px; 
@@ -91,38 +60,26 @@
             border-radius: 5px; 
             width: 150px; 
         }
-        .lang-menu a { 
-            display: block; 
-            padding: 10px; 
-            color: var(--text-color); 
-            border-bottom: 1px solid #333; 
-        }
-        .lang-menu a:hover { 
-            background-color: var(--main-color); 
-            color: #000; 
-        }
+        .lang-menu a { display: block; padding: 10px; color: #fff; border-bottom: 1px solid #333; }
+        .lang-menu a:hover { background-color: #8a2be2; color: #fff; text-decoration: none; }
 
         /* SECTIONS */
-        section { 
-            margin-bottom: 60px; 
-        }
+        section { margin-bottom: 60px; }
         .section-title { 
             text-align: center; 
             font-size: 2em; 
             margin-bottom: 20px; 
-            border-bottom: 2px solid var(--main-color); 
+            border-bottom: 2px solid #8a2be2; 
             display: inline-block; 
             padding-bottom: 5px; 
         }
-        
-        /* BIOS */
         .bio-box { 
             background: #1a1a1a; 
             padding: 20px; 
             border-radius: 10px; 
             margin-bottom: 30px; 
             text-align: center; 
-            border-left: 4px solid var(--main-color); 
+            border-left: 4px solid #8a2be2; 
         }
         
         /* GRILLE VIDÉOS */
@@ -132,11 +89,267 @@
             gap: 25px; 
         }
         .video-card { 
-            background-color: var(--card-bg); 
+            background-color: #1e1e1e; 
             border-radius: 8px; 
             overflow: hidden; 
             transition: transform 0.3s ease; 
             cursor: pointer; 
+            border: 1px solid #333;
         }
         .video-card:hover { 
-            transform: translateY
+            transform: translateY(-5px); 
+            border-color: #8a2be2;
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3); 
+        }
+        .video-card img { width: 100%; height: auto; display: block; }
+        .video-info { padding: 15px; }
+        .video-info h3 { font-size: 1em; margin: 0 0 10px 0; color: #fff; min-height: 40px; }
+        
+        /* BOUTON REGARDER */
+        .btn-watch { 
+            display: block; 
+            background-color: #8a2be2; 
+            color: #fff; 
+            text-align: center; 
+            padding: 10px; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            font-size: 0.9em; 
+            font-weight: bold;
+        }
+        .btn-watch:hover { background-color: #a366ff; color: #fff; }
+
+        /* FOOTER */
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            background-color: #000; 
+            margin-top: 50px; 
+            font-size: 0.9em; 
+            color: #666; 
+            border-top: 1px solid #333;
+        }
+        .footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 10px; }
+
+        /* MODALE VIDÉO (POPUP) */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.95); 
+        }
+        .modal-content {
+            position: relative;
+            margin: 5% auto; 
+            width: 90%;
+            max-width: 800px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover { color: #8a2be2; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleMenu()">🌍 FR ▼</button>
+            <div class="lang-menu" id="lang-menu">
+                <a href="javascript:void(0)" onclick="setLanguage('fr')">🇫🇷 Français</a>
+                <a href="javascript:void(0)" onclick="setLanguage('en')">🇬🇧 English</a>
+                <a href="javascript:void(0)" onclick="setLanguage('es')">🇪🇸 Español</a>
+                <a href="javascript:void(0)" onclick="setLanguage('pt')">🇵🇹 Português</a>
+                <a href="javascript:void(0)" onclick="setLanguage('ru')">🇷🇺 Русский</a>
+                <a href="javascript:void(0)" onclick="setLanguage('it')">🇮🇹 Italiano</a>
+            </div>
+        </div>
+
+        <header>
+            <h1 id="txt-title">NELYA NYA</h1>
+            <p id="txt-subtitle">Animatrice Radio · Artiste · Podcasts</p>
+        </header>
+
+        <section>
+            <div style="text-align:center;"><h2 class="section-title" id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2></div>
+            <div class="bio-box">
+                <p id="bio-emission">...</p>
+            </div>
+            <div class="video-grid" id="grid-emission">
+                </div>
+        </section>
+
+        <section>
+            <div style="text-align:center;"><h2 class="section-title" id="title-artiste">NELYA NYA – L'ARTISTE</h2></div>
+            <div class="bio-box">
+                <p id="bio-artiste">...</p>
+            </div>
+            <div class="video-grid" id="grid-artiste">
+                </div>
+        </section>
+
+        <footer>
+            <div style="margin-bottom: 20px;">
+                <h3 style="color:#cccccc; font-size: 1.2em; margin-bottom:15px;">SUIVEZ NELYA NYA</h3>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/nelya.nya/" target="_blank">📸 Instagram</a>
+                    <a href="https://www.youtube.com/@nelyanyapassemoilemic" target="_blank">📺 YouTube: Passe Moi Le Mic</a>
+                    <a href="https://www.youtube.com/@nelyanyaartiste" target="_blank">🎵 YouTube: Artiste</a>
+                </div>
+            </div>
+            <p id="txt-footer">© 2025 NELYA NYA – Site créé par NELYA NYA</p>
+        </footer>
+    </div>
+
+    <div id="video-modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalForce()">&times;</span>
+            <div class="video-wrapper">
+                <iframe id="video-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. CONFIGURATION ---
+        
+        // Liste des vidéos ÉMISSION (Ordre corrigé : 1. Scrinef, 2. DD/Yuri, 3. BELA1R)
+        var vidsEmission = [
+            { id: '6bSB2Pt43Yk', title: "Nelya te passe le mic #2 (Invité : Scrinef)" },
+            { id: '3gq7wtpk5Mw', title: "Nelya te passe le mic (Invités : DD La Scalap & MC Yuri)" },
+            { id: 'sV-wvCmNzuc', title: "Nelya te passe le mic #1 (Invité : BELA1R)" }
+        ];
+
+        // Liste des vidéos ARTISTE
+        var vidsArtiste = [
+            { id: 'Z8C0iqtj7rA', title: "Nelya NYA - Bombarde (Clip Officiel)" },
+            { id: '0hTSlMh9CP0', title: "Nelya NYA - Freestyle Femme d'honneur" }
+        ];
+
+        // Traductions
+        var translations = {
+            fr: {
+                subtitle: "Animatrice Radio · Artiste · Podcasts",
+                emissionTitle: "L'ÉMISSION PASSE MOI LE MIC",
+                emissionBio: "Émission consacrée au rap et au hip-hop toulousain, \"Passe Moi Le Mic\" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.",
+                artisteTitle: "NELYA NYA – L'ARTISTE",
+                artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.",
+                btnWatch: "REGARDER LA VIDÉO",
+                footer: "© 2025 NELYA NYA – Site créé par NELYA NYA"
+            },
+            en: {
+                subtitle: "Radio Host · Artist · Podcasts",
+                emissionTitle: "THE SHOW: PASSE MOI LE MIC",
+                emissionBio: "Dedicated to Toulouse rap and hip-hop, \"Passe Moi Le Mic\" is the reference for discovering local talents. Hosted by Nelya Nya, find exclusive interviews, freestyles, and urban culture.",
+                artisteTitle: "NELYA NYA – THE ARTIST",
+                artisteBio: "Rapper and singer from Toulouse, Nelya Nya imposes her style with a striking flow and authentic lyrics. Between Trap and melodies, discover the musical universe of a complete artist.",
+                btnWatch: "WATCH VIDEO",
+                footer: "© 2025 NELYA NYA – Website created by NELYA NYA"
+            },
+            es: { subtitle: "Presentadora · Artista · Podcasts", emissionTitle: "EL PROGRAMA: PASSE MOI LE MIC", emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, \"Passe Moi Le Mic\" es la referencia para descubrir talentos locales. Presentado por Nelya Nya, con entrevistas exclusivas y freestyles.", artisteTitle: "NELYA NYA – LA ARTISTA", artisteBio: "Rapera y cantante de Toulouse, Nelya Nya impone su estilo con un flow impactante y letras auténticas. Entre Trap y melodías, descubre el universo musical de una artista completa.", btnWatch: "VER VIDEO", footer: "© 2025 NELYA NYA – Sitio web creado por NELYA NYA" },
+            pt: { subtitle: "Apresentadora · Artista · Podcasts", emissionTitle: "O PROGRAMA: PASSE MOI LE MIC", emissionBio: "Programa dedicado ao rap e hip-hop de Toulouse, referência para descobrir talentos locais. Apresentado por Nelya Nya, com entrevistas exclusivas e freestyles.", artisteTitle: "NELYA NYA – A ARTISTA", artisteBio: "Rapper e cantora de Toulouse, Nelya Nya impõe seu estilo com flow impactante. Entre Trap e melodias, descubra o universo musical de uma artista completa.", btnWatch: "ASSISTIR VÍDEO", footer: "© 2025 NELYA NYA – Site criado por NELYA NYA" },
+            ru: { subtitle: "Радиоведущая · Артист · Подкасты", emissionTitle: "ШОУ: PASSE MOI LE MIC", emissionBio: "Шоу, посвященное рэпу и хип-хопу Тулузы. Ведущая Неля Нья представляет эксклюзивные интервью и фристайлы местной сцены.", artisteTitle: "NELYA NYA – АРТИСТ", artisteBio: "Рэпер и певица из Тулузы, Неля Нья выделяется своим флоу и текстами. Откройте для себя музыкальную вселенную полноценного артиста.", btnWatch: "СМОТРЕТЬ", footer: "© 2025 NELYA NYA – Сайт создан NELYA NYA" },
+            it: { subtitle: "Conduttrice · Artista · Podcast", emissionTitle: "IL PROGRAMMA: PASSE MOI LE MIC", emissionBio: "Programma dedicato al rap e hip-hop di Tolosa. Condotto da Nelya Nya, con interviste esclusive e freestyle della scena locale.", artisteTitle: "NELYA NYA – L'ARTISTA", artisteBio: "Rapper e cantante di Tolosa, Nelya Nya impone il suo stile con un flow incisivo. Tra Trap e melodie, scopri l'universo musicale di un'artista completa.", btnWatch: "GUARDA VIDEO", footer: "© 2025 NELYA NYA – Sito creato da NELYA NYA" }
+        };
+
+        // --- 2. FONCTIONS ---
+
+        // Fonction pour afficher une grille de vidéos
+        function displayGrid(containerId, videos, btnText) {
+            var container = document.getElementById(containerId);
+            var html = "";
+            
+            for (var i = 0; i < videos.length; i++) {
+                var v = videos[i];
+                var thumb = "https://img.youtube.com/vi/" + v.id + "/hqdefault.jpg";
+                
+                html += '<div class="video-card" onclick="playVideo(\'' + v.id + '\')">';
+                html += '  <img src="' + thumb + '" alt="Video">';
+                html += '  <div class="video-info">';
+                html += '    <h3>' + v.title + '</h3>';
+                html += '    <span class="btn-watch">' + btnText + '</span>';
+                html += '  </div>';
+                html += '</div>';
+            }
+            container.innerHTML = html;
+        }
+
+        // Fonction principale de mise à jour de la page
+        function setLanguage(lang) {
+            var t = translations[lang];
+            
+            // Mise à jour des textes
+            document.getElementById('txt-subtitle').innerText = t.subtitle;
+            document.getElementById('title-emission').innerText = t.emissionTitle;
+            document.getElementById('bio-emission').innerText = t.emissionBio;
+            document.getElementById('title-artiste').innerText = t.artisteTitle;
+            document.getElementById('bio-artiste').innerText = t.artisteBio;
+            document.getElementById('txt-footer').innerText = t.footer;
+            
+            // Mise à jour des grilles vidéos
+            displayGrid('grid-emission', vidsEmission, t.btnWatch);
+            displayGrid('grid-artiste', vidsArtiste, t.btnWatch);
+            
+            // Fermer le menu langue
+            document.getElementById('lang-menu').style.display = 'none';
+        }
+
+        // Menu langue
+        function toggleMenu() {
+            var menu = document.getElementById('lang-menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        // --- 3. GESTION LECTEUR VIDÉO (MODALE) ---
+        function playVideo(id) {
+            var modal = document.getElementById('video-modal');
+            var iframe = document.getElementById('video-iframe');
+            iframe.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+            modal.style.display = "block";
+        }
+
+        function closeModalForce() {
+            var modal = document.getElementById('video-modal');
+            var iframe = document.getElementById('video-iframe');
+            iframe.src = "";
+            modal.style.display = "none";
+        }
+
+        function closeModal(event) {
+            if (event.target.id === 'video-modal') {
+                closeModalForce();
+            }
+        }
+
+        // --- 4. LANCEMENT ---
+        // On lance directement en français
+        setLanguage('fr');
+
+    </script>
+</body>
+</html>
