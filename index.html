@@ -4,159 +4,139 @@
     <meta charset="UTF-8">
     <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Icône d'onglet -->
-    <link rel="icon" href="https://raw.githubusercontent.com/Djbilbox/djbilboxbeats.github.io/main/favicon.ico" type="image/x-icon">
-
     <style>
-        :root {
-            --primary: #a855f7;
-            --secondary: #ec4899;
-            --dark-bg: #020617;
-            --card-bg: #0f172a;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-        }
-
+        /* DESIGN DE BASE - FONCTIONNE PARTOUT */
         body {
+            background-color: #000000; /* Fond noir forcé */
+            color: #ffffff; /* Texte blanc forcé */
+            font-family: sans-serif;
             margin: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: radial-gradient(circle at top center, #1f2933 0, var(--dark-bg) 60%, #000 100%);
-            color: var(--text-main);
-            overflow-x: hidden;
-            transition: all 0.3s ease;
-        }
-
-        /* Gestion de l'écriture Droite à Gauche pour l'Arabe */
-        body[dir="rtl"] {
-            text-align: right;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 16px 80px;
-        }
-
-        /* --- HEADER & NAVIGATION --- */
-        header {
+            padding: 20px;
             text-align: center;
-            padding: 40px 0;
-            position: relative;
-        }
-
-        .lang-switch-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 100;
         }
         
-        body[dir="rtl"] .lang-switch-container {
-            left: 10px;
-            right: auto;
+        /* CONTENEUR */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
         }
 
-        select#language-selector {
-            background: rgba(15, 23, 42, 0.9);
-            color: #fff;
-            border: 1px solid var(--primary);
-            padding: 8px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            outline: none;
-            font-size: 0.9rem;
+        /* HEADER */
+        h1 { 
+            color: #d63384; 
+            font-size: 2.5em; 
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
+        
+        .subtitle { color: #aaa; margin-bottom: 30px; font-size: 1.2em; }
 
-        h1 {
-            font-size: 3rem;
-            margin: 0 0 10px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
+        /* NAVIGATION */
+        nav { margin-bottom: 40px; }
         nav a {
-            color: var(--text-main);
+            color: #fff;
             text-decoration: none;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        nav a:hover {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-color: transparent;
-            box-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
-            transform: translateY(-3px);
-        }
-
-        /* --- SECTIONS --- */
-        section {
-            margin-bottom: 80px;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: #e879f9;
-            margin-bottom: 20px;
-            position: relative;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 1px solid #d63384;
+            border-radius: 5px;
             display: inline-block;
         }
-        
-        h2::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 3px;
-            background: var(--secondary);
-            margin-top: 5px;
-            border-radius: 2px;
-        }
+        nav a:hover { background: #d63384; }
 
-        p {
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: #cbd5e1;
-            max-width: 800px;
-        }
+        /* SECTIONS */
+        section { margin-bottom: 60px; border-bottom: 1px solid #333; padding-bottom: 40px; }
+        h2 { color: #d63384; margin-top: 0; }
+        p { line-height: 1.6; color: #ccc; }
 
-        /* --- GRILLE VIDÉOS --- */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .video-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            text-decoration: none;
+        /* BOUTIQUE */
+        .btn-buy {
+            display: inline-block;
+            background: #d63384;
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
 
+        /* VIDEOS */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            margin-bottom: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
 
+    <div class="container">
+        <!-- EN-TÊTE -->
+        <header>
+            <h1>NELYA NYA</h1>
+            <div class="subtitle">Animatrice Radio · Artiste · Podcasts</div>
+            
+            <nav>
+                <a href="#emission">ÉMISSION</a>
+                <a href="#nelya">ARTISTE</a>
+                <a href="#boutique">BOUTIQUE</a>
+            </nav>
+        </header>
+
+        <!-- SECTION ÉMISSION -->
+        <section id="emission">
+            <h2>L'ÉMISSION PASSE MOI LE MIC</h2>
+            <p>Retrouvez toutes les émissions sur Radio Canal Sud consacrées au rap toulousain.</p>
+            
+            <!-- Vidéo 1 -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/6bSB2Pt43Yk" allowfullscreen></iframe>
+            </div>
+            
+            <!-- Vidéo 2 -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/yB6zDyOGvtk" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- SECTION ARTISTE -->
+        <section id="nelya">
+            <h2>NELYA NYA – L'ARTISTE</h2>
+            <p>Rappeuse et chanteuse au flow unique. Découvrez "Bombarde" et "Femme d'honneur".</p>
+            
+            <!-- Vidéo Clip -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Z8C0iqtj7rA" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- BOUTIQUE -->
+        <section id="boutique">
+            <h2>BOUTIQUE OFFICIELLE</h2>
+            <p>T-SHIRT "PASSE MOI LE MIC" - Édition Limitée</p>
+            <h3 style="color:white; font-size:2em;">20,00 €</h3>
+            <a href="#" class="btn-buy">COMMANDER MAINTENANT</a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer style="margin-top:50px; color:#666; font-size:0.8em;">
+            <p>© 2025 NELYA NYA – Site développé par DJBILBOX BEATS</p>
+        </footer>
+    </div>
+
+</body>
+</html>
