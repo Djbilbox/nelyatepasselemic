@@ -5,91 +5,69 @@
     <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Styles généraux */
         body { background-color: #121212; color: #fff; font-family: Arial, sans-serif; margin: 0; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
         h1, h2, h3 { color: #f9b233; }
         a { color: #f9b233; text-decoration: none; }
-        p.bio { line-height: 1.6; color: #ccc; text-align: center; margin-bottom: 30px; }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 40px 0;
-        }
+        p.bio { line-height: 1.6; color: #ccc; text-align: center; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;}
+        header { text-align: center; padding: 40px 0; }
         header h1 { font-size: 3em; margin: 0; }
         header p { font-size: 1.2em; }
-
-        /* Sélecteur de langue */
         .lang-switcher { position: absolute; top: 20px; right: 20px; }
         .lang-menu { display: none; position: absolute; right: 0; background-color: #232323; border-radius: 5px; padding: 10px; z-index: 1000; }
         .lang-menu a { display: block; padding: 8px 12px; color: white; }
         .lang-menu a:hover { background-color: #f9b233; color: #121212; }
         #selected-lang { cursor: pointer; font-size: 1.5em; }
-
-        /* Sections */
-        section { margin-bottom: 40px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .video-card {
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
+        section { text-align: center; margin-bottom: 40px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left; }
+        .video-card { background-color: #1a1a1a; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
         .video-card img { width: 100%; display: block; }
         .video-card-content { padding: 15px; }
         .video-card-content h3 { margin: 0 0 10px 0; font-size: 1.1em; }
         .video-card-content a { background-color: #f9b233; color: #121212; padding: 8px 12px; border-radius: 5px; display: inline-block; }
-
-        /* Footer */
         footer { text-align: center; padding: 20px; font-size: 0.9em; color: #777; }
     </style>
 </head>
 <body>
-
     <div class="container">
-
         <div class="lang-switcher">
             <div id="selected-lang">🇫🇷</div>
             <div class="lang-menu" id="lang-menu">
                 <a href="#" data-lang="fr">🇫🇷 Français</a>
                 <a href="#" data-lang="en">🇬🇧 English</a>
                 <a href="#" data-lang="es">🇪🇸 Español</a>
+                <a href="#" data-lang="pt">🇵🇹 Português</a>
+                <a href="#" data-lang="ru">🇷🇺 Русский</a>
+                <a href="#" data-lang="it">🇮🇹 Italiano</a>
             </div>
         </div>
-
         <header>
             <h1 id="main-title">NELYA NYA</h1>
             <p id="subtitle">Animatrice Radio · Artiste · Podcasts</p>
         </header>
-
         <main>
             <section id="emission">
                 <h2 id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2>
-                <!-- BIO DE L'ÉMISSION AJOUTÉE ICI -->
-                <p class="bio" id="emission-bio"></p>
-                <div class="video-grid" id="videos-emission"></div>
+                <p class="bio" id="emission-bio">Émission consacrée au rap et au hip-hop toulousain, 'Passe Moi Le Mic' est la plateforme de référence pour découvrir les talents émergents et confirmés de la scène locale. Animée avec passion par Nelya Nya, chaque épisode offre des interviews exclusives, des freestyles percutants et une immersion totale dans la culture urbaine de la Ville Rose.</p>
+                <div class="video-grid" id="videos-emission">
+                    <!-- Les vidéos sont maintenant générées par JS -->
+                </div>
             </section>
-
             <section id="nelya">
                 <h2 id="title-artiste">NELYA NYA – L'ARTISTE</h2>
-                <!-- BIO DE L'ARTISTE AJOUTÉE ICI -->
-                <p class="bio" id="artiste-bio"></p>
-                <div class="video-grid" id="videos-artiste"></div>
+                <p class="bio" id="artiste-bio">Rappeuse et chanteuse toulousaine, Nelya Nya se distingue par son flow percutant et ses textes authentiques. Artiste polyvalente, elle navigue entre des sonorités trap et des mélodies plus introspectives. Son énergie sur scène et sa détermination en font une figure montante à suivre de très près.</p>
+                <div class="video-grid" id="videos-artiste">
+                    <!-- Les vidéos sont maintenant générées par JS -->
+                </div>
             </section>
         </main>
-
         <footer>
             <p id="footer-text">© 2025 NELYA NYA – Site développé par DJBILBOX BEATS</p>
         </footer>
-
     </div>
-
     <script>
-        // TEXTES COMPLETS AVEC LES BIOS
         const translations = {
             fr: {
-                mainTitle: "NELYA NYA",
                 subtitle: "Animatrice Radio · Artiste · Podcasts",
                 titleEmission: "L'ÉMISSION PASSE MOI LE MIC",
                 emissionBio: "Émission consacrée au rap et au hip-hop toulousain, 'Passe Moi Le Mic' est la plateforme de référence pour découvrir les talents émergents et confirmés de la scène locale. Animée avec passion par Nelya Nya, chaque épisode offre des interviews exclusives, des freestyles percutants et une immersion totale dans la culture urbaine de la Ville Rose.",
@@ -99,7 +77,6 @@
                 footerText: "© 2025 NELYA NYA – Site développé par DJBILBOX BEATS"
             },
             en: {
-                mainTitle: "NELYA NYA",
                 subtitle: "Radio Host · Artist · Podcasts",
                 titleEmission: "THE SHOW: PASSE MOI LE MIC",
                 emissionBio: "A show dedicated to Toulouse rap and hip-hop, 'Passe Moi Le Mic' is the reference platform for discovering emerging and confirmed talents from the local scene. Hosted with passion by Nelya Nya, each episode offers exclusive interviews, hard-hitting freestyles, and a total immersion in the urban culture of the Pink City.",
@@ -109,9 +86,26 @@
                 footerText: "© 2025 NELYA NYA – Website developed by DJBILBOX BEATS"
             },
             es: {
-                mainTitle: "NELYA NYA",
                 subtitle: "Presentadora de Radio · Artista · Podcasts",
                 titleEmission: "EL PROGRAMA: PASSE MOI LE MIC",
                 emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, 'Passe Moi Le Mic' es la plataforma de referencia para descubrir los talentos emergentes y confirmados de la escena local. Presentado con pasión por Nelya Nya, cada episodio ofrece entrevistas exclusivas, freestyles impactantes y una inmersión total en la cultura urbana de la Ciudad Rosa.",
                 titleArtiste: "NELYA NYA – LA ARTISTA",
-                artisteBio: "Rapera y cantante de Toulouse, Nelya Nya se distingue por su flow impactante y sus letras
+                artisteBio: "Rapera y cantante de Toulouse, Nelya Nya se distingue por su flow impactante y sus letras auténticas. Artista polifacética, navega entre sonidos trap y melodías más introspectivas. Su energía en el escenario y su determinación la convierten en una figura en ascenso a seguir muy de cerca.",
+                watchButton: "Ver",
+                footerText: "© 2025 NELYA NYA – Sitio web desarrollado por DJBILBOX BEATS"
+            },
+            pt: {
+                subtitle: "Apresentadora de Rádio · Artista · Podcasts",
+                titleEmission: "O PROGRAMA: PASSE MOI LE MIC",
+                emissionBio: "Um programa dedicado ao rap e hip-hop de Toulouse, 'Passe Moi Le Mic' é a plataforma de referência para descobrir talentos emergentes e confirmados da cena local. Apresentado com paixão por Nelya Nya, cada episódio oferece entrevistas exclusivas, freestyles impactantes e uma imersão total na cultura urbana da Cidade Rosa.",
+                titleArtiste: "NELYA NYA – A ARTISTA",
+                artisteBio: "Rapper e cantora de Toulouse, Nelya Nya destaca-se pelo seu flow impactante e letras autênticas. Artista versátil, ela navega entre sons de trap e melodias mais introspectivas. A sua energia em palco e a sua determinação fazem dela uma figura em ascensão a seguir de muito perto.",
+                watchButton: "Assistir",
+                footerText: "© 2025 NELYA NYA – Site desenvolvido por DJBILBOX BEATS"
+            },
+            ru: {
+                subtitle: "Радиоведущая · Артист · Подкасты",
+                titleEmission: "ШОУ: PASSE MOI LE MIC",
+                emissionBio: "Шоу, посвященное рэпу и хип-хопу Тулузы, 'Passe Moi Le Mic' — это основная платформа для открытия новых и уже состоявшихся талантов местной сцены. Ведущая шоу, Неля Нья, с энтузиазмом представляет эксклюзивные интервью, мощные фристайлы и полное погружение в городскую культуру Розового города.",
+                titleArtiste: "NELYA NYA – АРТИСТ",
+                artisteBio: "Рэпер и певица из Тулузы, Неля Нья выделяется своим впечат
