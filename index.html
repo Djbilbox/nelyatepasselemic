@@ -5,52 +5,56 @@
     <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* DESIGN NOIR & OR PROPRE */
-        body { background-color: #121212; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; }
+        /* DESIGN NOIR & VIOLET FLUO */
+        body { background-color: #050505; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; }
         .container { max-width: 1000px; margin: auto; padding: 20px; }
         
-        /* TYPOGRAPHIE */
-        h1, h2, h3 { color: #f9b233; text-transform: uppercase; letter-spacing: 1px; }
-        p { color: #cccccc; line-height: 1.6; }
-        a { color: #f9b233; text-decoration: none; font-weight: bold; }
+        /* TYPOGRAPHIE & COULEURS */
+        /* LE VIOLET EST ICI : #bf00ff */
+        h1, h2, h3 { color: #bf00ff; text-transform: uppercase; letter-spacing: 1px; }
+        p { color: #dddddd; line-height: 1.6; }
+        a { color: #bf00ff; text-decoration: none; font-weight: bold; }
         
         /* HEADER */
         header { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid #333; margin-bottom: 40px; }
-        header h1 { font-size: 3.5em; margin: 0; text-shadow: 0 0 10px rgba(249, 178, 51, 0.3); }
+        header h1 { font-size: 3.5em; margin: 0; text-shadow: 0 0 15px rgba(191, 0, 255, 0.5); } /* Ombre violette */
         header p { font-size: 1.4em; color: #fff; margin-top: 10px; }
 
         /* BOUTON LANGUE */
         .lang-switcher { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: #222; border: 1px solid #f9b233; color: #fff; padding: 10px 15px; cursor: pointer; border-radius: 5px; font-size: 1.2em; }
-        .lang-menu { display: none; position: absolute; right: 0; top: 100%; background-color: #222; border: 1px solid #444; border-radius: 5px; width: 150px; }
-        .lang-menu a { display: block; padding: 10px; color: #fff; border-bottom: 1px solid #333; }
-        .lang-menu a:hover { background-color: #f9b233; color: #000; }
+        .lang-btn { background: #1a1a1a; border: 2px solid #bf00ff; color: #fff; padding: 10px 15px; cursor: pointer; border-radius: 5px; font-size: 1.1em; font-weight: bold; }
+        .lang-btn:hover { background: #bf00ff; color: #000; }
+        .lang-menu { display: none; position: absolute; right: 0; top: 110%; background-color: #1a1a1a; border: 1px solid #bf00ff; border-radius: 5px; width: 160px; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        .lang-menu a { display: block; padding: 12px; color: #fff; border-bottom: 1px solid #333; transition: 0.2s; }
+        .lang-menu a:hover { background-color: #bf00ff; color: #fff; }
 
         /* SECTIONS */
-        section { margin-bottom: 60px; }
-        .section-title { text-align: center; font-size: 2em; margin-bottom: 20px; border-bottom: 2px solid #f9b233; display: inline-block; padding-bottom: 5px; }
+        section { margin-bottom: 80px; }
+        .section-title { text-align: center; font-size: 2em; margin-bottom: 30px; border-bottom: 3px solid #bf00ff; display: inline-block; padding-bottom: 10px; }
         
         /* BIOS */
-        .bio-box { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center; border-left: 4px solid #f9b233; }
+        .bio-box { background: #111; padding: 25px; border-radius: 15px; margin-bottom: 40px; text-align: center; border: 1px solid #333; border-left: 5px solid #bf00ff; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
         
-        /* GRILLE VIDÉOS */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .video-card { background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease; }
-        .video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(249, 178, 51, 0.2); }
-        .video-card img { width: 100%; height: auto; display: block; }
-        .video-info { padding: 15px; }
-        .video-info h3 { font-size: 1em; margin: 0 0 10px 0; color: #fff; min-height: 40px; }
-        .btn-watch { display: block; background-color: #f9b233; color: #000; text-align: center; padding: 10px; border-radius: 4px; text-transform: uppercase; font-size: 0.9em; }
-        .btn-watch:hover { background-color: #fff; }
+        /* GRILLE VIDÉOS (YOUTUBE INTEGRÉ) */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .video-card { background-color: #1a1a1a; border-radius: 12px; overflow: hidden; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(191, 0, 255, 0.15); border: 1px solid #bf00ff; }
+        
+        /* IFRAME RESPONSIVE */
+        .iframe-container { position: relative; width: 100%; padding-bottom: 56.25%; /* Ratio 16:9 */ height: 0; }
+        .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        
+        .video-info { padding: 15px; text-align: center; }
+        .video-info h3 { font-size: 1.1em; margin: 0; color: #fff; font-weight: normal; }
 
         /* FOOTER */
-        footer { text-align: center; padding: 40px; background-color: #000; margin-top: 50px; font-size: 0.9em; color: #666; }
+        footer { text-align: center; padding: 40px; background-color: #000; margin-top: 50px; font-size: 0.9em; color: #666; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- LANGUES -->
+        <!-- SELECTEUR LANGUE -->
         <div class="lang-switcher">
             <button class="lang-btn" id="lang-btn">🌍 FR ▼</button>
             <div class="lang-menu" id="lang-menu">
@@ -95,9 +99,9 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
+        <!-- FOOTER MODIFIÉ -->
         <footer>
-            <p id="txt-footer">© 2025 NELYA NYA – Site développé par DJBILBOX BEATS</p>
+            <p id="txt-footer">© 2025 NELYA NYA – Site créé par NELYA NYA</p>
         </footer>
     </div>
 
@@ -110,124 +114,4 @@
                 emissionBio: "Émission consacrée au rap et au hip-hop toulousain, \"Passe Moi Le Mic\" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.",
                 artisteTitle: "NELYA NYA – L'ARTISTE",
                 artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.",
-                btnWatch: "REGARDER LA VIDÉO",
-                footer: "© 2025 NELYA NYA – Site développé par DJBILBOX BEATS"
-            },
-            en: {
-                subtitle: "Radio Host · Artist · Podcasts",
-                emissionTitle: "THE SHOW: PASSE MOI LE MIC",
-                emissionBio: "Dedicated to Toulouse rap and hip-hop, \"Passe Moi Le Mic\" is the reference for discovering local talents. Hosted by Nelya Nya, find exclusive interviews, freestyles, and urban culture.",
-                artisteTitle: "NELYA NYA – THE ARTIST",
-                artisteBio: "Rapper and singer from Toulouse, Nelya Nya imposes her style with a striking flow and authentic lyrics. Between Trap and melodies, discover the musical universe of a complete artist.",
-                btnWatch: "WATCH VIDEO",
-                footer: "© 2025 NELYA NYA – Website developed by DJBILBOX BEATS"
-            },
-            es: {
-                subtitle: "Presentadora · Artista · Podcasts",
-                emissionTitle: "EL PROGRAMA: PASSE MOI LE MIC",
-                emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, \"Passe Moi Le Mic\" es la referencia para descubrir talentos locales. Presentado por Nelya Nya, con entrevistas exclusivas y freestyles.",
-                artisteTitle: "NELYA NYA – LA ARTISTA",
-                artisteBio: "Rapera y cantante de Toulouse, Nelya Nya impone su estilo con un flow impactante y letras auténticas. Entre Trap y melodías, descubre el universo musical de una artista completa.",
-                btnWatch: "VER VIDEO",
-                footer: "© 2025 NELYA NYA – Sitio web desarrollado por DJBILBOX BEATS"
-            },
-            pt: {
-                subtitle: "Apresentadora · Artista · Podcasts",
-                emissionTitle: "O PROGRAMA: PASSE MOI LE MIC",
-                emissionBio: "Programa dedicado ao rap e hip-hop de Toulouse, referência para descobrir talentos locais. Apresentado por Nelya Nya, com entrevistas exclusivas e freestyles.",
-                artisteTitle: "NELYA NYA – A ARTISTA",
-                artisteBio: "Rapper e cantora de Toulouse, Nelya Nya impõe seu estilo com flow impactante. Entre Trap e melodias, descubra o universo musical de uma artista completa.",
-                btnWatch: "ASSISTIR VÍDEO",
-                footer: "© 2025 NELYA NYA – Site desenvolvido por DJBILBOX BEATS"
-            },
-            ru: {
-                subtitle: "Радиоведущая · Артист · Подкасты",
-                emissionTitle: "ШОУ: PASSE MOI LE MIC",
-                emissionBio: "Шоу, посвященное рэпу и хип-хопу Тулузы. Ведущая Неля Нья представляет эксклюзивные интервью и фристайлы местной сцены.",
-                artisteTitle: "NELYA NYA – АРТИСТ",
-                artisteBio: "Рэпер и певица из Тулузы, Неля Нья выделяется своим флоу и текстами. Откройте для себя музыкальную вселенную полноценного артиста.",
-                btnWatch: "СМОТРЕТЬ",
-                footer: "© 2025 NELYA NYA – Сайт разработан DJBILBOX BEATS"
-            },
-            it: {
-                subtitle: "Conduttrice · Artista · Podcast",
-                emissionTitle: "IL PROGRAMMA: PASSE MOI LE MIC",
-                emissionBio: "Programma dedicato al rap e hip-hop di Tolosa. Condotto da Nelya Nya, con interviste esclusive e freestyle della scena locale.",
-                artisteTitle: "NELYA NYA – L'ARTISTA",
-                artisteBio: "Rapper e cantante di Tolosa, Nelya Nya impone il suo stile con un flow incisivo. Tra Trap e melodie, scopri l'universo musicale di un'artista completa.",
-                btnWatch: "GUARDA VIDEO",
-                footer: "© 2025 NELYA NYA – Sito sviluppato da DJBILBOX BEATS"
-            }
-        };
-
-        // VIDÉOS (IDS YOUTUBE CORRIGÉS)
-        const vidsEmission = [
-            { id: '6bSB2Pt43Yk', title: "Nelya te passe le mic #2 (Invité : Scrinef)" },
-            { id: 'sV-wvCmNzuc', title: "Nelya te passe le mic #1 (Invité : BELA1R)" },
-            { id: '3gq7wtpk5Mw', title: "Nelya te passe le mic (Invités : MC Yuri & DD La Scalap)" }
-        ];
-
-        const vidsArtiste = [
-            { id: 'Z8C0iqtj7rA', title: "Nelya NYA - Bombarde (Clip Officiel)" },
-            { id: '0hTSlMh9CP0', title: "Nelya NYA - Freestyle Femme d'honneur" }
-        ];
-
-        // FONCTION AFFICHAGE
-        function renderPage(lang) {
-            // Textes
-            document.getElementById('txt-subtitle').innerText = content[lang].subtitle;
-            document.getElementById('title-emission').innerText = content[lang].emissionTitle;
-            document.getElementById('bio-emission').innerText = content[lang].emissionBio;
-            document.getElementById('title-artiste').innerText = content[lang].artisteTitle;
-            document.getElementById('bio-artiste').innerText = content[lang].artisteBio;
-            document.getElementById('txt-footer').innerText = content[lang].footer;
-            document.getElementById('lang-btn').innerText = "🌍 " + lang.toUpperCase() + " ▼";
-
-            // Vidéos Émission
-            const gridEm = document.getElementById('grid-emission');
-            gridEm.innerHTML = "";
-            vidsEmission.forEach(v => {
-                gridEm.innerHTML += `
-                <div class="video-card">
-                    <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg">
-                    <div class="video-info">
-                        <h3>${v.title}</h3>
-                        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" class="btn-watch">${content[lang].btnWatch}</a>
-                    </div>
-                </div>`;
-            });
-
-            // Vidéos Artiste
-            const gridArt = document.getElementById('grid-artiste');
-            gridArt.innerHTML = "";
-            vidsArtiste.forEach(v => {
-                gridArt.innerHTML += `
-                <div class="video-card">
-                    <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg">
-                    <div class="video-info">
-                        <h3>${v.title}</h3>
-                        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" class="btn-watch">${content[lang].btnWatch}</a>
-                    </div>
-                </div>`;
-            });
-        }
-
-        // GESTION LANGUE
-        function changeLang(lang) {
-            renderPage(lang);
-            document.getElementById('lang-menu').style.display = 'none';
-        }
-
-        // INTERACTION MENU
-        document.getElementById('lang-btn').addEventListener('click', () => {
-            const menu = document.getElementById('lang-menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // INIT
-        renderPage('fr');
-
-    </script>
-
-</body>
-</html>
+                footer: "© 2025 NELYA NYA – Site créé par NELYA NYA
