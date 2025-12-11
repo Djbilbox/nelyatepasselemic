@@ -5,52 +5,234 @@
     <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* DESIGN NOIR & OR PROPRE */
-        body { background-color: #121212; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        /* COULEUR VIOLET PRINCIPALE */
+        :root {
+            --main-color: #8a2be2; /* Violet (Blue Violet) */
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #fff;
+            --text-light: #cccccc;
+        }
+
+        /* DESIGN NOIR & VIOLET PROPRE */
+        body { 
+            background-color: var(--dark-bg); 
+            color: var(--text-color); 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: auto; 
+            padding: 20px; 
+        }
         
         /* TYPOGRAPHIE */
-        h1, h2, h3 { color: #f9b233; text-transform: uppercase; letter-spacing: 1px; }
-        p { color: #cccccc; line-height: 1.6; }
-        a { color: #f9b233; text-decoration: none; font-weight: bold; }
+        h1, h2, h3 { 
+            color: var(--main-color); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        p { 
+            color: var(--text-light); 
+            line-height: 1.6; 
+        }
+        a { 
+            color: var(--main-color); 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
         
         /* HEADER */
-        header { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid #333; margin-bottom: 40px; }
-        header h1 { font-size: 3.5em; margin: 0; text-shadow: 0 0 10px rgba(249, 178, 51, 0.3); }
-        header p { font-size: 1.4em; color: #fff; margin-top: 10px; }
+        header { 
+            text-align: center; 
+            padding: 60px 0 40px; 
+            border-bottom: 1px solid #333; 
+            margin-bottom: 40px; 
+        }
+        header h1 { 
+            font-size: 3.5em; 
+            margin: 0; 
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.3); /* Ombre Violette */
+        }
+        header p { 
+            font-size: 1.4em; 
+            color: var(--text-color); 
+            margin-top: 10px; 
+        }
 
         /* BOUTON LANGUE */
-        .lang-switcher { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-        .lang-btn { background: #222; border: 1px solid #f9b233; color: #fff; padding: 10px 15px; cursor: pointer; border-radius: 5px; font-size: 1.2em; }
-        .lang-menu { display: none; position: absolute; right: 0; top: 100%; background-color: #222; border: 1px solid #444; border-radius: 5px; width: 150px; }
-        .lang-menu a { display: block; padding: 10px; color: #fff; border-bottom: 1px solid #333; }
-        .lang-menu a:hover { background-color: #f9b233; color: #000; }
+        .lang-switcher { 
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            z-index: 1000; 
+        }
+        .lang-btn { 
+            background: #222; 
+            border: 1px solid var(--main-color); 
+            color: var(--text-color); 
+            padding: 10px 15px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-size: 1.2em; 
+        }
+        .lang-menu { 
+            display: none; 
+            position: absolute; 
+            right: 0; 
+            top: 100%; 
+            background-color: #222; 
+            border: 1px solid #444; 
+            border-radius: 5px; 
+            width: 150px; 
+        }
+        .lang-menu a { 
+            display: block; 
+            padding: 10px; 
+            color: var(--text-color); 
+            border-bottom: 1px solid #333; 
+        }
+        .lang-menu a:hover { 
+            background-color: var(--main-color); 
+            color: #000; 
+        }
 
         /* SECTIONS */
-        section { margin-bottom: 60px; }
-        .section-title { text-align: center; font-size: 2em; margin-bottom: 20px; border-bottom: 2px solid #f9b233; display: inline-block; padding-bottom: 5px; }
+        section { 
+            margin-bottom: 60px; 
+        }
+        .section-title { 
+            text-align: center; 
+            font-size: 2em; 
+            margin-bottom: 20px; 
+            border-bottom: 2px solid var(--main-color); 
+            display: inline-block; 
+            padding-bottom: 5px; 
+        }
         
         /* BIOS */
-        .bio-box { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center; border-left: 4px solid #f9b233; }
+        .bio-box { 
+            background: #1a1a1a; 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-bottom: 30px; 
+            text-align: center; 
+            border-left: 4px solid var(--main-color); 
+        }
         
         /* GRILLE VIDÉOS */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .video-card { background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease; }
-        .video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(249, 178, 51, 0.2); }
-        .video-card img { width: 100%; height: auto; display: block; }
-        .video-info { padding: 15px; }
-        .video-info h3 { font-size: 1em; margin: 0 0 10px 0; color: #fff; min-height: 40px; }
-        .btn-watch { display: block; background-color: #f9b233; color: #000; text-align: center; padding: 10px; border-radius: 4px; text-transform: uppercase; font-size: 0.9em; }
-        .btn-watch:hover { background-color: #fff; }
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+        .video-card { 
+            background-color: var(--card-bg); 
+            border-radius: 8px; 
+            overflow: hidden; 
+            transition: transform 0.3s ease; 
+            cursor: pointer; /* Indique qu'on peut cliquer */
+        }
+        .video-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4); /* Ombre Violette */
+        }
+        .video-card img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+        .video-info { 
+            padding: 15px; 
+        }
+        .video-info h3 { 
+            font-size: 1em; 
+            margin: 0 0 10px 0; 
+            color: var(--text-color); 
+            min-height: 40px; 
+        }
+        .btn-watch { 
+            display: block; 
+            background-color: var(--main-color); 
+            color: #fff; /* Texte blanc sur le bouton violet */
+            text-align: center; 
+            padding: 10px; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+        .btn-watch:hover { 
+            background-color: #a366ff; /* Violet plus clair au survol */
+        }
 
         /* FOOTER */
-        footer { text-align: center; padding: 40px; background-color: #000; margin-top: 50px; font-size: 0.9em; color: #666; }
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            background-color: #000; 
+            margin-top: 50px; 
+            font-size: 0.9em; 
+            color: #666; 
+        }
+
+        /* MODAL VIDÉO */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; /* Au-dessus de tout */
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+        }
+        .modal-content {
+            position: relative;
+            margin: 10% auto; /* Centrage */
+            padding: 0;
+            width: 90%;
+            max-width: 800px;
+            background-color: transparent;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .close-btn {
+            color: #fff;
+            position: absolute;
+            top: -30px; 
+            right: 0px;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 2001;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--main-color);
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- LANGUES -->
         <div class="lang-switcher">
             <button class="lang-btn" id="lang-btn">🌍 FR ▼</button>
             <div class="lang-menu" id="lang-menu">
@@ -63,13 +245,11 @@
             </div>
         </div>
 
-        <!-- EN-TÊTE -->
         <header>
             <h1 id="txt-title">NELYA NYA</h1>
             <p id="txt-subtitle">Animatrice Radio · Artiste · Podcasts</p>
         </header>
 
-        <!-- SECTION ÉMISSION -->
         <section>
             <div style="text-align:center;"><h2 class="section-title" id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2></div>
             <div class="bio-box">
@@ -78,11 +258,9 @@
                 </p>
             </div>
             <div class="video-grid" id="grid-emission">
-                <!-- Vidéos insérées par JS -->
-            </div>
+                </div>
         </section>
 
-        <!-- SECTION ARTISTE -->
         <section>
             <div style="text-align:center;"><h2 class="section-title" id="title-artiste">NELYA NYA – L'ARTISTE</h2></div>
             <div class="bio-box">
@@ -91,14 +269,21 @@
                 </p>
             </div>
             <div class="video-grid" id="grid-artiste">
-                <!-- Vidéos insérées par JS -->
-            </div>
+                </div>
         </section>
 
-        <!-- FOOTER -->
         <footer>
-            <p id="txt-footer">© 2025 NELYA NYA – Site développé par DJBILBOX BEATS</p>
+            <p id="txt-footer">© 2025 NELYA NYA – Site créé par NELYA NYA</p>
         </footer>
+    </div>
+
+    <div id="video-modal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="video-wrapper">
+                <iframe id="video-iframe" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -111,7 +296,7 @@
                 artisteTitle: "NELYA NYA – L'ARTISTE",
                 artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.",
                 btnWatch: "REGARDER LA VIDÉO",
-                footer: "© 2025 NELYA NYA – Site développé par DJBILBOX BEATS"
+                footer: "© 2025 NELYA NYA – Site créé par NELYA NYA" // MODIFICATION ICI
             },
             en: {
                 subtitle: "Radio Host · Artist · Podcasts",
@@ -120,7 +305,7 @@
                 artisteTitle: "NELYA NYA – THE ARTIST",
                 artisteBio: "Rapper and singer from Toulouse, Nelya Nya imposes her style with a striking flow and authentic lyrics. Between Trap and melodies, discover the musical universe of a complete artist.",
                 btnWatch: "WATCH VIDEO",
-                footer: "© 2025 NELYA NYA – Website developed by DJBILBOX BEATS"
+                footer: "© 2025 NELYA NYA – Website created by NELYA NYA" // MODIFICATION ICI
             },
             es: {
                 subtitle: "Presentadora · Artista · Podcasts",
@@ -129,7 +314,7 @@
                 artisteTitle: "NELYA NYA – LA ARTISTA",
                 artisteBio: "Rapera y cantante de Toulouse, Nelya Nya impone su estilo con un flow impactante y letras auténticas. Entre Trap y melodías, descubre el universo musical de una artista completa.",
                 btnWatch: "VER VIDEO",
-                footer: "© 2025 NELYA NYA – Sitio web desarrollado por DJBILBOX BEATS"
+                footer: "© 2025 NELYA NYA – Sitio web creado por NELYA NYA" // MODIFICATION ICI
             },
             pt: {
                 subtitle: "Apresentadora · Artista · Podcasts",
@@ -138,7 +323,7 @@
                 artisteTitle: "NELYA NYA – A ARTISTA",
                 artisteBio: "Rapper e cantora de Toulouse, Nelya Nya impõe seu estilo com flow impactante. Entre Trap e melodias, descubra o universo musical de uma artista completa.",
                 btnWatch: "ASSISTIR VÍDEO",
-                footer: "© 2025 NELYA NYA – Site desenvolvido por DJBILBOX BEATS"
+                footer: "© 2025 NELYA NYA – Site criado por NELYA NYA" // MODIFICATION ICI
             },
             ru: {
                 subtitle: "Радиоведущая · Артист · Подкасты",
@@ -147,7 +332,7 @@
                 artisteTitle: "NELYA NYA – АРТИСТ",
                 artisteBio: "Рэпер и певица из Тулузы, Неля Нья выделяется своим флоу и текстами. Откройте для себя музыкальную вселенную полноценного артиста.",
                 btnWatch: "СМОТРЕТЬ",
-                footer: "© 2025 NELYA NYA – Сайт разработан DJBILBOX BEATS"
+                footer: "© 2025 NELYA NYA – Сайт создан NELYA NYA" // MODIFICATION ICI
             },
             it: {
                 subtitle: "Conduttrice · Artista · Podcast",
@@ -156,11 +341,11 @@
                 artisteTitle: "NELYA NYA – L'ARTISTA",
                 artisteBio: "Rapper e cantante di Tolosa, Nelya Nya impone il suo stile con un flow incisivo. Tra Trap e melodie, scopri l'universo musicale di un'artista completa.",
                 btnWatch: "GUARDA VIDEO",
-                footer: "© 2025 NELYA NYA – Sito sviluppato da DJBILBOX BEATS"
+                footer: "© 2025 NELYA NYA – Sito creato da NELYA NYA" // MODIFICATION ICI
             }
         };
 
-        // VIDÉOS (IDS YOUTUBE CORRIGÉS)
+        // VIDÉOS
         const vidsEmission = [
             { id: '6bSB2Pt43Yk', title: "Nelya te passe le mic #2 (Invité : Scrinef)" },
             { id: 'sV-wvCmNzuc', title: "Nelya te passe le mic #1 (Invité : BELA1R)" },
@@ -172,44 +357,70 @@
             { id: '0hTSlMh9CP0', title: "Nelya NYA - Freestyle Femme d'honneur" }
         ];
 
-        // FONCTION AFFICHAGE
+        let currentLang = 'fr'; // Langue par défaut
+
+        // --- GESTION DE LA MODALE VIDÉO ---
+        const modal = document.getElementById('video-modal');
+        const iframe = document.getElementById('video-iframe');
+
+        function openModal(videoId) {
+            // Utiliser l'URL d'intégration YouTube pour l'iframe
+            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            iframe.src = embedUrl;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            // Arrêter la vidéo en réinitialisant la source de l'iframe
+            iframe.src = ''; 
+            modal.style.display = 'none';
+        }
+
+        // Fermer la modale si l'utilisateur clique en dehors de celle-ci
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        // --- FIN GESTION MODALE ---
+
+
+        // FONCTION D'AFFICHAGE (render)
         function renderPage(lang) {
+            currentLang = lang;
+            const data = content[lang];
+
             // Textes
-            document.getElementById('txt-subtitle').innerText = content[lang].subtitle;
-            document.getElementById('title-emission').innerText = content[lang].emissionTitle;
-            document.getElementById('bio-emission').innerText = content[lang].emissionBio;
-            document.getElementById('title-artiste').innerText = content[lang].artisteTitle;
-            document.getElementById('bio-artiste').innerText = content[lang].artisteBio;
-            document.getElementById('txt-footer').innerText = content[lang].footer;
+            document.getElementById('txt-subtitle').innerText = data.subtitle;
+            document.getElementById('title-emission').innerText = data.emissionTitle;
+            document.getElementById('bio-emission').innerText = data.emissionBio;
+            document.getElementById('title-artiste').innerText = data.artisteTitle;
+            document.getElementById('bio-artiste').innerText = data.artisteBio;
+            document.getElementById('txt-footer').innerText = data.footer;
             document.getElementById('lang-btn').innerText = "🌍 " + lang.toUpperCase() + " ▼";
 
+            // Fonction pour créer et ajouter les cartes vidéo
+            function populateGrid(gridId, videos) {
+                const grid = document.getElementById(gridId);
+                grid.innerHTML = "";
+                videos.forEach(v => {
+                    const cardHtml = `
+                        <div class="video-card" onclick="openModal('${v.id}')">
+                            <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="${v.title}">
+                            <div class="video-info">
+                                <h3>${v.title}</h3>
+                                <span class="btn-watch">${data.btnWatch}</span>
+                            </div>
+                        </div>`;
+                    grid.innerHTML += cardHtml;
+                });
+            }
+
             // Vidéos Émission
-            const gridEm = document.getElementById('grid-emission');
-            gridEm.innerHTML = "";
-            vidsEmission.forEach(v => {
-                gridEm.innerHTML += `
-                <div class="video-card">
-                    <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg">
-                    <div class="video-info">
-                        <h3>${v.title}</h3>
-                        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" class="btn-watch">${content[lang].btnWatch}</a>
-                    </div>
-                </div>`;
-            });
+            populateGrid('grid-emission', vidsEmission);
 
             // Vidéos Artiste
-            const gridArt = document.getElementById('grid-artiste');
-            gridArt.innerHTML = "";
-            vidsArtiste.forEach(v => {
-                gridArt.innerHTML += `
-                <div class="video-card">
-                    <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg">
-                    <div class="video-info">
-                        <h3>${v.title}</h3>
-                        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" class="btn-watch">${content[lang].btnWatch}</a>
-                    </div>
-                </div>`;
-            });
+            populateGrid('grid-artiste', vidsArtiste);
         }
 
         // GESTION LANGUE
@@ -221,12 +432,14 @@
         // INTERACTION MENU
         document.getElementById('lang-btn').addEventListener('click', () => {
             const menu = document.getElementById('lang-menu');
+            // Fermer si ouvert, ouvrir si fermé
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         });
 
-        // INIT
-        renderPage('fr');
-
+        // INIT : Charger la page en français au démarrage
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPage('fr');
+        });
     </script>
 
 </body>
