@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site officiel de Nelya Nya - Animatrice radio de l'émission Passe Moi Le Mic sur Canal Sud et artiste rap/hip-hop toulousaine">
+    <meta name="description" content="Site officiel de Nelya Nya - Animatrice radio de l'émission Passe Moi Le Mic et artiste rap/hip-hop toulousaine">
     <style>
-        /* --- RESET & GLOBAL --- */
         * { box-sizing: border-box; }
         body { 
             background-color: #121212; 
@@ -22,7 +21,6 @@
             padding: 20px; 
         }
         
-        /* TEXTES ET LIENS EN VIOLET */
         h1, h2, h3 { 
             color: #8a2be2; 
             text-transform: uppercase; 
@@ -33,7 +31,6 @@
         a { color: #8a2be2; text-decoration: none; font-weight: bold; transition: all 0.3s ease; }
         a:hover { text-decoration: underline; color: #a366ff; }
         
-        /* HEADER */
         header { 
             text-align: center; 
             padding: 60px 0 40px; 
@@ -47,7 +44,6 @@
         }
         header p { font-size: 1.4em; color: #fff; margin-top: 10px; }
 
-        /* BOUTON LANGUE */
         .lang-switcher { 
             position: absolute; 
             top: 20px; 
@@ -69,5 +65,249 @@
             transform: translateY(-2px);
         }
         .lang-menu { 
-            display
+            display: none; 
+            position: absolute; 
+            right: 0; 
+            top: 100%; 
+            margin-top: 5px;
+            background-color: #222; 
+            border: 1px solid #444; 
+            border-radius: 5px; 
+            width: 150px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .lang-menu a { 
+            display: block; 
+            padding: 10px; 
+            color: #fff; 
+            border-bottom: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        .lang-menu a:last-child { border-bottom: none; }
+        .lang-menu a:hover { 
+            background-color: #8a2be2; 
+            color: #fff; 
+            text-decoration: none; 
+        }
 
+        section { margin-bottom: 60px; }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-title { 
+            font-size: 2em; 
+            margin-bottom: 15px; 
+            border-bottom: 2px solid #8a2be2; 
+            display: inline-block; 
+            padding-bottom: 5px; 
+        }
+        .bio-box { 
+            background: #1a1a1a; 
+            padding: 25px; 
+            border-radius: 10px; 
+            margin-bottom: 30px; 
+            text-align: center; 
+            border-left: 4px solid #8a2be2;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+        
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+        .video-card { 
+            background-color: #1e1e1e; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            transition: all 0.3s ease; 
+            cursor: pointer; 
+            border: 1px solid #333;
+        }
+        .video-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #8a2be2;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4); 
+        }
+        .video-card img { 
+            width: 100%; 
+            height: auto; 
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .video-card:hover img {
+            transform: scale(1.05);
+        }
+        .video-info { padding: 15px; }
+        .video-info h3 { 
+            font-size: 1em; 
+            margin: 0 0 10px 0; 
+            color: #fff; 
+            min-height: 40px;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+        
+        .btn-watch { 
+            display: block; 
+            background-color: #8a2be2; 
+            color: #fff; 
+            text-align: center; 
+            padding: 10px; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            font-size: 0.9em; 
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-watch:hover { 
+            background-color: #a366ff; 
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            background-color: #000; 
+            margin-top: 50px; 
+            font-size: 0.9em; 
+            color: #666; 
+            border-top: 1px solid #333;
+        }
+        footer h3 {
+            color: #cccccc;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .footer-links { margin: 20px 0; }
+        .footer-links a { 
+            margin: 0 10px; 
+            display: inline-block; 
+            margin-bottom: 10px;
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.95);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            position: relative;
+            margin: 5% auto; 
+            width: 90%;
+            max-width: 900px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 10px;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            border: none;
+        }
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .close-btn:hover { 
+            color: #8a2be2;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5em; }
+            header p { font-size: 1.1em; }
+            .section-title { font-size: 1.5em; }
+            .lang-switcher { top: 10px; right: 10px; }
+            .modal-content { margin: 10% auto; }
+            .close-btn { top: -35px; font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLangMenu()" aria-label="Changer de langue">🌍 <span id="current-lang">FR</span> ▼</button>
+            <div class="lang-menu" id="lang-menu">
+                <a href="#" onclick="setLanguage('fr'); return false;">🇫🇷 Français</a>
+                <a href="#" onclick="setLanguage('en'); return false;">🇬🇧 English</a>
+                <a href="#" onclick="setLanguage('es'); return false;">🇪🇸 Español</a>
+                <a href="#" onclick="setLanguage('pt'); return false;">🇵🇹 Português</a>
+                <a href="#" onclick="setLanguage('ru'); return false;">🇷🇺 Русский</a>
+                <a href="#" onclick="setLanguage('it'); return false;">🇮🇹 Italiano</a>
+            </div>
+        </div>
+
+        <header>
+            <h1 id="txt-title">NELYA NYA</h1>
+            <p id="txt-subtitle">Animatrice Radio · Artiste · Podcasts</p>
+        </header>
+
+        <section>
+            <div class="section-header">
+                <h2 class="section-title" id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2>
+            </div>
+            <div class="bio-box">
+                <p id="bio-emission">Chargement...</p>
+            </div>
+            <div class="video-grid" id="grid-emission"></div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2 class="section-title" id="title-artiste">NELYA NYA – L'ARTISTE</h2>
+            </div>
+            <div class="bio-box">
+                <p id="bio-artiste">Chargement...</p>
+            </div>
+            <div class="video-grid" id="grid-artiste"></div>
+        </section>
+
+        <footer>
+            <div>
+                <h3>SUIVEZ NELYA NYA</h3>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/nelya.nya/" target="_blank" rel="noopener">📸 Instagram</a>
+                    <a href="https://www.youtube.com/@nelyanyapassemoilemic" target="_blank" rel="noopener">📺 YouTube: Passe Moi Le Mic</a>
+                    <a href="https://www.youtube.com/@nelyanyaartiste" target="_blank" rel="noopener">🎵 YouTube: Artiste</a>
+                </div>
+            </div>
+            <p id="txt-footer">© 2025 NELYA NYA – Site créé par NELYA NYA</p>
+        </footer>
+    </div>
+
+    <div id="video-modal" class="modal" onclick="closeModalOnOverlay(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeVideoModal()" aria-label="Fermer">&times;</span>
+            <div class="video-wrapper">
+                <iframe id="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var videosEmission =
