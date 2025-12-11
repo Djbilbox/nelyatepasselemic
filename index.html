@@ -1,414 +1,130 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site officiel de Nelya Nya - Animatrice radio de l'émission Passe Moi Le Mic et artiste rap/hip-hop toulousaine">
-    <style>
-        * { box-sizing: border-box; }
-        body { 
-            background-color: #121212; 
-            color: #ffffff; 
-            font-family: 'Helvetica Neue', Arial, sans-serif; 
-            margin: 0; 
-            padding: 0;
-            overflow-x: hidden;
-        }
-        .container { 
-            max-width: 1000px; 
-            margin: auto; 
-            padding: 20px; 
-        }
-        h1, h2, h3 { 
-            color: #8a2be2; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            margin: 0;
-        }
-        p { color: #cccccc; line-height: 1.6; margin: 0 0 15px 0; }
-        a { color: #8a2be2; text-decoration: none; font-weight: bold; transition: all 0.3s ease; }
-        a:hover { text-decoration: underline; color: #a366ff; }
-        header { 
-            text-align: center; 
-            padding: 60px 0 40px; 
-            border-bottom: 1px solid #333; 
-            margin-bottom: 40px; 
-        }
-        header h1 { 
-            font-size: 3.5em; 
-            margin: 0 0 10px 0; 
-            text-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
-        }
-        header p { font-size: 1.4em; color: #fff; margin-top: 10px; }
-        .lang-switcher { 
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
-            z-index: 1000; 
-        }
-        .lang-btn { 
-            background: #222; 
-            border: 1px solid #8a2be2; 
-            color: #fff; 
-            padding: 10px 15px; 
-            cursor: pointer; 
-            border-radius: 5px; 
-            font-size: 1.2em;
-            transition: all 0.3s ease;
-        }
-        .lang-btn:hover {
-            background: #8a2be2;
-            transform: translateY(-2px);
-        }
-        .lang-menu { 
-            display: none; 
-            position: absolute; 
-            right: 0; 
-            top: 100%; 
-            margin-top: 5px;
-            background-color: #222; 
-            border: 1px solid #444; 
-            border-radius: 5px; 
-            width: 150px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-        .lang-menu a { 
-            display: block; 
-            padding: 10px; 
-            color: #fff; 
-            border-bottom: 1px solid #333;
-            transition: all 0.3s ease;
-        }
-        .lang-menu a:last-child { border-bottom: none; }
-        .lang-menu a:hover { 
-            background-color: #8a2be2; 
-            color: #fff; 
-            text-decoration: none; 
-        }
-        section { margin-bottom: 60px; }
-        .section-header { text-align: center; margin-bottom: 30px; }
-        .section-title { 
-            font-size: 2em; 
-            margin-bottom: 15px; 
-            border-bottom: 2px solid #8a2be2; 
-            display: inline-block; 
-            padding-bottom: 5px; 
-        }
-        .bio-box { 
-            background: #1a1a1a; 
-            padding: 25px; 
-            border-radius: 10px; 
-            margin-bottom: 30px; 
-            text-align: center; 
-            border-left: 4px solid #8a2be2;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-        }
-        .video-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-        }
-        .video-card { 
-            background-color: #1e1e1e; 
-            border-radius: 8px; 
-            overflow: hidden; 
-            transition: all 0.3s ease; 
-            cursor: pointer; 
-            border: 1px solid #333;
-        }
-        .video-card:hover { 
-            transform: translateY(-5px); 
-            border-color: #8a2be2;
-            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4); 
-        }
-        .video-card img { 
-            width: 100%; 
-            height: auto; 
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .video-card:hover img {
-            transform: scale(1.05);
-        }
-        .video-info { padding: 15px; }
-        .video-info h3 { 
-            font-size: 1em; 
-            margin: 0 0 10px 0; 
-            color: #fff; 
-            min-height: 40px;
-            text-transform: none;
-            letter-spacing: normal;
-        }
-        .btn-watch { 
-            display: block; 
-            background-color: #8a2be2; 
-            color: #fff; 
-            text-align: center; 
-            padding: 10px; 
-            border-radius: 4px; 
-            text-transform: uppercase; 
-            font-size: 0.9em; 
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .btn-watch:hover { 
-            background-color: #a366ff; 
-            color: #fff;
-            transform: scale(1.05);
-        }
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            background-color: #000; 
-            margin-top: 50px; 
-            font-size: 0.9em; 
-            color: #666; 
-            border-top: 1px solid #333;
-        }
-        footer h3 {
-            color: #cccccc;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-        .footer-links { margin: 20px 0; }
-        .footer-links a { 
-            margin: 0 10px; 
-            display: inline-block; 
-            margin-bottom: 10px;
-        }
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 9999; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(0,0,0,0.95);
-            animation: fadeIn 0.3s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .modal-content {
-            position: relative;
-            margin: 5% auto; 
-            width: 90%;
-            max-width: 900px;
-        }
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            background: #000;
-            border-radius: 10px;
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
-            border: none;
-        }
-        .close-btn {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .close-btn:hover { 
-            color: #8a2be2;
-            transform: scale(1.2);
-        }
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5em; }
-            header p { font-size: 1.1em; }
-            .section-title { font-size: 1.5em; }
-            .lang-switcher { top: 10px; right: 10px; }
-            .modal-content { margin: 10% auto; }
-            .close-btn { top: -35px; font-size: 30px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Site officiel de Nelya Nya - Animatrice radio de l'émission Passe Moi Le Mic et artiste rap/hip-hop toulousaine">
+<style>
+* { box-sizing: border-box; }
+body { background-color: #121212; color: #ffffff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+h1, h2, h3 { color: #8a2be2; text-transform: uppercase; letter-spacing: 1px; margin: 0; }
+p { color: #cccccc; line-height: 1.6; margin: 0 0 15px 0; }
+a { color: #8a2be2; text-decoration: none; font-weight: bold; transition: all 0.3s ease; }
+a:hover { text-decoration: underline; color: #a366ff; }
+header { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid #333; margin-bottom: 40px; }
+header h1 { font-size: 3.5em; margin: 0 0 10px 0; text-shadow: 0 0 15px rgba(138, 43, 226, 0.5); }
+header p { font-size: 1.4em; color: #fff; margin-top: 10px; }
+.lang-switcher { position: absolute; top: 20px; right: 20px; z-index: 1000; }
+.lang-btn { background: #222; border: 1px solid #8a2be2; color: #fff; padding: 10px 15px; cursor: pointer; border-radius: 5px; font-size: 1.2em; transition: all 0.3s ease; }
+.lang-btn:hover { background: #8a2be2; transform: translateY(-2px); }
+.lang-menu { display: none; position: absolute; right: 0; top: 100%; margin-top: 5px; background-color: #222; border: 1px solid #444; border-radius: 5px; width: 150px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+.lang-menu a { display: block; padding: 10px; color: #fff; border-bottom: 1px solid #333; transition: all 0.3s ease; }
+.lang-menu a:last-child { border-bottom: none; }
+.lang-menu a:hover { background-color: #8a2be2; color: #fff; text-decoration: none; }
+section { margin-bottom: 60px; }
+.section-header { text-align: center; margin-bottom: 30px; }
+.section-title { font-size: 2em; margin-bottom: 15px; border-bottom: 2px solid #8a2be2; display: inline-block; padding-bottom: 5px; }
+.bio-box { background: #1a1a1a; padding: 25px; border-radius: 10px; margin-bottom: 30px; text-align: center; border-left: 4px solid #8a2be2; box-shadow: 0 3px 10px rgba(0,0,0,0.3); }
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.video-card { background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: all 0.3s ease; cursor: pointer; border: 1px solid #333; }
+.video-card:hover { transform: translateY(-5px); border-color: #8a2be2; box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4); }
+.video-card img { width: 100%; height: auto; display: block; transition: transform 0.3s ease; }
+.video-card:hover img { transform: scale(1.05); }
+.video-info { padding: 15px; }
+.video-info h3 { font-size: 1em; margin: 0 0 10px 0; color: #fff; min-height: 40px; text-transform: none; letter-spacing: normal; }
+.btn-watch { display: block; background-color: #8a2be2; color: #fff; text-align: center; padding: 10px; border-radius: 4px; text-transform: uppercase; font-size: 0.9em; font-weight: bold; transition: all 0.3s ease; }
+.btn-watch:hover { background-color: #a366ff; color: #fff; transform: scale(1.05); }
+footer { text-align: center; padding: 40px; background-color: #000; margin-top: 50px; font-size: 0.9em; color: #666; border-top: 1px solid #333; }
+footer h3 { color: #cccccc; font-size: 1.2em; margin-bottom: 15px; }
+.footer-links { margin: 20px 0; }
+.footer-links a { margin: 0 10px; display: inline-block; margin-bottom: 10px; }
+.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal-content { position: relative; margin: 5% auto; width: 90%; max-width: 900px; }
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 10px; }
+.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.close-btn { position: absolute; top: -40px; right: 0; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
+.close-btn:hover { color: #8a2be2; transform: scale(1.2); }
+@media (max-width: 768px) {
+header h1 { font-size: 2.5em; }
+header p { font-size: 1.1em; }
+.section-title { font-size: 1.5em; }
+.lang-switcher { top: 10px; right: 10px; }
+.modal-content { margin: 10% auto; }
+.close-btn { top: -35px; font-size: 30px; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="lang-switcher">
-            <button class="lang-btn" onclick="toggleLangMenu()">🌍 <span id="current-lang">FR</span> ▼</button>
-            <div class="lang-menu" id="lang-menu">
-                <a href="#" onclick="setLanguage('fr'); return false;">🇫🇷 Français</a>
-                <a href="#" onclick="setLanguage('en'); return false;">🇬🇧 English</a>
-                <a href="#" onclick="setLanguage('es'); return false;">🇪🇸 Español</a>
-                <a href="#" onclick="setLanguage('pt'); return false;">🇵🇹 Português</a>
-                <a href="#" onclick="setLanguage('ru'); return false;">🇷🇺 Русский</a>
-                <a href="#" onclick="setLanguage('it'); return false;">🇮🇹 Italiano</a>
-            </div>
-        </div>
-        <header>
-            <h1>NELYA NYA</h1>
-            <p id="txt-subtitle">Animatrice Radio · Artiste · Podcasts</p>
-        </header>
-        <section>
-            <div class="section-header">
-                <h2 class="section-title" id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2>
-            </div>
-            <div class="bio-box">
-                <p id="bio-emission">Émission consacrée au rap et au hip-hop toulousain, "Passe Moi Le Mic" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.</p>
-            </div>
-            <div class="video-grid" id="grid-emission"></div>
-        </section>
-        <section>
-            <div class="section-header">
-                <h2 class="section-title" id="title-artiste">NELYA NYA – L'ARTISTE</h2>
-            </div>
-            <div class="bio-box">
-                <p id="bio-artiste">Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.</p>
-            </div>
-            <div class="video-grid" id="grid-artiste"></div>
-        </section>
-        <footer>
-            <div>
-                <h3>SUIVEZ NELYA NYA</h3>
-                <div class="footer-links">
-                    <a href="https://www.instagram.com/nelya.nya/" target="_blank" rel="noopener">📸 Instagram</a>
-                    <a href="https://www.youtube.com/@nelyanyapassemoilemic" target="_blank" rel="noopener">📺 YouTube: Passe Moi Le Mic</a>
-                    <a href="https://www.youtube.com/@nelyanyaartiste" target="_blank" rel="noopener">🎵 YouTube: Artiste</a>
-                </div>
-            </div>
-            <p id="txt-footer">© 2025 NELYA NYA – Site créé par NELYA NYA</p>
-        </footer>
-    </div>
-    <div id="video-modal" class="modal" onclick="closeModalOnOverlay(event)">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeVideoModal()">&times;</span>
-            <div class="video-wrapper">
-                <iframe id="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-    <script>
-        var videosEmission = [
-            { id: '6bSB2Pt43Yk', title: "Nelya te passe le mic #2 (Invité : Scrinef)" },
-            { id: '3gq7wtpk5Mw', title: "Nelya te passe le mic (Invités : DD La Scalap & MC Yuri)" },
-            { id: 'sV-wvCmNzuc', title: "Nelya te passe le mic #1 (Invité : BELA1R)" }
-        ];
-        var videosArtiste = [
-            { id: 'Z8C0iqtj7rA', title: "Nelya NYA - Bombarde (Clip Officiel)" },
-            { id: '0hTSlMh9CP0', title: "Nelya NYA - Freestyle Femme d'honneur" }
-        ];
-        var translations = {
-            fr: { langCode: "FR", subtitle: "Animatrice Radio · Artiste · Podcasts", emissionTitle: "L'ÉMISSION PASSE MOI LE MIC", emissionBio: "Émission consacrée au rap et au hip-hop toulousain, "Passe Moi Le Mic" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.", artisteTitle: "NELYA NYA – L'ARTISTE", artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.", btnWatch: "REGARDER LA VIDÉO", footer: "© 2025 NELYA NYA – Site créé par NELYA NYA" },
-            en: { langCode: "EN", subtitle: "Radio Host · Artist · Podcasts", emissionTitle: "THE SHOW: PASSE MOI LE MIC", emissionBio: "Dedicated to Toulouse rap and hip-hop, "Passe Moi Le Mic" is the reference for discovering local talents. Hosted by Nelya Nya, find exclusive interviews, freestyles, and urban culture.", artisteTitle: "NELYA NYA – THE ARTIST", artisteBio: "Rapper and singer from Toulouse, Nelya Nya imposes her style with a striking flow and authentic lyrics. Between Trap and melodies, discover the musical universe of a complete artist.", btnWatch: "WATCH VIDEO", footer: "© 2025 NELYA NYA – Website created by NELYA NYA" },
-            es: { langCode: "ES", subtitle: "Presentadora · Artista · Podcasts", emissionTitle: "EL PROGRAMA: PASSE MOI LE MIC", emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, "Passe Moi Le Mic" es la referencia para descubrir talentos locales. Presentado por Nelya Nya, con entrevistas exclusivas y freestyles.", artisteTitle: "NELYA NYA – LA ARTISTA", artisteBio: "Rapera y cantante de Toulouse, Nelya Nya impone su estilo con un flow impactante y letras auténticas. Entre Trap y melodías, descubre el universo musical de una artista completa.", btnWatch: "VER VIDEO", footer: "© 2025 NELYA NYA – Sitio web creado por NELYA NYA" },
-            pt: { langCode: "PT", subtitle: "Apresentadora · Artista · Podcasts", emissionTitle: "O PROGRAMA: PASSE MOI LE MIC", emissionBio: "Programa dedicado ao rap e hip-hop de Toulouse, referência para descobrir talentos locais. Apresentado por Nelya Nya, com entrevistas exclusivas e freestyles.", artisteTitle: "NELYA NYA – A ARTISTA", artisteBio: "Rapper e cantora de Toulouse, Nelya Nya impõe seu estilo com flow impactante. Entre Trap e melodias, descubra o universo musical de uma artista completa.", btnWatch: "ASSISTIR VÍDEO", footer: "© 2025 NELYA NYA – Site criado por NELYA NYA" },
-            ru: { langCode: "RU", subtitle: "Радиоведущая · Артист · Подкасты", emissionTitle: "ШОУ: PASSE MOI LE MIC", emissionBio: "Шоу, посвященное рэпу и хип-хопу Тулузы. Ведущая Неля Нья представляет эксклюзивные интервью и фристайлы местной сцены.", artisteTitle: "NELYA NYA – АРТИСТ", artisteBio: "Рэпер и певица из Тулузы, Неля Нья выделяется своим флоу и текстами. Откройте для себя музыкальную вселенную полноценного артиста.", btnWatch: "СМОТРЕТЬ", footer: "© 2025 NELYA NYA – Сайт создан NELYA NYA" },
-            it: { langCode: "IT", subtitle: "Conduttrice · Artista · Podcast", emissionTitle: "IL PROGRAMMA: PASSE MOI LE MIC", emissionBio: "Programma dedicato al rap e hip-hop di Tolosa. Condotto da Nelya Nya, con interviste esclusive e freestyle della scena locale.", artisteTitle: "NELYA NYA – L'ARTISTA", artisteBio: "Rapper e cantante di Tolosa, Nelya Nya impone il suo stile con un flow incisivo. Tra Trap e melodie, scopri l'universo musicale di un'artista completa.", btnWatch: "GUARDA VIDEO", footer: "© 2025 NELYA NYA – Sito creato da NELYA NYA" }
-        };
-        function createVideoCard(video, buttonText) {
-            var thumbnail = "https://img.youtube.com/vi/" + video.id + "/hqdefault.jpg";
-            return '<div class="video-card" onclick="openVideoModal('' + video.id + '')">' + '<img src="' + thumbnail + '" alt="' + video.title + '" loading="lazy">' + '<div class="video-info">' + '<h3>' + video.title + '</h3>' + '<span class="btn-watch">' + buttonText + '</span>' + '</div>' + '</div>';
-        }
-        function displayVideoGrid(containerId, videos, buttonText) {
-            var container = document.getElementById(containerId);
-            if (!container) return;
-            var html = "";
-            for (var i = 0; i < videos.length; i++) {
-                html += createVideoCard(videos[i], buttonText);
-            }
-            container.innerHTML = html;
-        }
-        function updateText(elementId, text) {
-            var element = document.getElementById(elementId);
-            if (element) {
-                element.textContent = text;
-            }
-        }
-        function setLanguage(langCode) {
-            var lang = translations[langCode];
-            if (!lang) return;
-            updateText('current-lang', lang.langCode);
-            updateText('txt-subtitle', lang.subtitle);
-            updateText('title-emission', lang.emissionTitle);
-            updateText('bio-emission', lang.emissionBio);
-            updateText('title-artiste', lang.artisteTitle);
-            updateText('bio-artiste', lang.artisteBio);
-            updateText('txt-footer', lang.footer);
-            displayVideoGrid('grid-emission', videosEmission, lang.btnWatch);
-            displayVideoGrid('grid-artiste', videosArtiste, lang.btnWatch);
-            closeLangMenu();
-            try {
-                localStorage.setItem('preferredLanguage', langCode);
-            } catch (e) {}
-        }
-        function toggleLangMenu() {
-            var menu = document.getElementById('lang-menu');
-            if (menu.style.display === 'block') {
-                closeLangMenu();
-            } else {
-                menu.style.display = 'block';
-            }
-        }
-        function closeLangMenu() {
-            var menu = document.getElementById('lang-menu');
-            if (menu) {
-                menu.style.display = 'none';
-            }
-        }
-        function openVideoModal(videoId) {
-            var modal = document.getElementById('video-modal');
-            var iframe = document.getElementById('video-iframe');
-            if (!modal || !iframe) return;
-            iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1&rel=0";
-            modal.style.display = "block";
-            document.body.style.overflow = 'hidden';
-        }
-        function closeVideoModal() {
-            var modal = document.getElementById('video-modal');
-            var iframe = document.getElementById('video-iframe');
-            if (!modal || !iframe) return;
-            iframe.src = "";
-            modal.style.display = "none";
-            document.body.style.overflow = 'auto';
-        }
-        function closeModalOnOverlay(event) {
-            if (event.target.id === 'video-modal') {
-                closeVideoModal();
-            }
-        }
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeVideoModal();
-                closeLangMenu();
-            }
-        });
-        document.addEventListener('click', function(event) {
-            var langSwitcher = document.querySelector('.lang-switcher');
-            if (langSwitcher && !langSwitcher.contains(event.target)) {
-                closeLangMenu();
-            }
-        });
-        function initializePage() {
-            var savedLang = 'fr';
-            try {
-                var stored = localStorage.getItem('preferredLanguage');
-                if (stored && translations[stored]) {
-                    savedLang = stored;
-                }
-            } catch (e) {}
-            setLanguage(savedLang);
-        }
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializePage);
-        } else {
-            initializePage();
-        }
-    </script>
-</body>
-</html>
+<div class="container">
+<div class="lang-switcher">
+<button class="lang-btn" onclick="toggleLangMenu()">🌍 <span id="current-lang">FR</span> ▼</button>
+<div class="lang-menu" id="lang-menu">
+<a href="#" onclick="setLanguage('fr'); return false;">🇫🇷 Français</a>
+<a href="#" onclick="setLanguage('en'); return false;">🇬🇧 English</a>
+<a href="#" onclick="setLanguage('es'); return false;">🇪🇸 Español</a>
+<a href="#" onclick="setLanguage('pt'); return false;">🇵🇹 Português</a>
+<a href="#" onclick="setLanguage('ru'); return false;">🇷🇺 Русский</a>
+<a href="#" onclick="setLanguage('it'); return false;">🇮🇹 Italiano</a>
+</div>
+</div>
+<header>
+<h1>NELYA NYA</h1>
+<p id="txt-subtitle">Animatrice Radio · Artiste · Podcasts</p>
+</header>
+<section>
+<div class="section-header">
+<h2 class="section-title" id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2>
+</div>
+<div class="bio-box">
+<p id="bio-emission">Émission consacrée au rap et au hip-hop toulousain, "Passe Moi Le Mic" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.</p>
+</div>
+<div class="video-grid" id="grid-emission"></div>
+</section>
+<section>
+<div class="section-header">
+<h2 class="section-title" id="title-artiste">NELYA NYA – L'ARTISTE</h2>
+</div>
+<div class="bio-box">
+<p id="bio-artiste">Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.</p>
+</div>
+<div class="video-grid" id="grid-artiste"></div>
+</section>
+<footer>
+<div>
+<h3>SUIVEZ NELYA NYA</h3>
+<div class="footer-links">
+<a href="https://www.instagram.com/nelya.nya/" target="_blank" rel="noopener">📸 Instagram</a>
+<a href="https://www.youtube.com/@nelyanyapassemoilemic" target="_blank" rel="noopener">📺 YouTube: Passe Moi Le Mic</a>
+<a href="https://www.youtube.com/@nelyanyaartiste" target="_blank" rel="noopener">🎵 YouTube: Artiste</a>
+</div>
+</div>
+<p id="txt-footer">© 2025 NELYA NYA – Site créé par NELYA NYA</p>
+</footer>
+</div>
+<div id="video-modal" class="modal" onclick="closeModalOnOverlay(event)">
+<div class="modal-content">
+<span class="close-btn" onclick="closeVideoModal()">&times;</span>
+<div class="video-wrapper">
+<iframe id="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<script>
+var videosEmission = [
+{ id: '6bSB2Pt43Yk', title: "Nelya te passe le mic #2 (Invité : Scrinef)" },
+{ id: '3gq7wtpk5Mw', title: "Nelya te passe le mic (Invités : DD La Scalap & MC Yuri)" },
+{ id: 'sV-wvCmNzuc', title: "Nelya te passe le mic #1 (Invité : BELA1R)" }
+];
+var videosArtiste = [
+{ id: 'Z8C0iqtj7rA', title: "Nelya NYA - Bombarde (Clip Officiel)" },
+{ id: '0hTSlMh9CP0', title: "Nelya NYA - Freestyle Femme d'honneur" }
+];
+var translations = {
+fr: { langCode: "FR", subtitle: "Animatrice Radio · Artiste · Podcasts", emissionTitle: "L'ÉMISSION PASSE MOI LE MIC", emissionBio: "Émission consacrée au rap et au hip-hop toulousain, \"Passe Moi Le Mic\" est la référence pour découvrir les talents de la scène locale. Animée par Nelya Nya, retrouvez des interviews exclusives, des freestyles et toute la culture urbaine.", artisteTitle: "NELYA NYA – L'ARTISTE", artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya impose son style avec un flow percutant et des textes authentiques. Entre Trap et mélodies, découvrez l'univers musical d'une artiste complète.", btnWatch: "REGARDER LA VIDÉO", footer: "© 2025 NELYA NYA – Site créé par NELYA NYA" },
+en: { langCode: "EN", subtitle: "Radio Host · Artist · Podcasts", emissionTitle: "THE SHOW: PASSE MOI LE MIC", emissionBio: "Dedicated to Toulouse rap and hip-hop, \"Passe Moi Le Mic\" is the reference for discovering local talents. Hosted by Nelya Nya, find exclusive interviews, freestyles, and urban culture.", artisteTitle: "NELYA NYA – THE ARTIST", artisteBio: "Rapper and singer from Toulouse, Nelya Nya imposes her style with a striking flow and authentic lyrics. Between Trap and melodies, discover the musical universe of a complete artist.", btnWatch: "WATCH VIDEO", footer: "© 2025 NELYA NYA – Website created by NELYA NYA" },
+es: { langCode: "ES", subtitle: "Presentadora · Artista · Podcasts", emissionTitle: "EL PROGRAMA: PASSE MOI LE MIC", emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, \"Passe Moi Le Mic\" es la referencia para descubrir ta
+
+     
