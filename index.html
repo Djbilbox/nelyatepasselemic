@@ -4,310 +4,114 @@
     <meta charset="UTF-8">
     <title>NELYA NYA - Passe Moi Le Mic | Site Officiel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://raw.githubusercontent.com/Djbilbox/djbilboxbeats.github.io/main/favicon.ico" type="image/x-icon">
-
     <style>
-        :root {
-            --primary: #a855f7;
-            --secondary: #ec4899;
-            --dark-bg: #020617;
-            --card-bg: #0f172a;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-        }
+        /* Styles généraux */
+        body { background-color: #121212; color: #fff; font-family: Arial, sans-serif; margin: 0; }
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+        h1, h2, h3 { color: #f9b233; }
+        a { color: #f9b233; text-decoration: none; }
+        p.bio { line-height: 1.6; color: #ccc; text-align: center; margin-bottom: 30px; }
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: radial-gradient(circle at top center, #1f2933 0, var(--dark-bg) 60%, #000 100%);
-            color: var(--text-main);
-            overflow-x: hidden;
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 0;
         }
+        header h1 { font-size: 3em; margin: 0; }
+        header p { font-size: 1.2em; }
 
-        /* Support Arabe */
-        body[dir="rtl"] { text-align: right; }
-        body[dir="rtl"] .lang-switch-container { left: 20px; right: auto; }
+        /* Sélecteur de langue */
+        .lang-switcher { position: absolute; top: 20px; right: 20px; }
+        .lang-menu { display: none; position: absolute; right: 0; background-color: #232323; border-radius: 5px; padding: 10px; z-index: 1000; }
+        .lang-menu a { display: block; padding: 8px 12px; color: white; }
+        .lang-menu a:hover { background-color: #f9b233; color: #121212; }
+        #selected-lang { cursor: pointer; font-size: 1.5em; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 16px 80px;
-        }
-
-        /* BOUTON LANGUE */
-        .lang-switch-container {
-            position: absolute; top: 20px; right: 20px; z-index: 1000;
-        }
-        select#language-selector {
-            background: #1e293b; color: white; border: 2px solid var(--primary);
-            padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold;
-        }
-
-        /* HEADER */
-        header { text-align: center; padding: 60px 0 40px; }
-        h1 {
-            font-size: 3.5rem; margin: 0;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text; background-clip: text; color: transparent;
-            text-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-        }
-        .subtitle { font-size: 1.2rem; color: var(--text-muted); margin-top: 10px; }
-
-        nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 40px 0; }
-        nav a {
-            color: white; text-decoration: none; font-weight: 600; padding: 12px 25px;
-            border-radius: 50px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
-        }
-        nav a:hover {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: translateY(-3px); box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
-        }
-
-        /* SECTIONS */
-        section { margin-bottom: 80px; padding-top: 20px; }
-        h2 { font-size: 2rem; color: #e879f9; border-bottom: 3px solid var(--secondary); display: inline-block; margin-bottom: 20px; }
-        
-        .bio-box {
-            background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px;
-            border-left: 4px solid var(--primary); margin-bottom: 30px; line-height: 1.8; color: #cbd5e1;
-        }
-
-        /* GRILLE VIDEO */
-        .video-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
-        }
+        /* Sections */
+        section { margin-bottom: 40px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .video-card {
-            background: var(--card-bg); border-radius: 15px; overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .video-card:hover { transform: translateY(-5px); border-color: var(--secondary); }
-        
-        .iframe-container {
-            position: relative; padding-bottom: 56.25%; height: 0;
-        }
-        .iframe-container iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
-        }
-        
-        .card-info { padding: 20px; text-align: center; }
-        .card-info h3 { margin: 0 0 10px; color: white; font-size: 1rem; }
-        .btn-channel {
-            display: inline-block; background: #cc0000; color: white; padding: 10px 20px;
-            text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 5px; font-size: 0.9rem;
-        }
-        .btn-channel:hover { background: #ff0000; }
+        .video-card img { width: 100%; display: block; }
+        .video-card-content { padding: 15px; }
+        .video-card-content h3 { margin: 0 0 10px 0; font-size: 1.1em; }
+        .video-card-content a { background-color: #f9b233; color: #121212; padding: 8px 12px; border-radius: 5px; display: inline-block; }
 
-        /* BOUTIQUE */
-        .product-card {
-            display: flex; flex-wrap: wrap; background: var(--card-bg); border-radius: 20px; overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1); max-width: 900px; margin-top: 20px;
-        }
-        .product-img { flex: 1 1 300px; }
-        .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .product-details { flex: 1 1 300px; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-        .price { font-size: 2.5rem; color: var(--secondary); font-weight: bold; margin: 20px 0; }
-        .btn-buy {
-            background: linear-gradient(90deg, var(--primary), var(--secondary)); color: white;
-            padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center;
-        }
-
-        footer { border-top: 1px solid #333; padding-top: 40px; text-align: center; color: #666; font-size: 0.9rem; }
+        /* Footer */
+        footer { text-align: center; padding: 20px; font-size: 0.9em; color: #777; }
     </style>
 </head>
 <body>
 
-    <!-- SÉLECTEUR DE LANGUE -->
-    <div class="lang-switch-container">
-        <select id="language-selector" onchange="changeLanguage(this.value)">
-            <option value="fr">🇫🇷 Français</option>
-            <option value="ar">🇸🇦 العربية</option>
-            <option value="es">🇪🇸 Español</option>
-            <option value="pt">🇵🇹 Português</option>
-            <option value="it">🇮🇹 Italiano</option>
-            <option value="ru">🇷🇺 Русский</option>
-            <option value="th">🇹🇭 ไทย</option>
-        </select>
-    </div>
-
     <div class="container">
+
+        <div class="lang-switcher">
+            <div id="selected-lang">🇫🇷</div>
+            <div class="lang-menu" id="lang-menu">
+                <a href="#" data-lang="fr">🇫🇷 Français</a>
+                <a href="#" data-lang="en">🇬🇧 English</a>
+                <a href="#" data-lang="es">🇪🇸 Español</a>
+            </div>
+        </div>
+
         <header>
-            <h1 id="site-title">NELYA NYA</h1>
-            <p class="subtitle" id="site-subtitle">Animatrice Radio · Artiste · Podcasts</p>
-            <nav>
-                <a href="#emission" id="nav-emission">L'ÉMISSION</a>
-                <a href="#nelya" id="nav-artist">L'ARTISTE</a>
-                <a href="#boutique" id="nav-shop">BOUTIQUE</a>
-                <a href="#contact" id="nav-contact">CONTACT</a>
-            </nav>
+            <h1 id="main-title">NELYA NYA</h1>
+            <p id="subtitle">Animatrice Radio · Artiste · Podcasts</p>
         </header>
 
-        <!-- SECTION 1 : EMISSION -->
-        <section id="emission">
-            <h2 id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2>
-            
-            <div class="bio-box">
-                <p id="desc-emission">
-                    Émission consacrée au rap et au hip-hop toulousain et français, animée par Nelya. 
-                    Tous les mercredis de 16h30 à 18h et samedis de 21h à minuit sur <strong>Radio Canal Sud 92.2 FM</strong>.
-                </p>
-            </div>
+        <main>
+            <section id="emission">
+                <h2 id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2>
+                <!-- BIO DE L'ÉMISSION AJOUTÉE ICI -->
+                <p class="bio" id="emission-bio"></p>
+                <div class="video-grid" id="videos-emission"></div>
+            </section>
 
-            <div class="video-grid">
-                <!-- VIDEO 1 : Scrinef -->
-                <div class="video-card">
-                    <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/6bSB2Pt43Yk" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-info">
-                        <h3>Nelya te passe le mic #2 (Invité : Scrinef)</h3>
-                    </div>
-                </div>
-
-                <!-- VIDEO 2 : Belair -->
-                <div class="video-card">
-                    <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/sV-wvCmNzuc" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-info">
-                        <h3>Nelya te passe le mic #1 (Invité : BELA1R)</h3>
-                    </div>
-                </div>
-
-                 <!-- VIDEO 3 : Autre -->
-                <div class="video-card">
-                    <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/3gq7wtpk5Mw" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-info">
-                        <h3>Nelya te passe le mic - Émission Radio</h3>
-                    </div>
-                </div>
-
-                <!-- LIEN CHAINE -->
-                <div class="video-card">
-                    <div class="iframe-container">
-                        <img src="https://img.youtube.com/vi/6bSB2Pt43Yk/maxresdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                    </div>
-                    <div class="card-info">
-                        <h3 id="txt-channel-emission">Chaîne Officielle</h3>
-                        <a href="https://www.youtube.com/channel/UC6AZx4jHglXOcsW8n1SPiag" target="_blank" class="btn-channel" id="btn-channel-1">VOIR LA CHAÎNE</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2 : ARTISTE -->
-        <section id="nelya">
-            <h2 id="title-artist">NELYA NYA – L'ARTISTE</h2>
-            
-            <div class="bio-box">
-                <p id="desc-artist">
-                    Rappeuse et chanteuse toulousaine au flow percutant et aux textes authentiques. 
-                    Son univers musical mêle influences urbaines et récits du quotidien.
-                </p>
-            </div>
-
-            <div class="video-grid">
-                <!-- VIDEO : Bombarde -->
-                <div class="video-card">
-                    <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/Z8C0iqtj7rA" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-info">
-                        <h3>Nelya NYA - Bombarde (Clip Officiel)</h3>
-                    </div>
-                </div>
-
-                <!-- VIDEO : Femme d'honneur -->
-                <div class="video-card">
-                    <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/0hTSlMh9CP0" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-info">
-                        <h3>Nelya NYA freestyle femme d'honneur</h3>
-                    </div>
-                </div>
-
-                <!-- LIEN CHAINE -->
-                <div class="video-card">
-                    <div class="iframe-container">
-                        <img src="https://img.youtube.com/vi/Z8C0iqtj7rA/maxresdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                    </div>
-                    <div class="card-info">
-                        <h3 id="txt-channel-artist">Chaîne Artiste</h3>
-                        <a href="https://www.youtube.com/channel/UC6AZx4jHglXOcsW8n1SPiag" target="_blank" class="btn-channel" id="btn-channel-2">S'ABONNER</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BOUTIQUE -->
-        <section id="boutique">
-            <h2 id="title-shop">BOUTIQUE OFFICIELLE</h2>
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://raw.githubusercontent.com/Djbilbox/djbilboxbeats.github.io/main/WhatsApp%20Image%202025-12-02%20%C3%A0%2020.58.10_34a436dc.jpg" alt="T-Shirt Passe Moi Le Mic">
-                </div>
-                <div class="product-details">
-                    <h3 id="prod-title">T-SHIRT "PASSE MOI LE MIC"</h3>
-                    <p id="prod-desc">
-                        Soutenez l'émission avec ce T-shirt officiel. 
-                        Unisexe – Toutes tailles disponibles – Style professionnel.
-                    </p>
-                    <div class="price">20,00 €</div>
-                    <a href="#" class="btn-buy" id="btn-buy">COMMANDER</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact">
-            <h2 id="title-contact">CONTACT</h2>
-            <div class="bio-box" style="text-align:center;">
-                <p>📧 Email : nelyanya.contact@gmail.com</p>
-                <p>📷 Instagram : <a href="https://www.instagram.com/nelya_nya/" target="_blank" style="color:#ec4899;">@nelya_nya</a></p>
-            </div>
-        </section>
+            <section id="nelya">
+                <h2 id="title-artiste">NELYA NYA – L'ARTISTE</h2>
+                <!-- BIO DE L'ARTISTE AJOUTÉE ICI -->
+                <p class="bio" id="artiste-bio"></p>
+                <div class="video-grid" id="videos-artiste"></div>
+            </section>
+        </main>
 
         <footer>
             <p id="footer-text">© 2025 NELYA NYA – Site développé par DJBILBOX BEATS</p>
         </footer>
+
     </div>
 
-    <!-- SCRIPT JS -->
     <script>
+        // TEXTES COMPLETS AVEC LES BIOS
         const translations = {
             fr: {
+                mainTitle: "NELYA NYA",
                 subtitle: "Animatrice Radio · Artiste · Podcasts",
-                navEmission: "L'ÉMISSION", navArtist: "L'ARTISTE", navShop: "BOUTIQUE", navContact: "CONTACT",
                 titleEmission: "L'ÉMISSION PASSE MOI LE MIC",
-                descEmission: "Émission consacrée au rap et au hip-hop toulousain et français, animée par Nelya. Tous les mercredis et samedis sur Radio Canal Sud 92.2 FM.",
-                titleArtist: "NELYA NYA – L'ARTISTE",
-                descArtist: "Rappeuse et chanteuse toulousaine au flow percutant et aux textes authentiques.",
-                titleShop: "BOUTIQUE OFFICIELLE",
-                prodTitle: "T-SHIRT \"PASSE MOI LE MIC\"",
-                prodDesc: "Soutenez l'émission avec ce T-shirt officiel. Qualité premium.",
-                btnBuy: "COMMANDER",
-                titleContact: "CONTACT",
-                txtChannelEmission: "Chaîne Officielle",
-                txtChannelArtist: "Chaîne Artiste",
-                btnChannel1: "VOIR LA CHAÎNE",
-                btnChannel2: "S'ABONNER",
+                emissionBio: "Émission consacrée au rap et au hip-hop toulousain, 'Passe Moi Le Mic' est la plateforme de référence pour découvrir les talents émergents et confirmés de la scène locale. Animée avec passion par Nelya Nya, chaque épisode offre des interviews exclusives, des freestyles percutants et une immersion totale dans la culture urbaine de la Ville Rose.",
+                titleArtiste: "NELYA NYA – L'ARTISTE",
+                artisteBio: "Rappeuse et chanteuse toulousaine, Nelya Nya se distingue par son flow percutant et ses textes authentiques. Artiste polyvalente, elle navigue entre des sonorités trap et des mélodies plus introspectives. Son énergie sur scène et sa détermination en font une figure montante à suivre de très près.",
+                watchButton: "Regarder",
                 footerText: "© 2025 NELYA NYA – Site développé par DJBILBOX BEATS"
             },
-            ar: {
-                subtitle: "مذيعة راديو · فنانة · بودكاست",
-                navEmission: "البرنامج", navArtist: "الفنانة", navShop: "المتجر", navContact: "اتصل بنا",
-                titleEmission: "برنامج مرر لي الميكروفون",
-                descEmission: "برنامج مخصص للراب والهيب هوب، تقدمه نيليا. كل أربعاء وسبت على راديو قناة الجنوب 92.2 FM.",
-                titleArtist: "نيليا نيا – الفنانة",
-                descArtist: "مغنية راب من تولوز بأسلوب قوي وكلمات أصيلة.",
-                titleShop: "المتجر الرسمي",
-                prodTitle: "تي شيرت \"مرر لي الميكروفون\"",
-                prodDesc: "ادعم البرنامج بهذا التي شيرت الرسمي. جودة ممتازة.",
-                btnBuy: "اطلب الآن",
-                titleContact: "اتصل بنا",
-                txtChannelEmission: "القناة الرسمية",
-                txtChannelArtist: "قناة الفنانة",
-                btn
+            en: {
+                mainTitle: "NELYA NYA",
+                subtitle: "Radio Host · Artist · Podcasts",
+                titleEmission: "THE SHOW: PASSE MOI LE MIC",
+                emissionBio: "A show dedicated to Toulouse rap and hip-hop, 'Passe Moi Le Mic' is the reference platform for discovering emerging and confirmed talents from the local scene. Hosted with passion by Nelya Nya, each episode offers exclusive interviews, hard-hitting freestyles, and a total immersion in the urban culture of the Pink City.",
+                titleArtiste: "NELYA NYA – THE ARTIST",
+                artisteBio: "A rapper and singer from Toulouse, Nelya Nya stands out for her impactful flow and authentic lyrics. A versatile artist, she moves between trap sounds and more introspective melodies. Her energy on stage and her determination make her a rising figure to follow very closely.",
+                watchButton: "Watch",
+                footerText: "© 2025 NELYA NYA – Website developed by DJBILBOX BEATS"
+            },
+            es: {
+                mainTitle: "NELYA NYA",
+                subtitle: "Presentadora de Radio · Artista · Podcasts",
+                titleEmission: "EL PROGRAMA: PASSE MOI LE MIC",
+                emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, 'Passe Moi Le Mic' es la plataforma de referencia para descubrir los talentos emergentes y confirmados de la escena local. Presentado con pasión por Nelya Nya, cada episodio ofrece entrevistas exclusivas, freestyles impactantes y una inmersión total en la cultura urbana de la Ciudad Rosa.",
+                titleArtiste: "NELYA NYA – LA ARTISTA",
+                artisteBio: "Rapera y cantante de Toulouse, Nelya Nya se distingue por su flow impactante y sus letras
