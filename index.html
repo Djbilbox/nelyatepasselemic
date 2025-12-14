@@ -1,3 +1,11 @@
+Ton fichier actuel est tronqué en plein milieu du CSS, donc GitHub affiche du code brut au lieu du site. Voici un `index.html` complet et cohérent à recoller en une fois.[1]
+
+### Étapes importantes avant de coller
+- Dans GitHub, `index.html` → **Edit** → `Ctrl+A` → Suppr → fichier **vide**.  
+- Colle exactement ce bloc, de `<!DOCTYPE html>` jusqu’à `</html>` sans rien en plus.  
+- Commit, attends 1–2 minutes, puis rafraîchis le site en navigation privée.[2][3]
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -161,4 +169,775 @@
       margin-bottom:12px;
     }
 
-    .meta-pi
+    .meta-pill {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:11px;
+      background:rgba(15,23,42,0.85);
+      border:1px solid rgba(148,163,184,0.65);
+      color:#e5e7eb;
+    }
+
+    .hero-buttons {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+    }
+
+    .btn-primary {
+      padding:8px 16px;
+      border-radius:var(--radius-full);
+      border:none;
+      background:var(--gradient-main);
+      color:#fff;
+      font-weight:600;
+      font-size:12px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      box-shadow:0 12px 24px rgba(0,0,0,0.7);
+      cursor:pointer;
+    }
+
+    .btn-ghost {
+      padding:8px 14px;
+      border-radius:var(--radius-full);
+      border:1px solid rgba(148,163,184,0.7);
+      background:rgba(15,23,42,0.9);
+      color:#e5e7eb;
+      font-size:12px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      cursor:pointer;
+    }
+
+    .hero-stats {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:flex-end;
+      min-width:180px;
+      flex:0 0 auto;
+    }
+
+    .stat-card {
+      padding:8px 11px;
+      border-radius:14px;
+      background:rgba(15,23,42,0.95);
+      border:1px solid rgba(148,163,184,0.6);
+      color:#e5e7eb;
+      font-size:11px;
+      min-width:170px;
+    }
+
+    .stat-label {
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      font-size:10px;
+      color:#9ca3af;
+      margin-bottom:3px;
+    }
+
+    .stat-main {
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:6px;
+    }
+
+    .stat-main .value { font-size:16px; font-weight:700; }
+    .stat-main .desc { font-size:11px; color:#e5e7eb; }
+
+    .lang-switcher {
+      position:fixed;
+      top:16px;
+      right:16px;
+      z-index:40;
+    }
+
+    .lang-btn {
+      padding:6px 11px;
+      border-radius:var(--radius-full);
+      border:1px solid rgba(148,163,184,0.8);
+      background:rgba(15,23,42,0.96);
+      color:#e5e7eb;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      cursor:pointer;
+      backdrop-filter:blur(14px);
+    }
+
+    .lang-menu {
+      margin-top:6px;
+      border-radius:14px;
+      background:rgba(15,23,42,0.98);
+      border:1px solid rgba(148,163,184,0.9);
+      box-shadow:0 18px 40px rgba(0,0,0,0.85);
+      padding:4px;
+      min-width:172px;
+      display:none;
+    }
+
+    .lang-menu a {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 9px;
+      font-size:12px;
+      color:#e5e7eb;
+      text-decoration:none;
+      border-radius:10px;
+    }
+
+    .lang-menu a:hover { background:rgba(55,65,81,0.9); }
+    .lang-menu .flag { font-size:15px; }
+
+    main { flex:1; }
+    section { margin-bottom:24px; }
+
+    .section-header {
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      margin-bottom:10px;
+    }
+
+    .section-title {
+      font-size:16px;
+      text-transform:uppercase;
+      letter-spacing:0.22em;
+      color:#e5e7eb;
+    }
+
+    .section-subtitle {
+      font-size:11px;
+      color:#9ca3af;
+      text-transform:uppercase;
+      letter-spacing:0.15em;
+    }
+
+    .bio-box {
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(148,163,184,0.4);
+      background:rgba(15,23,42,0.92);
+      padding:12px 14px;
+      margin-bottom:12px;
+      font-size:13px;
+      color:#e5e7eb;
+      line-height:1.5;
+      box-shadow:0 16px 30px rgba(0,0,0,0.75);
+    }
+
+    .bio-box p + p { margin-top:6px; }
+    .bio-box a { color:#f97316; text-decoration:none; }
+    .bio-box a:hover { text-decoration:underline; }
+
+    .video-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
+      gap:12px;
+    }
+
+    .video-card {
+      position:relative;
+      overflow:hidden;
+      border-radius:16px;
+      background:#020617;
+      border:1px solid rgba(15,23,42,1);
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
+    }
+
+    .video-thumb { position:relative; overflow:hidden; }
+    .video-thumb img {
+      width:100%;
+      display:block;
+      object-fit:cover;
+    }
+
+    .video-thumb::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.85),transparent 50%);
+      opacity:0.9;
+    }
+
+    .thumb-meta {
+      position:absolute;
+      left:12px;
+      bottom:10px;
+      right:12px;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
+
+    .thumb-show {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(15,23,42,0.9);
+      color:#e5e7eb;
+      font-size:11px;
+    }
+
+    .thumb-show .dot {
+      width:7px; height:7px; border-radius:999px;
+      background:#22c55e;
+      box-shadow:0 0 10px rgba(34,197,94,0.9);
+    }
+
+    .thumb-time {
+      padding:3px 8px;
+      border-radius:999px;
+      background:rgba(15,23,42,0.9);
+      color:#e5e7eb;
+      font-size:11px;
+    }
+
+    .video-info {
+      padding:10px 11px 11px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .video-info h3 { font-size:13px; color:#f3f4f6; }
+
+    .video-meta-line {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-size:11px;
+      color:#9ca3af;
+    }
+
+    .btn-watch {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.85);
+      background:rgba(15,23,42,0.95);
+      color:#e5e7eb;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      text-decoration:none;
+    }
+
+    /* CARTE PRODUIT T-SHIRT */
+    .product-card {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+
+    .product-image { flex:0 0 140px; max-width:180px; }
+    .product-image img { width:100%; border-radius:14px; display:block; }
+
+    .product-info { flex:1 1 200px; }
+    .product-info h3 { font-size:15px; margin-bottom:6px; }
+
+    .product-desc {
+      font-size:13px;
+      color:#e5e7eb;
+      margin-bottom:8px;
+    }
+
+    .product-meta {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .product-price {
+      font-size:16px;
+      font-weight:700;
+      color:#f97316;
+    }
+
+    .product-btn {
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.8);
+      background:rgba(15,23,42,0.98);
+      color:#e5e7eb;
+      font-size:11px;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+
+    #video-modal {
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.88);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      z-index:50;
+      opacity:0;
+      transition:opacity 0.25s ease-out;
+    }
+
+    #video-modal.active { display:flex; opacity:1; }
+
+    .modal-content {
+      max-width:960px;
+      width:100%;
+      border-radius:22px;
+      background:#020617;
+      border:1px solid rgba(148,163,184,0.7);
+      box-shadow:0 30px 70px rgba(0,0,0,0.95);
+      overflow:hidden;
+    }
+
+    .modal-header {
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid rgba(30,41,59,1);
+    }
+
+    .video-wrapper {
+      position:relative;
+      padding-bottom:56.25%;
+      height:0;
+    }
+
+    .video-wrapper iframe {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    footer {
+      margin-top:16px;
+      padding:12px 16px;
+      border-radius:16px;
+      background:rgba(15,23,42,0.98);
+      border:1px solid rgba(148,163,184,0.7);
+      color:#9ca3af;
+      font-size:11px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.9);
+    }
+
+    footer h3 { font-size:13px; color:#e5e7eb; letter-spacing:0.16em; text-transform:uppercase; }
+
+    .footer-links {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      font-size:11px;
+    }
+
+    .footer-links a {
+      color:#e5e7eb;
+      text-decoration:none;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      background:rgba(15,23,42,0.98);
+    }
+
+    @media (max-width:720px) {
+      body { padding:16px; }
+      header { padding:16px; }
+      .hero-main { flex-direction:column; align-items:flex-start; }
+      .hero-stats { width:100%; align-items:stretch; }
+      .video-grid { grid-template-columns:1fr; }
+      .lang-switcher { top:auto; bottom:16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switcher">
+    <button class="lang-btn">🌐 FR ▼</button>
+    <div class="lang-menu">
+      <a href="#" onclick="setLanguage('fr')"><span class="flag">🇫🇷</span> Français</a>
+      <a href="#" onclick="setLanguage('en')"><span class="flag">🇬🇧</span> English</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="top-line">
+        <div class="badge-live">
+          <span class="dot"></span>
+          <span id="badge-text">ÉMISSION RAP & HIP-HOP</span>
+        </div>
+        <div class="social-chip">
+          <span>📺</span>
+          <span id="social-chip-text">Suivez NELYA NYA sur YouTube & Instagram</span>
+        </div>
+      </div>
+
+      <div class="hero-main">
+        <div class="hero-text">
+          <div class="hero-title">
+            <h1>NELYA NYA</h1>
+            <span class="tag-city">TOULOUSE</span>
+          </div>
+          <p class="hero-subtitle" id="subtitle">
+            Animatrice radio & artiste. <strong>Passe Moi Le Mic</strong> : le rendez-vous rap & hip-hop toulousain.
+          </p>
+
+          <div class="hero-meta">
+            <div class="meta-pill"><span>🎙️</span><span id="meta-1">Émission rap & hip-hop</span></div>
+            <div class="meta-pill"><span>📡</span><span id="meta-2">Interviews, freestyles & live</span></div>
+            <div class="meta-pill"><span>📍</span><span id="meta-3">Scène toulousaine & au-delà</span></div>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="https://www.youtube.com/@nelyanyapassemoilemic" target="_blank" class="btn-primary">
+              <span>▶️</span>
+              <span id="btn-main-show">Regarder Passe Moi Le Mic</span>
+            </a>
+            <a href="https://www.youtube.com/@nelyanyaartiste" target="_blank" class="btn-ghost">
+              <span>🎧</span>
+              <span id="btn-main-artist">Découvrir Nelya Nya (Artiste)</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-label" id="stat-1-label">FORMAT</div>
+            <div class="stat-main">
+              <span class="value" id="stat-1-value">RADIO & PODCAST</span>
+              <span class="desc" id="stat-1-desc">Interviews, freestyles, découvertes</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label" id="stat-2-label">UNIVERS</div>
+            <div class="stat-main">
+              <span class="value" id="stat-2-value">RAP / HIP-HOP</span>
+              <span class="desc" id="stat-2-desc">Scène locale & invités</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label" id="stat-3-label">PLATEFORMES</div>
+            <div class="stat-main">
+              <span class="value" id="stat-3-value">YOUTUBE / INSTA</span>
+              <span class="desc" id="stat-3-desc">Passe Moi Le Mic & Nelya Nya</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="section-header">
+        <h2 class="section-title" id="title-emission">L'ÉMISSION PASSE MOI LE MIC</h2>
+        <span class="section-subtitle" id="subtitle-emission">Rap toulousain · Interviews · Freestyles</span>
+      </div>
+      <div class="bio-box">
+        <p id="bio-emission">
+          "Passe Moi Le Mic" est l'émission consacrée au rap et au hip-hop toulousain. Animée par Nelya Nya, l'émission met en avant les artistes de la scène locale, leurs projets, leurs freestyles et leurs parcours.
+        </p>
+        <p id="bio-emission-2">
+          Retrouvez des freestyles en direct, des interviews authentiques et des moments forts autour de la culture urbaine. Disponible en replay sur YouTube.
+        </p>
+      </div>
+      <div class="video-grid" id="grid-emission"></div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2 class="section-title" id="title-artiste">NELYA NYA – L'ARTISTE</h2>
+        <span class="section-subtitle" id="subtitle-artiste">Rappeuse · Chanteuse · Toulouse</span>
+      </div>
+      <div class="bio-box">
+        <p id="bio-artiste">
+          Nelya Nya est une artiste complète, entre rap et mélodie. Avec un univers fort et une plume personnelle, elle représente la nouvelle génération de la scène toulousaine.
+        </p>
+        <p id="bio-artiste-2">
+          Entre clips, freestyles et performances live, découvrez son univers musical sur YouTube et les réseaux.
+        </p>
+      </div>
+      <div class="video-grid" id="grid-artiste"></div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2 class="section-title" id="title-follow">SUIVEZ NELYA NYA</h2>
+        <span class="section-subtitle" id="subtitle-follow">Réseaux · Clips · Actus</span>
+      </div>
+      <div class="bio-box">
+        <p>
+          <a href="https://www.instagram.com/nelya.nya/" target="_blank">📸 Instagram : @nelya.nya</a><br>
+          <a href="https://www.youtube.com/@nelyanyapassemoilemic" target="_blank">📺 YouTube : Passe Moi Le Mic (Émission)</a><br>
+          <a href="https://www.youtube.com/@nelyanyaartiste" target="_blank">🎵 YouTube : Nelya Nya (Artiste)</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- BOUTIQUE T-SHIRT -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">BOUTIQUE OFFICIELLE</h2>
+        <span class="section-subtitle">Merch · T‑shirt officiel</span>
+      </div>
+      <div class="bio-box product-card">
+        <div class="product-image">
+          <img src="URL_DE_TON_IMAGE_TSHIRT" alt="T‑shirt officiel NELYA NYA">
+        </div>
+        <div class="product-info">
+          <h3>T‑shirt officiel NELYA NYA</h3>
+          <p class="product-desc">
+            T‑shirt noir avec visuel NELYA NYA imprimé en violet. Coupe unisexe, idéal pour représenter l’émission Passe Moi Le Mic et soutenir l’artiste.
+          </p>
+          <div class="product-meta">
+            <span class="product-price">20 €</span>
+            <a href="#" class="product-btn">Commander (bientôt)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="video-modal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Lecture de la vidéo</h3>
+        <button class="close-btn" onclick="closeVideoModal()">&times;</button>
+      </div>
+      <div class="video-wrapper">
+        <iframe id="video-iframe" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <h3>Passe Moi Le Mic – Toulouse</h3>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@nelyanyapassemoilemic" target="_blank">YouTube Émission</a>
+      <a href="https://www.youtube.com/@nelyanyaartiste" target="_blank">YouTube Artiste</a>
+      <a href="https://www.instagram.com/nelya.nya/" target="_blank">Instagram</a>
+    </div>
+    <p id="txt-footer">© 2025 NELYA NYA – Site officiel · Site web créé par NELYA NYA</p>
+  </footer>
+
+  <script>
+    var videosEmission = [
+      { id: '6bSB2Pt43Yk', title: "Nelya te passe le mic #2 (Invité : Scrinef)", time: "59:00" },
+      { id: '3gq7wtpk5Mw', title: "Nelya te passe le mic (Invités : DD La Scalap & MC Yuri)", time: "1:00:15" },
+      { id: 'sV-wvCmNzuc', title: "Nelya te passe le mic #1 (Invité : BELA1R)", time: "58:30" }
+    ];
+
+    var videosArtiste = [
+      { id: 'Z8C0iqtj7rA', title: "Nelya NYA - Bombarde (Clip Officiel)", time: "3:23" },
+      { id: '0hTSlMh9CP0', title: "Nelya NYA - Freestyle Femme d'honneur", time: "2:45" }
+    ];
+
+    var translations = {
+      fr: {
+        langCode:"FR",
+        badge:"ÉMISSION RAP & HIP-HOP",
+        socialChip:"Suivez NELYA NYA sur YouTube & Instagram",
+        subtitle:"Animatrice radio & artiste. Passe Moi Le Mic : le rendez-vous rap & hip-hop toulousain.",
+        meta1:"Émission rap & hip-hop",
+        meta2:"Interviews, freestyles & live",
+        meta3:"Scène toulousaine & au-delà",
+        btnShow:"Regarder Passe Moi Le Mic",
+        btnArtist:"Découvrir Nelya Nya (Artiste)",
+        stat1Label:"FORMAT",
+        stat1Value:"RADIO & PODCAST",
+        stat1Desc:"Interviews, freestyles, découvertes",
+        stat2Label:"UNIVERS",
+        stat2Value:"RAP / HIP-HOP",
+        stat2Desc:"Scène locale & invités",
+        stat3Label:"PLATEFORMES",
+        stat3Value:"YOUTUBE / INSTA",
+        stat3Desc:"Passe Moi Le Mic & Nelya Nya",
+        emissionTitle:"L'ÉMISSION PASSE MOI LE MIC",
+        emissionSubtitle:"Rap toulousain · Interviews · Freestyles",
+        emissionBio1:"\"Passe Moi Le Mic\" est l'émission consacrée au rap et au hip-hop toulousain. Animée par Nelya Nya, l'émission met en avant les artistes de la scène locale, leurs projets, leurs freestyles et leurs parcours.",
+        emissionBio2:"Retrouvez des freestyles en direct, des interviews authentiques et des moments forts autour de la culture urbaine. Disponible en replay sur YouTube.",
+        artistTitle:"NELYA NYA – L'ARTISTE",
+        artistSubtitle:"Rappeuse · Chanteuse · Toulouse",
+        artistBio1:"Nelya Nya est une artiste complète, entre rap et mélodie. Avec un univers fort et une plume personnelle, elle représente la nouvelle génération de la scène toulousaine.",
+        artistBio2:"Entre clips, freestyles et performances live, découvrez son univers musical sur YouTube et les réseaux.",
+        followTitle:"SUIVEZ NELYA NYA",
+        followSubtitle:"Réseaux · Clips · Actus",
+        btnWatch:"REGARDER LA VIDÉO",
+        modalTitle:"Lecture de la vidéo",
+        footer:"© 2025 NELYA NYA – Site officiel · Site web créé par NELYA NYA"
+      },
+      en: {
+        langCode:"EN",
+        badge:"RAP & HIP-HOP SHOW",
+        socialChip:"Follow NELYA NYA on YouTube & Instagram",
+        subtitle:"Radio host & artist. Passe Moi Le Mic: the rap & hip-hop show from Toulouse.",
+        meta1:"Rap & hip-hop show",
+        meta2:"Interviews, freestyles & live",
+        meta3:"Toulouse scene & beyond",
+        btnShow:"Watch Passe Moi Le Mic",
+        btnArtist:"Discover Nelya Nya (Artist)",
+        stat1Label:"FORMAT",
+        stat1Value:"RADIO & PODCAST",
+        stat1Desc:"Interviews, freestyles, discoveries",
+        stat2Label:"UNIVERSE",
+        stat2Value:"RAP / HIP-HOP",
+        stat2Desc:"Local scene & guests",
+        stat3Label:"PLATFORMS",
+        stat3Value:"YOUTUBE / INSTA",
+        stat3Desc:"Passe Moi Le Mic & Nelya Nya",
+        emissionTitle:"THE SHOW: PASSE MOI LE MIC",
+        emissionSubtitle:"Toulouse rap · Interviews · Freestyles",
+        emissionBio1:"\"Passe Moi Le Mic\" is the show dedicated to Toulouse rap and hip-hop. Hosted by Nelya Nya, it showcases local artists, their projects, freestyles and journeys.",
+        emissionBio2:"Find live freestyles, real interviews and key moments of urban culture. Available in replay on YouTube.",
+        artistTitle:"NELYA NYA – THE ARTIST",
+        artistSubtitle:"Rapper · Singer · Toulouse",
+        artistBio1:"Nelya Nya is a complete artist, between rap and melodies. With a strong identity and personal writing, she embodies the new generation of Toulouse's scene.",
+        artistBio2:"Through music videos, freestyles and live performances, discover her musical universe on YouTube and social networks.",
+        followTitle:"FOLLOW NELYA NYA",
+        followSubtitle:"Socials · Videos · News",
+        btnWatch:"WATCH VIDEO",
+        modalTitle:"Playing video",
+        footer:"© 2025 NELYA NYA – Official website · Website created by NELYA NYA"
+      }
+    };
+
+    var currentLang = 'fr';
+
+    function createVideoCard(video, label) {
+      const card = document.createElement('div');
+      card.className = 'video-card';
+      card.onclick = () => openVideoModal(video.id);
+      card.innerHTML = `
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+          <div class="thumb-meta">
+            <div class="thumb-show">
+              <span class="dot"></span>
+              <span>${label}</span>
+            </div>
+            <div class="thumb-time">${video.time}</div>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3>${video.title}</h3>
+          <div class="video-meta-line">
+            <span>${currentLang === 'fr' ? 'YouTube · Replay' : 'YouTube · Replay'}</span>
+            <a href="#" class="btn-watch" onclick="event.stopPropagation(); openVideoModal('${video.id}')">
+              <span>▶️</span>
+              <span class="txt">${translations[currentLang].btnWatch}</span>
+            </a>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    function loadVideos() {
+      const gE = document.getElementById('grid-emission');
+      const gA = document.getElementById('grid-artiste');
+      gE.innerHTML = ''; gA.innerHTML = '';
+      const labelEmission = currentLang === 'fr' ? 'ÉMISSION' : 'SHOW';
+      const labelArtiste = currentLang === 'fr' ? 'ARTISTE' : 'ARTIST';
+      videosEmission.forEach(v => gE.appendChild(createVideoCard(v, labelEmission)));
+      videosArtiste.forEach(v => gA.appendChild(createVideoCard(v, labelArtiste)));
+    }
+
+    function openVideoModal(id) {
+      const m = document.getElementById('video-modal');
+      const iframe = document.getElementById('video-iframe');
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+      m.classList.add('active');
+    }
+
+    function closeVideoModal() {
+      const m = document.getElementById('video-modal');
+      const iframe = document.getElementById('video-iframe');
+      m.classList.remove('active');
+      iframe.src = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target.id === 'video-modal') closeVideoModal();
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+      document.getElementById('badge-text').textContent = t.badge;
+      document.getElementById('social-chip-text').textContent = t.socialChip;
+      document.getElementById('subtitle').textContent = t.subtitle;
+      document.getElementById('meta-1').textContent = t.meta1;
+      document.getElementById('meta-2').textContent = t.meta2;
+      document.getElementById('meta-3').textContent = t.meta3;
+      document.getElementById('btn-main-show').textContent = t.btnShow;
+      document.getElementById('btn-main-artist').textContent = t.btnArtist;
+      document.getElementById('stat-1-label').textContent = t.stat1Label;
+      document.getElementById('stat-1-value').textContent = t.stat1Value;
+      document.getElementById('stat-1-desc').textContent = t.stat1Desc;
+      document.getElementById('stat-2-label').textContent = t.stat2Label;
+      document.getElementById('stat-2-value').textContent = t.stat2Value;
+      document.getElementById('stat-2-desc').textContent = t.stat2Desc;
+      document.getElementById('stat-3-label').textContent = t.stat3Label;
+      document.getElementById('stat-3-value').textContent = t.stat3Value;
+      document.getElementById('stat-3-desc').textContent = t.stat3Desc;
+      document.getElementById('title-emission').textContent = t.emissionTitle;
+      document.getElementById('subtitle-emission').textContent = t.emissionSubtitle;
+      document.getElementById('bio-emission').textContent = t.emissionBio1;
+      document.getElementById('bio-emission-2').textContent = t.emissionBio2;
+      document.getElementById('title-artiste').textContent = t.artistTitle;
+      document.getElementById('subtitle-artiste').textContent = t.artistSubtitle;
+      document.getElementById('bio-artiste').textContent = t.artistBio1;
+      document.getElementById('bio-artiste-2').textContent = t.artistBio2;
+      document.getElementById('title-follow').textContent = t.followTitle;
+      document.getElementById('subtitle-follow').textContent = t.followSubtitle;
+      document.getElementById('modal-title').textContent = t.modalTitle;
+      document.getElementById('txt-footer').textContent = t.footer;
+      document.querySelector('.lang-btn').textContent = `🌐 ${t.langCode} ▼`;
+      document.querySelector('.lang-menu').style.display = 'none';
+      loadVideos();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadVideos();
+      document.querySelector('.lang-btn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        const m = document.querySelector('.lang-menu');
+        m.style.display = m.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', function() {
+        document.querySelector('.lang-menu').style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
