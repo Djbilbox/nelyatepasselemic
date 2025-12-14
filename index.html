@@ -128,3 +128,106 @@ en: { langCode: "EN", subtitle: "Radio Host · Artist · Podcasts", emissionTitl
 es: { langCode: "ES", subtitle: "Presentadora · Artista · Podcasts", emissionTitle: "EL PROGRAMA: PASSE MOI LE MIC", emissionBio: "Programa dedicado al rap y hip-hop de Toulouse, \"Passe Moi Le Mic\" es la referencia para descubrir ta
 
      
+
+
+var currentLang = 'fr';
+
+function createVideoCard(video) {
+  const card = document.createElement('div');
+  card.className = 'video-card';
+  card.onclick = () => openVideoModal(video.id);
+  
+  card.innerHTML = `
+    <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+    <div class="video-info">
+      <h3>${video.title}</h3>
+      <a href="#" class="btn-watch">${translations[currentLang].btnWatch}</a>
+    </div>
+  `;
+  
+  return card;
+}
+
+function loadVideos() {
+  const gridEmission = document.getElementById('grid-emission');
+  const gridArtiste = document.getElementById('grid-artiste');
+  
+  gridEmission.innerHTML = '';
+  gridArtiste.innerHTML = '';
+  
+  videosEmission.forEach(video => {
+    gridEmission.appendChild(createVideoCard(video));
+  });
+  
+  videosArtiste.forEach(video => {
+    gridArtiste.appendChild(createVideoCard(video));
+  });
+}
+
+function openVideoModal(videoId) {
+  const modal = document.getElementById('video-modal');
+  const iframe = document.getElementById('video-iframe');
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  modal.style.display = 'flex';
+  setTimeout(() => modal.style.opacity = '1', 10);
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById('video-modal');
+  const iframe = document.getElementById('video-iframe');
+  modal.style.opacity = '0';
+  setTimeout(() => {
+    modal.style.display = 'none';
+    iframe.src = '';
+  }, 300);
+}
+
+function closeModalOnOverlay(event) {
+  if (event.target.id === 'video-modal') {
+    closeVideoModal();
+  }
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  
+  document.getElementById('subtitle').textContent = t.subtitle;
+  document.getElementById('title-emission').textContent = t.emissionTitle;
+  document.getElementById('bio-emission').textContent = t.emissionBio;
+  document.getElementById('title-artiste').textContent = t.artisteTitle;
+  document.getElementById('bio-artiste').textContent = t.artisteBio;
+  document.getElementById('txt-footer').textContent = t.footer;
+  document.querySelector('.lang-btn').textContent = `🌐 ${t.langCode} ▼`;
+  
+  document.querySelectorAll('.btn-watch').forEach(btn => {
+    btn.textContent = t.btnWatch;
+  });
+  
+  document.querySelector('.lang-menu').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  loadVideos();
+  
+  document.querySelector('.lang-btn').addEventListener('click', function(e) {
+    e.stopPropagation();
+    const menu = document.querySelector('.lang-menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+  
+  document.addEventListener('click', function() {
+    document.querySelector('.lang-menu').style.display = 'none';
+  });
+  
+  document.querySelectorAll('.lang-menu a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+      setLanguage(lang);
+    });
+  });
+});
+</script>
+</body>
+</html>
